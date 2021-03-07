@@ -81,21 +81,33 @@ export default {
 };
 </script>
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Special+Elite&family=Ultra&display=swap");
+
+@keyframes word{
+  0%{background-color:aquamarine;}
+  50%{background-color:rgb(64, 156, 126)}
+  100%{background-color: rgb(13, 83, 60);}
+  
+}
 .container{
-display: flex;
-justify-content: space-evenly;
-background-color: aquamarine;
-border-radius: 10px;
-}
-
-.text-center{
-align-content: flex-end;
-justify-content: center;
-font-family:Arial, Helvetica, sans-serif;
-
-}
+    display: flex;
+    justify-content: space-evenly;
+    background-color: aquamarine;
+    border-radius: 10px;
+    animation-name: word;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-direction:alternate;
+    }
+    
+    .text-center{
+    align-content: flex-end;
+    justify-content: center;
+    font-family:'Special Elite', cursive;
+    
+    }
 .splash-title{
-  font-family:Arial, Helvetica, sans-serif;
+  font-family:'Special Elite', cursive;
   color: chocolate;
 }
 
