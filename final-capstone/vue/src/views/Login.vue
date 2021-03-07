@@ -1,7 +1,11 @@
 <template>
+  <div class="container">
+    <img src="../assets/beer_glass.png" alt="Beer Glass">
+    
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+      <h1 class="splash-title">Welcome to the Tech Ale-evator Brewery Finder</h1>
+      <h2 class="h3 mb-3 font-weight-normal">Please Sign In</h2>
       <div
         class="alert alert-danger"
         role="alert"
@@ -12,7 +16,7 @@
         role="alert"
         v-if="this.$route.query.registration"
       >Thank you for registering, please sign in.</div>
-      <label for="username" class="sr-only">Username</label>
+      <label for="username" class="sr-only">Username </label>
       <input
         type="text"
         id="username"
@@ -22,7 +26,7 @@
         required
         autofocus
       />
-      <label for="password" class="sr-only">Password</label>
+      <label for="password" class="sr-only"> Password </label>
       <input
         type="password"
         id="password"
@@ -31,10 +35,12 @@
         v-model="user.password"
         required
       />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
+      <router-link :to="{ name: 'register' }" > Need an account? </router-link>
       <button type="submit">Sign in</button>
     </form>
+    </div>
   </div>
+  
 </template>
 
 <script>
@@ -74,3 +80,24 @@ export default {
   }
 };
 </script>
+<style scoped>
+.container{
+display: flex;
+justify-content: space-evenly;
+background-color: aquamarine;
+border-radius: 10px;
+}
+
+.text-center{
+align-content: flex-end;
+justify-content: center;
+font-family:Arial, Helvetica, sans-serif;
+
+}
+.splash-title{
+  font-family:Arial, Helvetica, sans-serif;
+  color: chocolate;
+}
+
+
+</style>
