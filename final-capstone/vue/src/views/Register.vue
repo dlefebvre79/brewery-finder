@@ -1,4 +1,5 @@
 <template>
+<div class="container">
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
@@ -37,6 +38,7 @@
         Create Account
       </button>
     </form>
+  </div>
   </div>
 </template>
 
@@ -90,4 +92,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+ .container{
+      display: flex;
+      justify-content: space-evenly;
+      background-color: aquamarine;
+      border-radius: 10px;
+      animation-name: word;
+      animation-duration: 8s;
+      animation-iteration-count: infinite;
+      animation-direction:alternate;
+      }
+</style>
