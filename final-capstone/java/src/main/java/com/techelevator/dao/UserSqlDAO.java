@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -71,7 +72,7 @@ public class UserSqlDAO implements UserDAO {
 
         // create user
         String insertUser = "insert into users (username,password_hash,role,"
-        				  + "first_name,last_name,date_of_birth,email_address,zipcode,subscribed )"
+        				  + "first_name,last_name,date_of_birth,email,zip_code,is_subscribed )"
         				  + " values(?,?,?,?,?,?,?,?,?)";
         String password_hash = new BCryptPasswordEncoder().encode(password);
         String ssRole = "ROLE_" + role.toUpperCase();
@@ -85,10 +86,10 @@ public class UserSqlDAO implements UserDAO {
                     ps.setString(3, ssRole);
                     ps.setString(4, firstName);
                     ps.setString(5, lastName);
-                    ps.setString(6, birthDate.toString());
+                    ps.setDate(6, Date.valueOf(birthDate));
                     ps.setString(7, email);
                     ps.setString(8, zip);
-                    ps.setString(9, Boolean.toString(subscribed));
+                    ps.setBoolean(9, subscribed);
                     return ps;
                 }
                 , keyHolder) == 1;
@@ -106,9 +107,9 @@ public class UserSqlDAO implements UserDAO {
         user.setFirstName(rs.getString("first_name"));
         user.setLastName(rs.getString("last_name"));
         user.setBirthDate(rs.getDate("date_of_birth").toLocalDate());
-        user.setEmail(rs.getString("email_address"));
-        user.setZip(rs.getString("zipcode"));
-        user.setSubscribed(rs.getBoolean("subscribed"));
+        user.setEmail(rs.getString("email"));
+        user.setZip(rs.getString("zip_code"));
+        user.setSubscribed(rs.getBoolean("is_subscribed"));
         user.setActivated(true);
         return user;
     }
