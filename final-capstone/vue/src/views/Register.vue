@@ -17,6 +17,7 @@
         autofocus
       />
       <br>
+      <br>
       <label for="password" class="sr-only">Password</label>
       <input
         type="password"
@@ -27,6 +28,7 @@
         required
       />
       <br>
+      <br>
       <input
         type="password"
         id="confirmPassword"
@@ -35,6 +37,7 @@
         v-model="user.confirmPassword"
         required
       />
+      <br>
       <br>
       <label for="first-name" class="sr-only">First Name</label>
       <input
@@ -46,6 +49,7 @@
       required
       />
       <br>
+      <br>
       <label for="last-name" class="sr-only">Last Name</label>
       <input
       type="last-name"
@@ -55,6 +59,7 @@
       v-model="user.lastName"
       required
       />
+      <br>
       <br>
       <label for="email-address" class="sr-only">Email Address</label>
       <input
@@ -66,6 +71,7 @@
       required
       />
       <br>
+      <br>
       <label for="birth-date" class="sr-only">Birth Date</label>
       <input
       type="birth-date"
@@ -75,6 +81,7 @@
       v-model="user.birthDate"
       required
       />
+      <br>
       <br>
       <label for="zip-code" class="sr-only">Zip Code</label>
       <input
@@ -86,9 +93,14 @@
       required
       />
       <br>
+      <br>
       <input type="checkbox" id="notifications" name="notifications" value="opt-in">
-      <label for="notifications">Would you like to receive spam?</label><br>
+      <label for="notifications">Would you like to receive spam?</label>
+      <br>
+      <br>
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
+      <br>
+      <br>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
@@ -148,5 +160,8 @@ export default {
 </script>
 
 <style>
-
+.text-center{
+  text-align: center;
+  
+}
 </style>
