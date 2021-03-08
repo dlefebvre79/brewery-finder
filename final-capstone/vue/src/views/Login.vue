@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <img src="../assets/beer_glass.png" alt="Beer Glass">
+    <img src="../assets/beer_glass.png" alt="Beer Glass" class="img1">
     
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
@@ -36,7 +36,7 @@
         required
       />
       <router-link :to="{ name: 'register' }" class="registration-button" > Need an account? </router-link>
-      <button type="submit">Sign in</button>
+      <button type="submit" class="btn">Sign in</button>
     </form>
     </div>
   </div>
@@ -81,6 +81,37 @@ export default {
 };
 </script>
 <style scoped>
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "image1 text text"
+    "image1 . . ";
+    
+    background-color: aquamarine;
+    border-radius: 10px;
+    animation-name: word;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-direction:alternate;
+}
+.text-center{
+  grid-area: text;
+}
+
+.img1{
+  grid-area: image1;
+}
+
+.img2{
+  grid-area: image2;
+  max-height:85%;
+  max-width: 85%;
+  border-radius: 50%;
+  justify-self: center;
+  align-self: end;
+ 
+}
 
 .splash-title{
   font-family:'Special Elite', cursive;
