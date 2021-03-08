@@ -28,7 +28,7 @@ CREATE TABLE roles (
 
 CREATE TABLE users (
 	user_id INT DEFAULT nextval('seq_user_id') NOT NULL,
-	username VARCHAR(50) NOT NULL,
+	username VARCHAR(50) NOT NULL UNIQUE,
 	password_hash VARCHAR(200) NOT NULL,
 	role_id VARCHAR(50) NOT NULL,
 	password VARCHAR(100) NOT NULL,
