@@ -6,6 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.time.LocalDate;
+
 import javax.sql.DataSource;
 
 public class UserSqlDaoIntegrationTest extends DAOIntegrationTest {
@@ -21,7 +23,16 @@ public class UserSqlDaoIntegrationTest extends DAOIntegrationTest {
 
     @Test
     public void createNewUser() {
-        boolean userCreated = userSqlDAO.create("TEST_USER","test_password","user");
+        boolean userCreated = userSqlDAO.create(
+        					"TEST_USER",
+        					"test_password",
+        					"user",
+        					"Test",
+        					"User",
+        					LocalDate.of(1990, 01, 01),
+        					"test@mail.com",
+        					"90210",
+        					true);
         Assert.assertTrue(userCreated);
         User user = userSqlDAO.findByUsername("TEST_USER");
         Assert.assertEquals("TEST_USER", user.getUsername());

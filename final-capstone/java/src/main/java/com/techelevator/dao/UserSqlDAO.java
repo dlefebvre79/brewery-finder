@@ -1,6 +1,8 @@
 package com.techelevator.dao;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,11 +65,15 @@ public class UserSqlDAO implements UserDAO {
     }
 
     @Override
-    public boolean create(String username, String password, String role) {
+    public boolean create(String username, String password, String role,
+    					 String firstName, String lastName, LocalDate birthDate,
+    					 String email, String zip, boolean subscribed) {
         boolean userCreated = false;
 
         // create user
-        String insertUser = "insert into users (username,password_hash,role) values(?,?,?)";
+        String insertUser = "insert into users (username,password_hash,role,"
+        				  + "first_name,last_name,date_of_birth,email,zip_code,is_subscribed )"
+        				  + " values(?,?,?,?,?,?,?,?,?)";
         String password_hash = new BCryptPasswordEncoder().encode(password);
         String ssRole = "ROLE_" + role.toUpperCase();
 
@@ -78,6 +84,12 @@ public class UserSqlDAO implements UserDAO {
                     ps.setString(1, username);
                     ps.setString(2, password_hash);
                     ps.setString(3, ssRole);
+                    ps.setString(4, firstName);
+                    ps.setString(5, lastName);
+                    ps.setDate(6, Date.valueOf(birthDate));
+                    ps.setString(7, email);
+                    ps.setString(8, zip);
+                    ps.setBoolean(9, subscribed);
                     return ps;
                 }
                 , keyHolder) == 1;
@@ -92,6 +104,12 @@ public class UserSqlDAO implements UserDAO {
         user.setUsername(rs.getString("username"));
         user.setPassword(rs.getString("password_hash"));
         user.setAuthorities(rs.getString("role"));
+        user.setFirstName(rs.getString("first_name"));
+        user.setLastName(rs.getString("last_name"));
+        user.setBirthDate(rs.getDate("date_of_birth").toLocalDate());
+        user.setEmail(rs.getString("email"));
+        user.setZip(rs.getString("zip_code"));
+        user.setSubscribed(rs.getBoolean("is_subscribed"));
         user.setActivated(true);
         return user;
     }
