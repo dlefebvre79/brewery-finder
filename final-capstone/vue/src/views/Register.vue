@@ -67,7 +67,7 @@
       id="emailAddress"
       class="form-control"
       placeholder="Email Address"
-      v-model="user.emailAdress"
+      v-model="user.email"
       required
       />
       <br>
@@ -89,12 +89,12 @@
       id="zipCode"
       class="form-control"
       placeholder="Zip Code"
-      v-model="user.zipCode"
+      v-model="user.zip"
       required
       />
       <br>
       <br>
-      <input type="checkbox" id="notifications" name="notifications" value="opt-in">
+      <input type="checkbox" id="notifications" name="notifications" value="opt-in" v-model="user.subscribed">
       <label for="notifications">Would you like to receive spam?</label>
       <br>
       <br>
