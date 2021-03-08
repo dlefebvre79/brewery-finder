@@ -16,6 +16,7 @@
         required
         autofocus
       />
+      <br>
       <label for="password" class="sr-only">Password</label>
       <input
         type="password"
@@ -25,6 +26,7 @@
         v-model="user.password"
         required
       />
+      <br>
       <input
         type="password"
         id="confirmPassword"
@@ -33,17 +35,63 @@
         v-model="user.confirmPassword"
         required
       />
+      <br>
+      <label for="first-name" class="sr-only">First Name</label>
+      <input
+      type="first-name"
+      id="firstName"
+      class="form-control"
+      placeholder="First Name"
+      v-model="user.firstName"
+      required
+      />
+      <br>
+      <label for="last-name" class="sr-only">Last Name</label>
+      <input
+      type="last-name"
+      id="lastName"
+      class="form-control"
+      placeholder="Last Name"
+      v-model="user.lastName"
+      required
+      />
+      <br>
+      <label for="email-address" class="sr-only">Email Address</label>
+      <input
+      type="email-address"
+      id="emailAddress"
+      class="form-control"
+      placeholder="Email Address"
+      v-model="user.emailAdress"
+      required
+      />
+      <br>
+      <label for="birth-date" class="sr-only">Birth Date</label>
+      <input
+      type="birth-date"
+      id="birthDate"
+      class="form-control"
+      placeholder="Birth Date"
+      v-model="user.birthDate"
+      required
+      />
+      <br>
+      <label for="zip-code" class="sr-only">Zip Code</label>
+      <input
+      type="zip-code"
+      id="zipCode"
+      class="form-control"
+      placeholder="Zip Code"
+      v-model="user.zipCode"
+      required
+      />
+      <br>
+      <input type="checkbox" id="notifications" name="notifications" value="opt-in">
+      <label for="notifications">Would you like to receive spam?</label><br>
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
-      <label for="first-name" class="sr-only">First Name</label>
-      <label for="last-name" class="sr-only">Last Name</label>
-      <label for="email-address" class="sr-only">Email Address</label>
-      <label for="birth-date" class="sr-only">Birth Date</label>
-      <label for="zip-code" class="sr-only">Zip Code</label>
-      <input type="checkbox" id="notifications" name="notifications" value="opt-in">
-      <label for="notifications">Would you like to receive spam?</label>
     </form>
   </div>
   </div>
