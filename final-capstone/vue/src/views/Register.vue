@@ -77,7 +77,7 @@
       type="birth-date"
       id="birthDate"
       class="form-control"
-      placeholder="Birth Date"
+      placeholder="yyyy-mm-dd"
       v-model="user.birthDate"
       required
       />
