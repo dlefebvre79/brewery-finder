@@ -122,10 +122,11 @@ export default {
         confirmPassword: '',
         firstName: '',
         lastName: '',
-        emailAddress: '',
+        email: '',
         birthDate: '',
-        zipCode:'',
+        zip:'',
         role: 'user',
+        subscribed: true
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
