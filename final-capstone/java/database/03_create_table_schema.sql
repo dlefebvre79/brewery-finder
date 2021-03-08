@@ -5,7 +5,6 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS reviews;
 DROP TABLE IF EXISTS beer;
 DROP TABLE IF EXISTS breweries;
-DROP TABLE IF EXISTS roles;
 DROP TABLE IF EXISTS images;
 
 -- drop sequences
@@ -20,17 +19,12 @@ CREATE SEQUENCE seq_user_id
 
 
 -- create tables
-CREATE TABLE roles (
-        role_id VARCHAR(50) NOT NULL,
-        role_name VARCHAR (30) NOT NULL,
-        CONSTRAINT pk_role_role_id PRIMARY KEY (role_id)
-);
 
 CREATE TABLE users (
 	user_id INT DEFAULT nextval('seq_user_id') NOT NULL,
 	username VARCHAR(50) NOT NULL UNIQUE,
 	password_hash VARCHAR(200) NOT NULL,
-	role_id VARCHAR(50) NOT NULL,
+	role VARCHAR(20) NOT NULL,
 	password VARCHAR(100) NOT NULL,
 	first_name VARCHAR(50) NOT NULL,
         last_name VARCHAR (50) NOT NULL,
@@ -38,8 +32,8 @@ CREATE TABLE users (
         email VARCHAR(50) NOT NULL,
         is_subscribed BOOLEAN NOT NULL DEFAULT FALSE,
         zip_code VARCHAR(5) NOT NULL,
-	CONSTRAINT PK_user PRIMARY KEY (user_id),
-	CONSTRAINT fk_role_role_id FOREIGN KEY (role_id) REFERENCES roles(role_id)
+	CONSTRAINT PK_user PRIMARY KEY (user_id)
+	
 );
 
 CREATE TABLE breweries (
