@@ -92,21 +92,6 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
-      <label for="first-name" class="sr-only">First Name</label>
-      <input
-      type="first-name"
-      id="firstName"
-      class="form-control"
-      placeholder="First Name"
-      v-model="user.firstName"
-      required
-      />
-      <label for="last-name" class="sr-only">Last Name</label>
-      <label for="email-address" class="sr-only">Email Address</label>
-      <label for="birth-date" class="sr-only">Birth Date</label>
-      <label for="zip-code" class="sr-only">Zip Code</label>
-      <input type="checkbox" id="notifications" name="notifications" value="updates">
-      <label for="notifications">Would You Like To Receive Endless Spam?</label>
     </form>
   </div>
   </div>
