@@ -17,6 +17,7 @@
         autofocus
       />
       <br>
+      <br>
       <label for="password" class="sr-only">Password</label>
       <input
         type="password"
@@ -27,6 +28,7 @@
         required
       />
       <br>
+      <br>
       <input
         type="password"
         id="confirmPassword"
@@ -35,6 +37,7 @@
         v-model="user.confirmPassword"
         required
       />
+      <br>
       <br>
       <label for="first-name" class="sr-only">First Name</label>
       <input
@@ -45,6 +48,7 @@
       v-model="user.firstName"
       required
       />
+      <br>
       <br>
       <label for="last-name" class="sr-only">Last Name</label>
       <input
@@ -56,6 +60,7 @@
       required
       />
       <br>
+      <br>
       <label for="email-address" class="sr-only">Email Address</label>
       <input
       type="email-address"
@@ -65,6 +70,7 @@
       v-model="user.emailAdress"
       required
       />
+      <br>
       <br>
       <label for="birth-date" class="sr-only">Birth Date</label>
       <input
@@ -76,6 +82,7 @@
       required
       />
       <br>
+      <br>
       <label for="zip-code" class="sr-only">Zip Code</label>
       <input
       type="zip-code"
@@ -86,27 +93,17 @@
       required
       />
       <br>
+      <br>
       <input type="checkbox" id="notifications" name="notifications" value="opt-in">
-      <label for="notifications">Would you like to receive spam?</label><br>
+      <label for="notifications">Would you like to receive spam?</label>
+      <br>
+      <br>
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
+      <br>
+      <br>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
-      <label for="first-name" class="sr-only">First Name</label>
-      <input
-      type="first-name"
-      id="firstName"
-      class="form-control"
-      placeholder="First Name"
-      v-model="user.firstName"
-      required
-      />
-      <label for="last-name" class="sr-only">Last Name</label>
-      <label for="email-address" class="sr-only">Email Address</label>
-      <label for="birth-date" class="sr-only">Birth Date</label>
-      <label for="zip-code" class="sr-only">Zip Code</label>
-      <input type="checkbox" id="notifications" name="notifications" value="updates">
-      <label for="notifications">Would You Like To Receive Endless Spam?</label>
     </form>
   </div>
   </div>
@@ -123,7 +120,13 @@ export default {
         username: '',
         password: '',
         confirmPassword: '',
+        firstName: '',
+        lastName: '',
+        email: '',
+        birthDate: '',
+        zip:'',
         role: 'user',
+        subscribed: true
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
@@ -163,5 +166,8 @@ export default {
 </script>
 
 <style>
-
+.text-center{
+  text-align: center;
+  
+}
 </style>
