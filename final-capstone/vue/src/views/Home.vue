@@ -1,5 +1,6 @@
 
 <template>
+<<<<<<< HEAD
 <div class ="container">
   <div class="nav">Nav</div>
     <main>Main</main>
@@ -9,7 +10,14 @@
     <div id = "content3">Content3</div>
     <footer>Footer</footer>
     <p>Welcome</p>
+=======
+<div class="container">
+  <div class="home">
+    <h1>Tech-Ale-evator Brewery Finder</h1>
+    <p>Welcome!</p>
+>>>>>>> 87023cda0d1c6ed1ef0fd3068821ba2db6bb3d73
   </div>
+</div>
 </template>
 
 <script>
@@ -17,6 +25,7 @@ export default {
   name: "home"
 };
 </script>
+<<<<<<< HEAD
 <style>
 .container{
   display:grid;
@@ -59,5 +68,9 @@ footer{
   grid-area: footer;
 }
 
+=======
+
+<style scoped>
+>>>>>>> 87023cda0d1c6ed1ef0fd3068821ba2db6bb3d73
 
 </style>

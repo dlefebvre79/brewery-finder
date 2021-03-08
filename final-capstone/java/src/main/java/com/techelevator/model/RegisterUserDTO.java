@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
+
 import javax.validation.constraints.NotEmpty;
 
 public class RegisterUserDTO {
@@ -12,6 +14,12 @@ public class RegisterUserDTO {
     private String confirmPassword;
     @NotEmpty(message = "Please select a role for this user.")
     private String role;
+    private String firstName;
+    private String lastName;
+    private LocalDate birthDate;
+    private String email;
+    private String zip;
+    private boolean subscribed;
 
     public String getUsername() {
         return username;
@@ -44,4 +52,64 @@ public class RegisterUserDTO {
     public void setRole(String role) {
         this.role = role;
     }
+
+	public String getFirstName()
+	{
+		return firstName;
+	}
+
+	public void setFirstName(String firstName)
+	{
+		this.firstName = firstName;
+	}
+
+	public String getLastName()
+	{
+		return lastName;
+	}
+
+	public void setLastName(String lastName)
+	{
+		this.lastName = lastName;
+	}
+
+	public LocalDate getBirthDate()
+	{
+		return birthDate;
+	}
+
+	public void setBirthDate(LocalDate birthDate)
+	{
+		this.birthDate = birthDate;
+	}
+
+	public String getEmail()
+	{
+		return email;
+	}
+
+	public void setEmail(String email)
+	{
+		this.email = email;
+	}
+
+	public String getZip()
+	{
+		return zip;
+	}
+
+	public void setZip(String zip)
+	{
+		this.zip = zip;
+	}
+
+	public boolean isSubscribed()
+	{
+		return subscribed;
+	}
+
+	public void setSubscribed(boolean subscribed)
+	{
+		this.subscribed = subscribed;
+	}
 }
