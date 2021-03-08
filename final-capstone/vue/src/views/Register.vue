@@ -93,5 +93,14 @@ export default {
 </script>
 
 <style>
-
+ .container{
+      display: flex;
+      justify-content: space-evenly;
+      background-color: aquamarine;
+      border-radius: 10px;
+      animation-name: word;
+      animation-duration: 8s;
+      animation-iteration-count: infinite;
+      animation-direction:alternate;
+      }
 </style>
