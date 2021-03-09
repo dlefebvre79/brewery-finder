@@ -23,9 +23,9 @@ public interface UserDAO {
 
     User update(User userToUpdate);
     
-    User updateRole(User userToUpdate, String role);
+    User updateRole(String username, String role);
     
-    User changePassword(User userToUpdate, String oldPassword, String newPassword) throws AuthenticationException;
+    User changePassword(String username, String oldPassword, String newPassword) throws AuthenticationException;
     
     // TODO: activate/deactivate user
     //boolean updateUserStatus(User userToUpdate, boolean isActive);

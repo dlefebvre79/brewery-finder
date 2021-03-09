@@ -84,64 +84,6 @@ public class AuthenticationController
 		}
 	}
 
-	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/user/update", method = RequestMethod.PUT)
-	public User update(@Valid @RequestBody User userToUpdate)
-	{
-		User user = null;
-		try
-		{
-			if (isLegalAge(userToUpdate.getBirthDate()))
-			{
-				userDAO.update(userToUpdate);
-			}
-			else
-			{
-				throw new UserNotLegalAgeException();
-			}
-			user = userDAO.findByUsername(userToUpdate.getUsername());
-		}
-		catch (UsernameNotFoundException e)
-		{
-			
-		}
-		return user;
-	}
-
-	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/user/role", method = RequestMethod.PUT)
-	public User updateRole(@Valid @RequestBody User userToUpdate, @RequestParam String role)
-	{
-		User user = null;
-		try
-		{
-			userDAO.updateRole(userToUpdate, role);
-			user = userDAO.findByUsername(userToUpdate.getUsername());
-		}
-		catch (UsernameNotFoundException e)
-		{
-			user = userToUpdate;
-		}
-		return user;
-	}
-
-	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/user/password", method = RequestMethod.PUT)
-	public User updateRole(@Valid @RequestBody User userToUpdate, @RequestParam String oldPassword, @RequestParam String newPassword)
-	{
-		User user = null;
-		try
-		{
-			userDAO.changePassword(userToUpdate, oldPassword, newPassword);
-			user = userDAO.findByUsername(userToUpdate.getUsername());
-		}
-		catch (Exception e)
-		{
-			user = userToUpdate;
-		}
-		return user;
-	}
-
 	private boolean isLegalAge(LocalDate birthDate)
 	{
 		LocalDate today = LocalDate.now();

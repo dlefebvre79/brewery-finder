@@ -115,9 +115,9 @@ public class UserSqlDAO implements UserDAO
 	@Override
 	public User update(User userToUpdate)
 	{
-		User user = null;
+		User user = findByUsername(userToUpdate.getUsername());
 		
-		String sql = "UPDATE user "
+		String sql = "UPDATE users "
 				   + "SET username = ?, "
 				   + "first_name = ?, "
 				   + "last_name = ?, "
@@ -134,7 +134,7 @@ public class UserSqlDAO implements UserDAO
 							userToUpdate.getEmail(),
 							userToUpdate.isSubscribed(),
 							userToUpdate.getZip(),
-							userToUpdate.getId());
+							user.getId());
 
 		try
 		{
@@ -148,21 +148,21 @@ public class UserSqlDAO implements UserDAO
 	}
 
 	@Override
-	public User updateRole(User userToUpdate, String role)
+	public User updateRole(String username, String role)
 	{
-		User user = null;
+		User user = findByUsername(username);
 		String ssRole = "ROLE_" + role.toUpperCase();
 		
-		String sql = "UPDATE user "
-				   + "SET role = ?, "
+		String sql = "UPDATE users "
+				   + "SET role = ? "
 				   + "WHERE user_id = ?;";
 		jdbcTemplate.update(sql,
 							ssRole,
-							userToUpdate.getId());
+							user.getId());
 
 		try
 		{
-			user = findByUsername(userToUpdate.getUsername());
+			user = findByUsername(username);
 		}
 		catch (UsernameNotFoundException e)
 		{
@@ -172,26 +172,31 @@ public class UserSqlDAO implements UserDAO
 	}
 	
 	@Override
-	public User changePassword(User userToUpdate, String oldPassword, String newPassword) throws AuthenticationException
+	public User changePassword(String username, String oldPassword, String newPassword) throws AuthenticationException
 	{
 		User user = null;
+		// re-hashing old password results in different hash every time
+		// TODO: find way to confirm correct old password without generating new hash
+		String oldPasswordHash = new BCryptPasswordEncoder().encode(oldPassword);
+		String newPasswordHash = new BCryptPasswordEncoder().encode(newPassword);
+
 		try
 		{
-			user = findByUsername(userToUpdate.getUsername());
+			user = findByUsername(username);
 		}
 		catch (UsernameNotFoundException e)
 		{
-			
+			System.out.println("username not found");
 		}
-		if(oldPassword.matches(userToUpdate.getPassword()))
+		if(oldPasswordHash.matches(user.getPassword()))
 		{
-			String sql = "UPDATE user "
-					   + "SET password_hash = ?, "
+			String sql = "UPDATE users "
+					   + "SET password_hash = ? "
 					   + "WHERE user_id = ?;";
 			jdbcTemplate.update(sql,
-								newPassword,
-								userToUpdate.getId());
-			user = findByUsername(userToUpdate.getUsername());
+								newPasswordHash,
+								user.getId());
+			user = findByUsername(username);
 
 		}
 		else
