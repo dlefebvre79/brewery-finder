@@ -74,7 +74,7 @@ VALUES (4, 'Sibling Revelry Brewing'
         
 --Beer        
 INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
-VALUES (1, 'Christmas Ale', 7.5, 30, 
+VALUES (1, 'Christmas Ale', 7.5, 30, 'Ale', 
         'Ale with spices and honey and a Yuletide`s worth of holiday spices and sweet honey to keep you a-wassailing all season long'
         , 1, 'true');
         
@@ -254,3 +254,6 @@ ALTER SEQUENCE seq_user_id RESTART WITH 3;
 COMMIT TRANSACTION;
 
 ROLLBACK TRANSACTION;
+
+DELETE FROM reviews
+WHERE beer_id = 1;
