@@ -1,5 +1,7 @@
 package com.techelevator.controller;
 
+import java.time.LocalDate;
+
 import javax.validation.Valid;
 
 import org.springframework.http.HttpHeaders;
@@ -18,6 +20,7 @@ import com.techelevator.model.LoginDTO;
 import com.techelevator.model.RegisterUserDTO;
 import com.techelevator.model.User;
 import com.techelevator.model.UserAlreadyExistsException;
+import com.techelevator.model.UserNotLegalAgeException;
 import com.techelevator.security.jwt.JWTFilter;
 import com.techelevator.security.jwt.TokenProvider;
 
@@ -25,7 +28,8 @@ import com.techelevator.security.jwt.TokenProvider;
 @CrossOrigin
 public class AuthenticationController {
 
-    private final TokenProvider tokenProvider;
+    private static final int LEGAL_AGE = 21;
+	private final TokenProvider tokenProvider;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private UserDAO userDAO;
 
@@ -59,13 +63,26 @@ public class AuthenticationController {
             User user = userDAO.findByUsername(newUser.getUsername());
             throw new UserAlreadyExistsException();
         } catch (UsernameNotFoundException e) {
-            userDAO.create(newUser.getUsername(), newUser.getPassword(), newUser.getRole(),
-            			   newUser.getFirstName(), newUser.getLastName(), newUser.getBirthDate(),
-            			   newUser.getEmail(), newUser.getZip(), newUser.isSubscribed());
+        	if(isLegalAge(newUser.getBirthDate())) {
+	            userDAO.create(newUser.getUsername(), newUser.getPassword(), newUser.getRole(),
+	            			   newUser.getFirstName(), newUser.getLastName(), newUser.getBirthDate(),
+	            			   newUser.getEmail(), newUser.getZip(), newUser.isSubscribed());
+        	} else {
+        		throw new UserNotLegalAgeException();
+        	}
         }
     }
+    
+	private boolean isLegalAge(LocalDate birthDate)
+	{
+		LocalDate today = LocalDate.now();
+		int interval = today.compareTo(birthDate);
+		return interval >= LEGAL_AGE;
 
-    /**
+	}
+
+
+	/**
      * Object to return as body in JWT Authentication.
      */
     static class LoginResponse {
@@ -95,6 +112,7 @@ public class AuthenticationController {
 		public void setUser(User user) {
 			this.user = user;
 		}
+
     }
 }
 

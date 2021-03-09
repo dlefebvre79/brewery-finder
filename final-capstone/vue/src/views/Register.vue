@@ -67,7 +67,7 @@
       id="emailAddress"
       class="form-control"
       placeholder="Email Address"
-      v-model="user.emailAdress"
+      v-model="user.email"
       required
       />
       <br>
@@ -77,7 +77,7 @@
       type="birth-date"
       id="birthDate"
       class="form-control"
-      placeholder="Birth Date"
+      placeholder="yyyy-mm-dd"
       v-model="user.birthDate"
       required
       />
@@ -89,12 +89,12 @@
       id="zipCode"
       class="form-control"
       placeholder="Zip Code"
-      v-model="user.zipCode"
+      v-model="user.zip"
       required
       />
       <br>
       <br>
-      <input type="checkbox" id="notifications" name="notifications" value="opt-in">
+      <input type="checkbox" id="notifications" name="notifications" value="opt-in" v-model="user.subscribed">
       <label for="notifications">Would you like to receive spam?</label>
       <br>
       <br>
@@ -122,10 +122,11 @@ export default {
         confirmPassword: '',
         firstName: '',
         lastName: '',
-        emailAddress: '',
+        email: '',
         birthDate: '',
-        zipCode:'',
+        zip:'',
         role: 'user',
+        subscribed: true
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
