@@ -1,9 +1,14 @@
 
 <template>
-<div class ="container">
-  <div class="nav">Nav</div>
+<div class ="wrapper">
+  <nav>Nav</nav>
     <main>Main</main>
-    <div id ="sidebar">Sidebar</div>
+    <div id ="sidebar">Sidebar
+    <h2>
+      <li>About Us</li>
+      <li>Brew Near You</li>
+    </h2>
+    </div>
     <div id ="content1">Content1</div>
     <div id ="content2">Content2</div>
     <div id = "content3">Content3</div>
@@ -18,7 +23,7 @@ export default {
 };
 </script>
 <style>
-.container{
+.wrapper{
   display:grid;
   height:100vh;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -26,16 +31,22 @@ export default {
   grid-template-areas:
    "nav nav nav nav"
    "sidebar main main main"
-   "sidebar content1 content2 content 3"
+   "sidebar content1 content2 content3"
    "sidebar footer footer footer";
+   grid-gap:0.2rem;
+   font-family: cursive;
 }
-.nav{
+nav{
   background-color: coral;
-  grid-area:nav;
+ grid-area: nav;
 }
 main{
   background-color: cornflowerblue;
-  grid-area:main;
+  display: block;
+  grid-area: main;
+  background-image: url(https://cdn.pastemagazine.com/www/articles/barrels%20long.jpg);
+  width:1415px;
+  height:500px;
 }
 #sidebar{
   background-color: crimson;
