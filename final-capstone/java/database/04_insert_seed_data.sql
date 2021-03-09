@@ -100,7 +100,7 @@ VALUES (5, 'B.F.Hefe', 5.5, 11, 'Wheat',
         
 INSERT INTO beer (beer_id, name, abv,ibu, type, info, brewery_id, is_active) 
 VALUES (6, 'Punchline', 5.7, 12, 'Wheat',
-        ' Our fruit beer is a tribute to fruit punch. Tons of fruit flavors come together in a haymaker that hits you right in the red rubber nose.'
+        'Our fruit beer is a tribute to fruit punch. Tons of fruit flavors come together in a haymaker that hits you right in the red rubber nose.'
         , 2, 'true');
 
 --John's inserts
@@ -241,9 +241,55 @@ INSERT INTO reviews (beer_id, user_id, subject_title, review, rating, create_dat
  VALUES (6, 1, 'Good for when you can not come up with the right words',
 'Punchline is a great balance of taste, full body, and dancing without having to be nervous, lol!',
 5,now());
-        
 
+-- images       
+INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
+VALUES(1, 
+        'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/christmas_ale_bottle_glass_can_0.png?itok=gsAGIklG', 
+        'Ale with spices and honey and a Yuletide`s worth of holiday spices and sweet honey to keep you a-wassailing all season long',
+        'Christmas Ale',
+        1,
+        1);
 
+INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
+VALUES(2,
+        'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/eliot-ness-2021_0.jpg?itok=tb8D-ZHX',
+        'Almost untouchably smooth--armed with lightly toasted malts and noble hops.',
+        'Elliot Ness',
+        2,
+        1);
+
+INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
+VALUES(3,
+       'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/burning-river-cans-fixed-580x960_0.jpg?itok=AOcghGqh',
+       'Crisp and bright, with refreshing flickers of citrus and pine that ignite the senses (not our local waterways).',
+       'Burning River',
+       3,
+       1);
+
+INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
+VALUES(4,
+       'https://www.saucybrewworks.com/media/images/Beer-Page_Core-Cans_Habituale.width-400.png',
+       'This crisp, clean Kölsch is a true German classic. Its the perfect tribute to our fair-minded friend: sweet balanced with faint bitterness. Appeals to crossover mainstream drinkers and beer connoisseurs alike.',
+       'Habituale',
+       4,
+       2);
+
+INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
+VALUES(5,
+       'https://www.saucybrewworks.com/media/images/Beer-Page_Core-Cans_BfHefe.width-400.png',
+       'Light to medium bodied with a wheaty, fruity flavor',
+       'B.F. Hefe',
+       5,
+       2);
+
+INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
+VALUES(6,
+       'https://www.saucybrewworks.com/media/images/Beer-Page_Core-Cans_IPA.width-400.png',
+       'Our fruit beer is a tribute to fruit punch. Tons of fruit flavors come together in a haymaker that hits you right in the red rubber nose.',
+       'Punchline',
+       6,
+       2);
    
 
 -- reset the sequence numbering for the users table
