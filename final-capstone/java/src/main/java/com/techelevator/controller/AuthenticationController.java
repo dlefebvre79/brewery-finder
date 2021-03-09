@@ -26,53 +26,122 @@ import com.techelevator.security.jwt.TokenProvider;
 
 @RestController
 @CrossOrigin
-public class AuthenticationController {
+public class AuthenticationController
+{
 
-    private static final int LEGAL_AGE = 21;
+	private static final int LEGAL_AGE = 21;
 	private final TokenProvider tokenProvider;
-    private final AuthenticationManagerBuilder authenticationManagerBuilder;
-    private UserDAO userDAO;
+	private final AuthenticationManagerBuilder authenticationManagerBuilder;
+	private UserDAO userDAO;
 
-    public AuthenticationController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder, UserDAO userDAO) {
-        this.tokenProvider = tokenProvider;
-        this.authenticationManagerBuilder = authenticationManagerBuilder;
-        this.userDAO = userDAO;
-    }
+	public AuthenticationController(TokenProvider tokenProvider,
+			AuthenticationManagerBuilder authenticationManagerBuilder, UserDAO userDAO)
+	{
+		this.tokenProvider = tokenProvider;
+		this.authenticationManagerBuilder = authenticationManagerBuilder;
+		this.userDAO = userDAO;
+	}
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginDTO loginDto) {
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginDTO loginDto)
+	{
 
-        UsernamePasswordAuthenticationToken authenticationToken =
-                new UsernamePasswordAuthenticationToken(loginDto.getUsername(), loginDto.getPassword());
+		UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+				loginDto.getUsername(), loginDto.getPassword());
 
-        Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwt = tokenProvider.createToken(authentication, false);
-        
-        User user = userDAO.findByUsername(loginDto.getUsername());
+		Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
+		SecurityContextHolder.getContext().setAuthentication(authentication);
+		String jwt = tokenProvider.createToken(authentication, false);
 
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add(JWTFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
-        return new ResponseEntity<>(new LoginResponse(jwt, user), httpHeaders, HttpStatus.OK);
-    }
+		User user = userDAO.findByUsername(loginDto.getUsername());
 
-    @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public void register(@Valid @RequestBody RegisterUserDTO newUser) {
-        try {
-            User user = userDAO.findByUsername(newUser.getUsername());
-            throw new UserAlreadyExistsException();
-        } catch (UsernameNotFoundException e) {
-        	if(isLegalAge(newUser.getBirthDate())) {
-	            userDAO.create(newUser.getUsername(), newUser.getPassword(), newUser.getRole(),
-	            			   newUser.getFirstName(), newUser.getLastName(), newUser.getBirthDate(),
-	            			   newUser.getEmail(), newUser.getZip(), newUser.isSubscribed());
-        	} else {
-        		throw new UserNotLegalAgeException();
-        	}
-        }
-    }
-    
+		HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.add(JWTFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
+		return new ResponseEntity<>(new LoginResponse(jwt, user), httpHeaders, HttpStatus.OK);
+	}
+
+	@ResponseStatus(HttpStatus.CREATED)
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public void register(@Valid @RequestBody RegisterUserDTO newUser)
+	{
+		try
+		{
+			User user = userDAO.findByUsername(newUser.getUsername());
+			throw new UserAlreadyExistsException();
+		}
+		catch (UsernameNotFoundException e)
+		{
+			if (isLegalAge(newUser.getBirthDate()))
+			{
+				userDAO.create(newUser.getUsername(), newUser.getPassword(), newUser.getRole(),
+						newUser.getFirstName(), newUser.getLastName(), newUser.getBirthDate(),
+						newUser.getEmail(), newUser.getZip(), newUser.isSubscribed());
+			}
+			else
+			{
+				throw new UserNotLegalAgeException();
+			}
+		}
+	}
+
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "/user/update", method = RequestMethod.PUT)
+	public User update(@Valid @RequestBody User userToUpdate)
+	{
+		User user = null;
+		try
+		{
+			if (isLegalAge(userToUpdate.getBirthDate()))
+			{
+				userDAO.update(userToUpdate);
+			}
+			else
+			{
+				throw new UserNotLegalAgeException();
+			}
+			user = userDAO.findByUsername(userToUpdate.getUsername());
+		}
+		catch (UsernameNotFoundException e)
+		{
+			
+		}
+		return user;
+	}
+
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "/user/role", method = RequestMethod.PUT)
+	public User updateRole(@Valid @RequestBody User userToUpdate, @RequestParam String role)
+	{
+		User user = null;
+		try
+		{
+			userDAO.updateRole(userToUpdate, role);
+			user = userDAO.findByUsername(userToUpdate.getUsername());
+		}
+		catch (UsernameNotFoundException e)
+		{
+			user = userToUpdate;
+		}
+		return user;
+	}
+
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "/user/password", method = RequestMethod.PUT)
+	public User updateRole(@Valid @RequestBody User userToUpdate, @RequestParam String oldPassword, @RequestParam String newPassword)
+	{
+		User user = null;
+		try
+		{
+			userDAO.changePassword(userToUpdate, oldPassword, newPassword);
+			user = userDAO.findByUsername(userToUpdate.getUsername());
+		}
+		catch (Exception e)
+		{
+			user = userToUpdate;
+		}
+		return user;
+	}
+
 	private boolean isLegalAge(LocalDate birthDate)
 	{
 		LocalDate today = LocalDate.now();
@@ -81,38 +150,42 @@ public class AuthenticationController {
 
 	}
 
-
 	/**
-     * Object to return as body in JWT Authentication.
-     */
-    static class LoginResponse {
+	 * Object to return as body in JWT Authentication.
+	 */
+	static class LoginResponse
+	{
 
-        private String token;
-        private User user;
+		private String token;
+		private User user;
 
-        LoginResponse(String token, User user) {
-            this.token = token;
-            this.user = user;
-        }
-
-        @JsonProperty("token")
-        String getToken() {
-            return token;
-        }
-
-        void setToken(String token) {
-            this.token = token;
-        }
-
-        @JsonProperty("user")
-		public User getUser() {
-			return user;
-		}
-
-		public void setUser(User user) {
+		LoginResponse(String token, User user)
+		{
+			this.token = token;
 			this.user = user;
 		}
 
-    }
-}
+		@JsonProperty("token")
+		String getToken()
+		{
+			return token;
+		}
 
+		void setToken(String token)
+		{
+			this.token = token;
+		}
+
+		@JsonProperty("user")
+		public User getUser()
+		{
+			return user;
+		}
+
+		public void setUser(User user)
+		{
+			this.user = user;
+		}
+
+	}
+}
