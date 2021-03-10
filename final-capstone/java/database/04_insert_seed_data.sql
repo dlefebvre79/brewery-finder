@@ -92,7 +92,7 @@ VALUES (4, 'Sibling Revelry Brewing'
         
 --Beer        
 INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
-VALUES (1, 'Christmas Ale', 7.5, 30, 'Winter Warmer Ale',
+VALUES (1, 'Christmas Ale', 7.5, 30, 'Ale', 
         'Ale with spices and honey and a Yuletide`s worth of holiday spices and sweet honey to keep you a-wassailing all season long'
         , 1, 'true');
         
