@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <img src="../assets/beer_glass.png" alt="Beer Glass" class="img1">
+    <img src="../assets/images/beer_glass.png" alt="Beer Glass" class="img1">
     
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
