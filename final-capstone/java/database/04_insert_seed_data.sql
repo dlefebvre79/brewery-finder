@@ -14,9 +14,14 @@ VALUES (1, 'user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC'
 	 
 --Breweries	 
 INSERT INTO breweries (brewery_id, name, address, city, zipcode, phone_number, days_of_operation, business_hours, history_desc, atmosphere, is_family_friendly, is_patio, is_food, is_active, website_url, google_maps_url, user_id)
-VALUES (1, 'Great Lakes Brewing', '2516 Market Avenue', 'Cleveland', '44113', '216-771-4404',
-         'Monday - Saturday', '12:00 AM - 6:00 PM.', 
-         'Two Irish brothers with limited brewing experience. A city that shuttered its last production brewery in the early 80s.
+VALUES (1, 'Great Lakes Brewing'
+		, '2516 Market Avenue'
+		, 'Cleveland'
+		, '44113'
+		, '216-771-4404'
+		, 'Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'
+		, '1200-1800,1200-1800,1200-1800,1200-1800,1200-1800,1200-1800'
+		, 'Two Irish brothers with limited brewing experience. A city that shuttered its last production brewery in the early 80s.
           A neighborhood in serious need of a facelift. In 1986 when Patrick and Daniel Conway opened their fledgling operation in Cleveland`s
           Ohio City neighborhood the odds were stacked against them. Fortunately they surrounded themselves with a staff of passionate knowledgeable people and
           from the start committed themselves to bringing a sophisticated diverse selection of craft beer to their home state. Two decades multiple awards and a 
@@ -25,11 +30,24 @@ VALUES (1, 'Great Lakes Brewing', '2516 Market Avenue', 'Cleveland', '44113', '2
          'https://www.google.com/maps/place/Great+Lakes+Brewing+Company/@41.4843847,-81.7067074,17z/data=!3m1!4b1!4m5!3m4!1s0x8830f06dbb76e503:0xe4f2621c30edaa7b!8m2!3d41.4843807!4d-81.7045187', 2);
          
 INSERT INTO breweries (brewery_id, name, address, city, zipcode, phone_number, days_of_operation, business_hours, history_desc, atmosphere, is_family_friendly, is_patio, is_food, is_active, website_url, google_maps_url, user_id)
-VALUES (2, 'Saucy Brew Works', '2885 Detroit Rd', 'Cleveland', 44113,'(216) 666-2568',
-        'Sunday - Saturday', '11:00 AM - 10:00 PM', 'The story starts with our Brew Master Eric Anderson and Entrepreneur Brent Zimmerman. 
-         Beer fanatics. Always up for adventure. They decided to transform the Steelman Building into the kind of place that delivers nothing less than crazy good beer and legendary good times.',
-        'Two-tiered brewery offering housemade European-style beer & customizable thin-crust pizzas.', 'true', 'true', 'true', 'true', 'https://www.saucybrewworks.com/',
-        'https://www.google.com/maps/place/Saucy+Brew+Works/@41.489633,-81.7128136,17z/data=!3m1!4b1!4m5!3m4!1s0x8830f06856cfcaf7:0xb7cc96529c4594ea!8m2!3d41.489629!4d-81.7106249', 2);
+VALUES (2, 'Saucy Brew Works'
+		, '2885 Detroit Rd'
+		, 'Cleveland'
+		, 44113
+		,'(216) 666-2568'
+		,
+        'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'
+		, '1100-2200,1100-2200,1100-2200,1100-2200,1100-2200,1100-2200,1100-2200'
+		, 'The story starts with our Brew Master Eric Anderson and Entrepreneur Brent Zimmerman. 
+         Beer fanatics. Always up for adventure. They decided to transform the Steelman Building into the kind of place that delivers nothing less than crazy good beer and legendary good times.'
+		 , 'Two-tiered brewery offering housemade European-style beer & customizable thin-crust pizzas.'
+		 , 'true'
+		 , 'true'
+		 , 'true'
+		 , 'true'
+		 , 'https://www.saucybrewworks.com/'
+		 , 'https://www.google.com/maps/place/Saucy+Brew+Works/@41.489633,-81.7128136,17z/data=!3m1!4b1!4m5!3m4!1s0x8830f06856cfcaf7:0xb7cc96529c4594ea!8m2!3d41.489629!4d-81.7106249'
+		 , 2);
 --insert John        
 INSERT INTO breweries (brewery_id, name, address, city, zipcode, phone_number, days_of_operation, business_hours, history_desc, atmosphere, is_family_friendly, is_patio, is_food, is_active, website_url, google_maps_url, user_id)
 VALUES (3, 'Rocky River Brewing Company'
@@ -37,8 +55,8 @@ VALUES (3, 'Rocky River Brewing Company'
 	, 'Rocky River'
 	, '44116'
 	, '440-895-2739'
-	, '7 Days'
-	, '11:30 a.m. - 10:00 p.m. F/S 11:00 p.m.'
+	, 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'
+	, '1130-2200,1130-2200,1130-2200,1130-2200,1130-2200,1130-2300,1130-2300'
 	, 'Pleasing Palettes Since 1998 - AWARD-WINNING HANDCRAFTED FOOD & BEER - BrewPub & Restaurant.'
 	, 'Classic Bar and Restaurant'
 	, 'true'
@@ -56,11 +74,11 @@ VALUES (4, 'Sibling Revelry Brewing'
 	, 'Westlake'
 	, '44145'
 	, '440-471-8589'
-	, 'Thursday - Friday - Saturday'
-	, 'R/F 4:00 p.m. - 9:00 p.m. S 12:00 p.m. - 9:00 p.m.'
+	, 'Thursday,Friday,Saturday'
+	, '1600-2100,1600-2100,1200-2100'
 	, 'Sibling Revelry Brewing was founded by a family of brothers and cousins from Cleveland who wanted to share their passion for great beer with others.
 	 Noticing a lack of breweries in the west side suburbs - the relatives set out to create a unique taproom and drinking experience rooted right in their own backyards. 
-	 Sibling Revelry’s sophisticated taproom offers a full selection of craft beers including year-round brews - seasonal varieties - limited releases and taproom exclusives. 
+	 Sibling Revelry''s sophisticated taproom offers a full selection of craft beers including year-round brews - seasonal varieties - limited releases and taproom exclusives. 
 	 Our outdoor patio provides additional space to enjoy our brews with friends and dogs.'
 	, 'Warehouse Brewery'
 	, 'true'
@@ -89,8 +107,8 @@ VALUES (3, 'Burning river', 6.0, 35, 'Pale Ale',
         , 1, 'true');
         
 INSERT INTO beer (beer_id, name, abv,ibu, type, info,  brewery_id, is_active) 
-VALUES (4, 'Habituale', 5.3, 21, 'Kölsch',
-        'This crisp, clean Kölsch is a true German classic. Its the perfect tribute to our fair-minded friend: sweet balanced with faint bitterness. Appeals to crossover mainstream drinkers and beer connoisseurs alike.'
+VALUES (4, 'Habituale', 5.3, 21, 'Kolsch',
+        'This crisp, clean Kolsch is a true German classic. Its the perfect tribute to our fair-minded friend: sweet balanced with faint bitterness. Appeals to crossover mainstream drinkers and beer connoisseurs alike.'
         , 2, 'true');
         
 INSERT INTO beer (beer_id, name, abv,ibu, type, info,  brewery_id, is_active) 
@@ -105,7 +123,7 @@ VALUES (6, 'Punchline', 5.7, 12, 'Wheat',
 
 --John's inserts
 INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
-VALUES (7, 'Rocky River Pirate Light',
+VALUES (7, 'Rocky River Pirate Light'
 	,  4.8
 	,  16
 	, 'Blonde Ale'
@@ -116,7 +134,7 @@ VALUES (7, 'Rocky River Pirate Light',
 INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
 VALUES	(8, 'Hop Goblin IPA'
 	,  7.6
-	,  67.5
+	,  67
 	, 'IPA'
 	, 'This West Coast-style IPA is our new flagship IPA. It has a high level of hop bitterness, flavor and aroma, and just enough malt to balance it.'
 	,  3
@@ -125,14 +143,14 @@ VALUES	(8, 'Hop Goblin IPA'
 INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
 VALUES	(9, 'Blarney Rubble Irish Red'
 	,  5.4
-	,  20.6
+	,  20
 	, 'Irish Red'
 	, 'This is what happened when Bam Bam went to Ireland and had a few too many irish reds and went to visit the Blarney Stone.'
 	,  3
 	, 'true');
 	
 INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
-VALUES	(10, 'Cooper’s Gold Kolsch'
+VALUES	(10, 'Cooper''s Gold Kolsch'
 	,  6.0
 	,  28
 	, 'German Ale'
@@ -143,16 +161,16 @@ VALUES	(10, 'Cooper’s Gold Kolsch'
 INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
 VALUES	(11, 'Punchin The Nuts'
 	,  5.3
-	,  20.8
+	,  20
 	, 'Amber Ale'
-	, 'Our amber ale brewed with peanut butter. Which brings out a nice  peanut butter aroma and a light peanut butter taste. It’s everyone’s favorite….everyone love a good “Punchin the Nuts!!!!!!'
+	, 'Our amber ale brewed with peanut butter. Which brings out a nice  peanut butter aroma and a light peanut butter taste. It''s everyone''s favorite...everyone loves a good Punchin the Nuts!!!!!!'
 	,  3
 	, 'true');
 	
 INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
 VALUES  (12, 'Tropic Funk IPA'
 	,  10.2
-	,  70.2
+	,  70
 	, 'IPA'
 	, 'Citrus is what you smell and taste with a little ipa bitterness. The alcohol is what you will feel.'
 	,  3
@@ -172,7 +190,7 @@ VALUES 	(14, 'Red'
 	, 5.5
 	, 35
 	, 'American Red Ale'
-	, 'An American red ale brewed in the Irsih tradition.'
+	, 'An American red ale brewed in the Irish tradition.'
 	,  4
 	, 'true');
 	
@@ -270,7 +288,7 @@ VALUES(3,
 INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
 VALUES(4,
        'https://www.saucybrewworks.com/media/images/Beer-Page_Core-Cans_Habituale.width-400.png',
-       'This crisp, clean Kölsch is a true German classic. Its the perfect tribute to our fair-minded friend: sweet balanced with faint bitterness. Appeals to crossover mainstream drinkers and beer connoisseurs alike.',
+       'This crisp, clean Kolsch is a true German classic. Its the perfect tribute to our fair-minded friend: sweet balanced with faint bitterness. Appeals to crossover mainstream drinkers and beer connoisseurs alike.',
        'Habituale',
        4,
        2);
@@ -293,13 +311,10 @@ VALUES(6,
    
 
 -- reset the sequence numbering for the users table
-ALTER SEQUENCE seq_user_id RESTART WITH 3;
+ALTER SEQUENCE seq_user_id RESTART WITH 4;
 
 
 
 COMMIT TRANSACTION;
 
-ROLLBACK TRANSACTION;
-
-DELETE FROM reviews
-WHERE beer_id = 1;
+--ROLLBACK TRANSACTION;

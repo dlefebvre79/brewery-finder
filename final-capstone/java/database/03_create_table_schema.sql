@@ -36,8 +36,13 @@ CREATE TABLE users (
 );
 
 CREATE TABLE breweries (
+<<<<<<< HEAD
+        brewery_id SERIAL,
+        name VARCHAR(255) NOT NULL,
+=======
         brewery_id SERIAL NOT NULL,
         name VARCHAR(255)NOT NULL,
+>>>>>>> develop
         address VARCHAR(255),
         city VARCHAR(50),
         zipcode VARCHAR(15),
@@ -102,4 +107,4 @@ CREATE TABLE images (
 
 COMMIT TRANSACTION;
 
-ROLLBACK TRANSACTION;
+--ROLLBACK TRANSACTION;
