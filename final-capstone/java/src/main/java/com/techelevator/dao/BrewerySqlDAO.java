@@ -59,16 +59,25 @@ public class BrewerySqlDAO implements BreweryDAO
 	}
 
 	@Override
-	public Brewery getByName(String name)
+	public List<Brewery> getByName(String name)
 	{
+		List<Brewery> breweries = new ArrayList<>();
 		for (Brewery brewery : this.findAll())
 		{
-			if (brewery.getName().toLowerCase().equals(name.toLowerCase()))
+			if (brewery.getName().toLowerCase().contains(name.toLowerCase()))
 			{
-				return brewery;
+				breweries.add(brewery);
 			}
 		}
-		throw new BreweryNotFoundException();
+		if(breweries.size() == 0)
+		{
+			throw new BreweryNotFoundException();	
+		}
+		return breweries;
+		
+		
+		
+		
 	}
 
 	@Override

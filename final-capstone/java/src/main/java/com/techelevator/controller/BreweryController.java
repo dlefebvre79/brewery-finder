@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,8 +37,11 @@ public class BreweryController
 		Brewery newBrewery = null;
 		try
 		{
-			newBrewery = breweryDAO.getByName(brewery.getName());
-			throw new BreweryAlreadyExistsException();
+			if(breweryDAO.getByName(brewery.getName()).size() > 0)
+			{
+				throw new BreweryAlreadyExistsException();	
+			}
+			
 		}
 		catch (BreweryNotFoundException e)
 		{
@@ -61,4 +65,10 @@ public class BreweryController
 		return breweryDAO.getById(id);
 	}
 
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "/name/{name}", method = RequestMethod.GET)
+	public List<Brewery> getByName(@Valid @PathVariable String name)
+	{
+		return breweryDAO.getByName(name);
+	}
 }

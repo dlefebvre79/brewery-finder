@@ -11,7 +11,7 @@ public interface BreweryDAO
 	
 	Brewery getById(int id);
 	
-	Brewery getByName(String name);
+	List<Brewery> getByName(String name);
 	
 	int create(String name, User brewer);
 	
