@@ -260,6 +260,34 @@ INSERT INTO reviews (beer_id, user_id, subject_title, review, rating, create_dat
 'Punchline is a great balance of taste, full body, and dancing without having to be nervous, lol!',
 5,now());
 
+INSERT INTO reviews (beer_id, user_id, subject_title, review, rating, create_date) 
+VALUES (7, 1, 'Pirate Light is a true gardeners brew!','Smooth, golden and low enough avb to pound all day and still ride the mower!',
+4,now());
+
+INSERT INTO reviews (beer_id, user_id, subject_title, review, rating, create_date) 
+VALUES (8, 1, 'A spooky brew','The perfect partner for that Halloween party treat!',
+5,now());
+
+INSERT INTO reviews (beer_id, user_id, subject_title, review, rating, create_date)
+ VALUES (9, 1, 'Barney would be proud',
+'You will be singing the Flintstones song after a couple of these!',
+5,now());
+
+INSERT INTO reviews (beer_id, user_id, subject_title, review, rating, create_date)
+ VALUES (10, 1, 'Its a gold rush',
+'Different malts and hops are combined to give this nugget its golden hue!',
+4,now());
+
+INSERT INTO reviews (beer_id, user_id, subject_title, review, rating, create_date) 
+VALUES (11, 1, 'Punchin the Nuts','The perfect partner for that jelly toast for breakfast!',
+5,now());
+
+INSERT INTO reviews (beer_id, user_id, subject_title, review, rating, create_date)
+ VALUES (12, 1, 'Grow a little Funk of your own',
+'You will be singing along with EJ after two of these bad boys!',
+5,now());
+
+
 -- images       
 INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
 VALUES(1, 
@@ -308,7 +336,54 @@ VALUES(6,
        'Punchline',
        6,
        2);
+
+INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
+VALUES(7,
+       'https://untappd.com/b/rocky-river-brewing-company-rocky-river-pirate-light/98669/photos',
+       'This American blonde ale will grow on you. This brew is smooth, golden, and has fewer calories.',
+       'Rocky River Pirate Light',
+       7,
+       3);	   
+
+INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
+VALUES(8,
+       'https://untappd.com/user/tmonaco/checkin/997937073',
+       'This West Coast-style IPA is our new flagship IPA. It has a high level of hop bitterness, flavor and aroma, and just enough malt to balance it',
+       'Hop Goblin IPA',
+       8,
+       3);
    
+INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
+VALUES(9,
+       'https://untappd.akamaized.net/photos/2021_03_01/30a2a70ffeaecf3cfc76cd9b58492b00_raw.jpg',
+       'This is what happened when Bam Bam went to Ireland and had a few too many irish reds and went to visit the Blarney Stone.  ',
+       'Blarney Rubble Irish Red',
+       9,
+       3);
+
+INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
+VALUES(10,
+       'https://untappd.com/b/rocky-river-brewing-company-cooper-s-gold-kolsch/38814/photos',
+       'This German ale alt-style utilizes a unique blend of seven different German malts and two different German hops to produce a golden color.',
+       'Coopers Gold Kolsch',
+       10,
+       3);
+
+INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
+VALUES(11,
+       'https://untappd.akamaized.net/photos/2021_02_18/46a89ba18acc3492680c7cfc3a6cd0c0_raw.jpg',
+       'Our amber ale brewed with peanut butter. Which brings out a nice  peanut butter aroma and a light peanut butter taste. It’s everyone’s favorite….everyone love a good “Punchin the Nuts!!!!!!',
+       'Punchin The Nuts',
+       11,
+       3);
+
+INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
+VALUES(12,
+       'https://untappd.akamaized.net/photos/2021_02_27/2cfae0d8e3c986197082715e684500b9_raw.jpg',
+       'Our fruit beer is a tribute to fruit punch. Tons of fruit flavors come together in a haymaker that hits you right in the red rubber nose.',
+       'Tropic Funk IPA',
+       12,
+       3);	   
 
 -- reset the sequence numbering for the users table
 ALTER SEQUENCE seq_user_id RESTART WITH 4;
