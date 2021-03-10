@@ -55,8 +55,13 @@ const router = new Router({
       }
     },
     {
-      path:"/breweries/:id",
-      name:"breweries",
+      path:"/brewery/:id",
+      name:"brewery",
+      component: Breweries
+    },
+    {
+      path:"/breweries",
+      name: "brewery-list",
       component: Breweries
     }
   ]
