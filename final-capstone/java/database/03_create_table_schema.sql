@@ -37,7 +37,7 @@ CREATE TABLE users (
 
 CREATE TABLE breweries (
         brewery_id SERIAL,
-        name VARCHAR(255) NOT NULL,
+        name VARCHAR(255)NOT NULL,
         address VARCHAR(255),
         city VARCHAR(50),
         zipcode VARCHAR(15),
