@@ -1,12 +1,7 @@
 <template>
-  <div>
-    <!-- <div id="sidebar">
-    <img src="../assets/images/beer_glass.png" alt="Beer Glass" class="img1">
-    </div> -->
-    <!-- <div class="main"> -->
-     
-      <h1 class="text-center">Welcome to the Tech Ale-evator Brewery Finder</h1>
-    <!--<div id="login" class="text-center"> -->
+  <div class="wrapper">
+     <h1 class="text-center">Welcome to the Tech Ale-evator Brewery Finder</h1>
+    <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
       
       <h2 class="h3 mb-3 font-weight-normal">Please Sign In</h2>
@@ -42,10 +37,12 @@
       <router-link :to="{ name: 'register' }" class="registration-button" > Need an account? </router-link>
       <button type="submit" class="btn">Sign in</button>
     </form>
-    
+    <br>
+    <img src="../assets/images/great-lakes.jpg" alt="Great Lakes Brewery" class="login-image">
+    <br>
     </div>
     
-    <!-- </div> -->
+    </div>
   
 </template>
 

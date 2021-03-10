@@ -1,49 +1,59 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Special+Elite&family=Ultra&display=swap");
 
 .wrapper, #app{
-    display:grid;
-    height:100vh;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 0.2fr 1.5fr 1.2fr 0.8fr;
-    grid-template-areas:
-     "nav nav nav nav"
-     "sidebar main main main"
-     "sidebar content1 content2 content3"
-     "sidebar footer footer footer";
-     grid-gap:0.2rem;
+     display: flex;
+     flex-direction: column;
+     flex-basis: 0;
+     /* flex-wrap: wrap; */
      font-family:'Special Elite', cursive;
      font-size: medium;
-  }
-  #nav{
+     background-image: url("../images/norwegian_rose.png");
+}
+
+#nav{
+    text-align: center;
+    color:black;
+    flex-grow: 1;
     background-color:cornflowerblue;
     grid-area: nav;
-  }
-  .main{
-    background-color: grey;
-    display: block;
-    grid-area: main;
-    width:1415px;
-    height:500px;
-  }
-  #sidebar{
-    background-color:grey;
-    grid-area:sidebar;
-  }
+}
+.main{
+    text-align: center;
+    flex-grow:2;
+    /* background-color: grey; */
+   /*  display: block;*/
+    /* width:1415px; */
+    min-height:500px; 
+    
+}
   
-  #content1{
-  background-color:cornflowerblue;
-  grid-area: content1;
-  }
-  #content2{
-    background-color: white;
-    grid-area: content2;
-  }
-  #content3{
-    background-color:grey ;
-    grid-area: content3;
-  }
-  footer{
+footer{
     background-color: grey;
-    grid-area: footer;
-  }
+    flex-grow: 1;
+    text-align: center;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
   
+.btn{
+    transition-duration: 0.4s;
+    border: 2px solid cornflowerblue;
+    border-radius: 4px;
+}
+
+.btn:hover{
+    background-color: cornflowerblue; 
+    color: white;
+}
+
+.text-center{
+    color:blue;
+}
+.login-image{
+    max-inline-size: 50%;
+    border-radius: 50%;
+    opacity: 0.75;
+}

@@ -8,11 +8,8 @@
 
 
     <main class="main"><router-view/></main>
-    <div id ="sidebar">Sidebar</div>
-    <div id ="content1">Content1</div>
-    <div id ="content2">Content2</div>
-    <div id = "content3">Content3</div>
-    <footer>Footer</footer>
+    
+    <footer> &#169; API === IPA</footer>
    </div>
 </template>
     
