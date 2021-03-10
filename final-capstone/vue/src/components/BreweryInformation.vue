@@ -27,6 +27,8 @@
 
 <script>
 import breweryService from "@/services/BreweryService";
+
+
 export default {
     name: 'brewery-information',
 
