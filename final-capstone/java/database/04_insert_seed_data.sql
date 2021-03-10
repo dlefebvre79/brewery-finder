@@ -124,7 +124,7 @@ VALUES	(8, 'Hop Goblin IPA'
 	
 INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
 VALUES	(9, 'Blarney Rubble Irish Red'
-	,  5.4%
+	,  5.4
 	,  20.6
 	, 'Irish Red'
 	, 'This is what happened when Bam Bam went to Ireland and had a few too many irish reds and went to visit the Blarney Stone.'
