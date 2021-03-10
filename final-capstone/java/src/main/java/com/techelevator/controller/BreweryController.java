@@ -1,11 +1,14 @@
 package com.techelevator.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,18 +34,31 @@ public class BreweryController
 	public Brewery create(@Valid @RequestBody Brewery brewery)
 	{
 		Brewery newBrewery = null;
-//		try
-//		{
-//			newBrewery = breweryDAO.getByName(brewery.getName());
-//			throw new BreweryAlreadyExistsException();
-//		}
-//		catch (BreweryNotFoundException e)
-//		{
+		try
+		{
+			newBrewery = breweryDAO.getByName(brewery.getName());
+			throw new BreweryAlreadyExistsException();
+		}
+		catch (BreweryNotFoundException e)
+		{
 			int breweryId = breweryDAO.create(brewery.getName(), brewery.getBrewer());
-			System.out.println(breweryId);
 			newBrewery = breweryDAO.getById(breweryId);
-//		}
+		}
 		return newBrewery;
+	}
+
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(method = RequestMethod.GET)
+	public List<Brewery> findAll()
+	{
+		return breweryDAO.findAll();
+	}
+
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public Brewery getById(@Valid @PathVariable int id)
+	{
+		return breweryDAO.getById(id);
 	}
 
 }

@@ -140,7 +140,7 @@ public class BrewerySqlDAO implements BreweryDAO
 		brewery.setPhoneNumber(rs.getString("phone_number") != null ? rs.getString("phone_number") : "");
 		brewery.setDaysOpen(rs.getString("days_of_operation") != null ? rs.getString("days_of_operation").split(",") : new String[0]);
 		brewery.setHours(rs.getString("business_hours") != null ? rs.getString("business_hours").split(",") : new String[0]);
-		brewery.setHistory(rs.getString("history_desc") != null ? rs.getString("histry_desc") : "");
+		brewery.setHistory(rs.getString("history_desc") != null ? rs.getString("history_desc") : "");
 		brewery.setAtmosphere(rs.getString("atmosphere") != null ? rs.getString("atmosphere") : "");
 		brewery.setFamilyFriendly(rs.getBoolean("is_family_friendly"));
 		brewery.setPatio(rs.getBoolean("is_patio"));
