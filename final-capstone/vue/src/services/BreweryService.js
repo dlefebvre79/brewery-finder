@@ -8,12 +8,12 @@ const http = axios.create({
 export default{
 
 list(){
-    return http.get('/breweries');
+    return http.get('/brewery');
 },
 
 getBreweriesById(id)
 {
-    return http.get(`/breweries/${id}`);
+    return http.get(`/brewery/${id}`);
 }
 
 
