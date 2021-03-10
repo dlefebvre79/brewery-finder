@@ -16,7 +16,7 @@
   }
   #nav{
     background-color:cornflowerblue;
-   grid-area: nav;
+    grid-area: nav;
   }
   .main{
     background-color: grey;
@@ -46,5 +46,4 @@
     background-color: grey;
     grid-area: footer;
   }
-  
   
