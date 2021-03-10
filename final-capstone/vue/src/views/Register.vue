@@ -1,4 +1,5 @@
 <template>
+<div class="container">
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
@@ -15,6 +16,8 @@
         required
         autofocus
       />
+      <br>
+      <br>
       <label for="password" class="sr-only">Password</label>
       <input
         type="password"
@@ -24,6 +27,8 @@
         v-model="user.password"
         required
       />
+      <br>
+      <br>
       <input
         type="password"
         id="confirmPassword"
@@ -32,11 +37,75 @@
         v-model="user.confirmPassword"
         required
       />
+      <br>
+      <br>
+      <label for="first-name" class="sr-only">First Name</label>
+      <input
+      type="first-name"
+      id="firstName"
+      class="form-control"
+      placeholder="First Name"
+      v-model="user.firstName"
+      required
+      />
+      <br>
+      <br>
+      <label for="last-name" class="sr-only">Last Name</label>
+      <input
+      type="last-name"
+      id="lastName"
+      class="form-control"
+      placeholder="Last Name"
+      v-model="user.lastName"
+      required
+      />
+      <br>
+      <br>
+      <label for="email-address" class="sr-only">Email Address</label>
+      <input
+      type="email-address"
+      id="emailAddress"
+      class="form-control"
+      placeholder="Email Address"
+      v-model="user.email"
+      required
+      />
+      <br>
+      <br>
+      <label for="birth-date" class="sr-only">Birth Date</label>
+      <input
+      type="birth-date"
+      id="birthDate"
+      class="form-control"
+      placeholder="yyyy-mm-dd"
+      v-model="user.birthDate"
+      required
+      />
+      <br>
+      <br>
+      <label for="zip-code" class="sr-only">Zip Code</label>
+      <input
+      type="zip-code"
+      id="zipCode"
+      class="form-control"
+      placeholder="Zip Code"
+      v-model="user.zip"
+      required
+      />
+      <br>
+      <br>
+      <input type="checkbox" id="notifications" name="notifications" value="opt-in" v-model="user.subscribed">
+      <label for="notifications">Would you like to receive spam?</label>
+      <br>
+      <br>
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
+      <br>
+      <br>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
     </form>
+  </div>
   </div>
 </template>
 
@@ -51,7 +120,13 @@ export default {
         username: '',
         password: '',
         confirmPassword: '',
+        firstName: '',
+        lastName: '',
+        email: '',
+        birthDate: '',
+        zip:'',
         role: 'user',
+        subscribed: true
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
@@ -90,4 +165,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.text-center{
+  text-align: center;
+  
+}
+</style>
