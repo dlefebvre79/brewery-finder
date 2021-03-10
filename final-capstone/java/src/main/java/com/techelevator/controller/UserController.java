@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.techelevator.dao.UserDAO;
 import com.techelevator.model.User;
-import com.techelevator.model.UserNotLegalAgeException;
+import com.techelevator.model.exceptions.UserNotLegalAgeException;
 
 @RestController
 @CrossOrigin

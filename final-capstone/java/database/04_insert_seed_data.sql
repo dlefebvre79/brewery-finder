@@ -105,7 +105,7 @@ VALUES (6, 'Punchline', 5.7, 12, 'Wheat',
 
 --John's inserts
 INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
-VALUES (7, 'Rocky River Pirate Light',
+VALUES (7, 'Rocky River Pirate Light'
 	,  4.8
 	,  16
 	, 'Blonde Ale'
@@ -124,7 +124,7 @@ VALUES	(8, 'Hop Goblin IPA'
 	
 INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
 VALUES	(9, 'Blarney Rubble Irish Red'
-	,  5.4%
+	,  5.4
 	,  20.6
 	, 'Irish Red'
 	, 'This is what happened when Bam Bam went to Ireland and had a few too many irish reds and went to visit the Blarney Stone.'
