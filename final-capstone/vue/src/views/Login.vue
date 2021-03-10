@@ -1,10 +1,13 @@
 <template>
   <div class="container">
+    <div class="left">
     <img src="../assets/images/beer_glass.png" alt="Beer Glass" class="img1">
-    
-  <div id="login" class="text-center">
+    </div>
+    <div class="main">
+      <h1 class="text-center">Welcome to the Tech Ale-evator Brewery Finder</h1>
+    <!--<div id="login" class="text-center"> -->
     <form class="form-signin" @submit.prevent="login">
-      <h1 class="splash-title">Welcome to the Tech Ale-evator Brewery Finder</h1>
+      
       <h2 class="h3 mb-3 font-weight-normal">Please Sign In</h2>
       <div
         class="alert alert-danger"
@@ -39,6 +42,10 @@
       <button type="submit" class="btn">Sign in</button>
     </form>
     </div>
+    <div class="right">
+      <img src="../assets/images/beer_glass.png" alt="Beer Glass" class="img1">
+      </div>
+    <!--</div>-->
   </div>
   
 </template>
@@ -81,20 +88,8 @@ export default {
 };
 </script>
 <style scoped>
-.container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: 
-    "image1 text text"
-    "image1 . . ";
-    
-    background-color: aquamarine;
-    border-radius: 10px;
-    animation-name: word;
-    animation-duration: 8s;
-    animation-iteration-count: infinite;
-    animation-direction:alternate;
-}
+
+
 .text-center{
   grid-area: text;
 }
@@ -113,10 +108,7 @@ export default {
  
 }
 
-.splash-title{
-  font-family:'Special Elite', cursive;
-  color: chocolate;
-}
+
 .registration-button{
 text-decoration: none;
 }
