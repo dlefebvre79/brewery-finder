@@ -22,22 +22,27 @@ CREATE SEQUENCE seq_user_id
 
 CREATE TABLE users (
 	user_id INT DEFAULT nextval('seq_user_id') NOT NULL,
-	username VARCHAR(50) NOT NULL UNIQUE,
+	username VARCHAR(50)  UNIQUE,
 	password_hash VARCHAR(200) NOT NULL,
 	role VARCHAR(20) NOT NULL,
-	first_name VARCHAR(50) NOT NULL,
-        last_name VARCHAR (50) NOT NULL,
-        date_of_birth DATE NOT NULL,
-        email VARCHAR(50) NOT NULL,
-        is_subscribed BOOLEAN NOT NULL DEFAULT FALSE,
-        zip_code VARCHAR(5) NOT NULL,
+	first_name VARCHAR(50),
+        last_name VARCHAR (50),
+        date_of_birth DATE,
+        email VARCHAR(50) ,
+        is_subscribed BOOLEAN DEFAULT FALSE,
+        zip_code VARCHAR(5),
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 	
 );
 
 CREATE TABLE breweries (
+<<<<<<< HEAD
         brewery_id SERIAL,
         name VARCHAR(255) NOT NULL,
+=======
+        brewery_id SERIAL NOT NULL,
+        name VARCHAR(255)NOT NULL,
+>>>>>>> develop
         address VARCHAR(255),
         city VARCHAR(50),
         zipcode VARCHAR(15),
@@ -63,9 +68,9 @@ CREATE TABLE beer (
         name VARCHAR(255) NOT NULL,
         abv DECIMAL,
         ibu INTEGER,
-        type VARCHAR(255) NOT NULL,
-        info TEXT NOT NULL,
-        brewery_id INTEGER,
+        type VARCHAR(255),
+        info TEXT,
+        brewery_id INTEGER NOT NULL,
         is_active BOOLEAN,
         CONSTRAINT pk_beer_beer_id PRIMARY KEY (beer_id),
         CONSTRAINT fk_brewery_brewery_id FOREIGN KEY (brewery_id) REFERENCES breweries(brewery_id) 
@@ -73,12 +78,12 @@ CREATE TABLE beer (
 
 CREATE TABLE reviews (
         review_id SERIAL NOT NULL,
-        beer_id INTEGER, 
-        user_id INTEGER, 
-        subject_title VARCHAR(100) NOT NULL,
-        review TEXT NOT NULL,
-        rating INT NOT NULL,
-        create_date TIMESTAMP NOT NULL DEFAULT NOW(),
+        beer_id INTEGER NOT NULL, 
+        user_id INTEGER NOT NULL, 
+        subject_title VARCHAR(100),
+        review TEXT,
+        rating INT,
+        create_date TIMESTAMP DEFAULT NOW(),
         CONSTRAINT pk_review_review_id PRIMARY KEY (review_id),
         CONSTRAINT fk_beer_beer_id FOREIGN KEY (beer_id) REFERENCES beer(beer_id),
         CONSTRAINT fk_user_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)
@@ -88,7 +93,7 @@ CREATE TABLE reviews (
 CREATE TABLE images (
         image_id SERIAL NOT NULL,
         url VARCHAR (255),
-        description TEXT NOT NULL,
+        description TEXT,
         alt_text TEXT,
         beer_id INTEGER,
         brewery_id INTEGER,
