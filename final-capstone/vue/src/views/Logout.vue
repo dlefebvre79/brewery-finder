@@ -1,5 +1,7 @@
 <template>
+<div class="wrapper">
   <h1>Logout</h1>
+  </div>
 </template>
 
 <script>
