@@ -1,25 +1,28 @@
 <template>
   <div class = "brewery-information">
-     
-      <h1>{{brewery.name}}</h1>
-      <h3>{{brewery.address}}</h3>
-      <h3>{{brewery.city}}</h3>
-      <h3>{{brewery.zipcode}}</h3>
-      <h3>{{brewery.phoneNumber}}</h3>
-      <h3>{{brewery.daysOfOperation}}</h3>
-      <h3>{{brewery.businessHours}}</h3>
-      <h3>{{brewery.historyDesc}}</h3>
-      <h3>{{brewery.atmosphere}}</h3>
-      <h3>{{brewery.isFamilyFriendly}}</h3>
-      <h3>{{brewery.isPatio}}</h3>
-      <h3>{{brewery.isFood}}</h3>
-      <h3>{{brewery.isActive}}</h3>
-      <h3>{{brewery.websiteUrl}}</h3>
-      <h3>{{brewery.googleMapsUrl}}</h3>
-      <h3>{{brewery.userId}}</h3>
-     
-
-  </div>
+      <div v-if="brewery.id > 0">
+        <h1>{{brewery.name}}</h1>
+        <p>{{brewery.address}}</p>
+        <p>{{brewery.city}}</p>
+        <p>{{brewery.zipcode}}</p>
+        <p>{{brewery.phoneNumber}}</p>
+        <table>
+            <th>Hours of Operation:</th>
+            <tr v-for="(day, index) in brewery.daysOpen" v-bind:key="day.id">
+                <td>{{day}}</td>
+                <td>{{formatHours(brewery.hours[index])}}</td>
+            </tr>
+        </table>
+        <p>{{brewery.history}}</p>
+        <p>{{brewery.atmosphere}}</p>
+        <p>Is {{brewery.familyFriendly == true ? "" : "not"}} family friendly</p>
+        <p>Does {{brewery.hasPatio == true ? "" : "not"}} have a patio</p>
+        <p>Does {{brewery.hasFood == true ? "" : "not"}} serve food</p>
+        <!-- <a v-bind:href="brewery.websiteUrl">Website</a>
+        <p>{{brewery.googleMapsUrl}}</p>
+        <p>{{brewery.userId}}</p> -->
+      </div>
+    </div>
 </template>
 
 <script>
@@ -28,25 +31,24 @@ export default {
     name: 'brewery-information',
 
     data(){
+        
         return{
             brewery:{
                 id: 0,
                 name: '',
                 address:'',
                 city:'',
-                zipcode:'',
+                zip:'',
                 phoneNumber:'',
-                daysOfOperation:'',
-                businessHours:'',
-                historyDesc:'',
+                daysOpen: [],
+                hours: [],
+                history:'',
                 atmosphere:'',
-                isFamilyFriendly:'',
-                isPatio:'',
-                isFood:'',
+                familyFriendly:'',
+                hasPatio:'',
+                hasFood:'',
                 isActive:'',
-                websiteUrl:'',
-                googleMapsUrl:'',
-                userId:''
+
             },
         }
     },
@@ -54,8 +56,17 @@ export default {
         breweryService.getBreweriesById(this.$route.params.id).then((response)=>{
             this.brewery = response.data;
         })
+    },
+    methods: {
+        formatHours(hours) {
+            const hoursArray = hours.split("-");
+            const op = (hoursArray[0].substring(0,2)) + ":" + (hoursArray[0].substring(2));
+            const cl = (hoursArray[1].substring(0,2)) + ":" + (hoursArray[1].substring(2));
+            const open = new Date("01-01-1970 " + op).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+            const close = new Date("01-01-1970 " + cl).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+            return open + " - " + close;
+        }
     }
-
 }
 </script>
 
