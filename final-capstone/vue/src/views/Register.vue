@@ -166,8 +166,4 @@ export default {
 </script>
 
 <style>
-.text-center{
-  text-align: center;
-  
-}
 </style>
