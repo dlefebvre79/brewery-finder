@@ -1,9 +1,10 @@
 <template>
-  <div class="container">
-    <div class="left">
+  <div>
+    <!-- <div id="sidebar">
     <img src="../assets/images/beer_glass.png" alt="Beer Glass" class="img1">
-    </div>
-    <div class="main">
+    </div> -->
+    <!-- <div class="main"> -->
+     
       <h1 class="text-center">Welcome to the Tech Ale-evator Brewery Finder</h1>
     <!--<div id="login" class="text-center"> -->
     <form class="form-signin" @submit.prevent="login">
@@ -41,12 +42,11 @@
       <router-link :to="{ name: 'register' }" class="registration-button" > Need an account? </router-link>
       <button type="submit" class="btn">Sign in</button>
     </form>
+    
     </div>
-    <div class="right">
-      <img src="../assets/images/beer_glass.png" alt="Beer Glass" class="img1">
-      </div>
-    <!--</div>-->
-  </div>
+    
+    <!-- </div> -->
+  
 </template>
 
 <script>

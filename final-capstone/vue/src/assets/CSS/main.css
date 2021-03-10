@@ -1,78 +1,50 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Special+Elite&family=Ultra&display=swap");
 
-.grid-container{
-    background-image: url("../images/norwegian_rose.png");
-    border-radius: 10px;
-    grid-template-areas: 
-    "header header header header header header"
-    "left left left left left left"
-    "main main main main main main"
-    "right right right right right right"
-    "footer footer footer footer footer footer";
-}
-*{
-    box-sizing: border-box;
-}
-
-.header{
-    grid-area: header;
-    text-align: center;
-    font-family: 'Special Elite', cursive;
-    padding: 30px;
-}
-
-.left{
-    grid-area: left;
-}
-
-.main{
+.wrapper, #app{
+    display:grid;
+    height:100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1.5fr 1.2fr 0.8fr;
+    grid-template-areas:
+     "nav nav nav nav"
+     "sidebar main main main"
+     "sidebar content1 content2 content3"
+     "sidebar footer footer footer";
+     grid-gap:0.2rem;
+     font-family:'Special Elite', cursive;
+     font-size: medium;
+  }
+  #nav{
+    background-color:cornflowerblue;
+   grid-area: nav;
+  }
+  .main{
+    background-color: grey;
+    display: block;
     grid-area: main;
-}
-
-.right{
-    grid-area: right;
-}
-
-.footer{
+    width:1415px;
+    height:500px;
+  }
+  #sidebar{
+    background-color:grey;
+    grid-area:sidebar;
+  }
+  
+  #content1{
+  background-color:cornflowerblue;
+  grid-area: content1;
+  }
+  #content2{
+    background-color: white;
+    grid-area: content2;
+  }
+  #content3{
+    background-color:grey ;
+    grid-area: content3;
+  }
+  footer{
+    background-color: grey;
     grid-area: footer;
-    text-align:center;
-}
-
-.text-center{
-    align-content: flex-end;
-    justify-content: center;
-    font-family: 'Special Elite', cursive;
-}
-
-.main-nav{
-    font-family: 'Special Elite', cursive;
-    
-}
-
-a.router-link-active{
-    text-decoration: none;
-}
-
-a{
-    text-decoration: none;
-}
-
-
-.container{
-    display: flex;
-    justify-content: space-evenly;
-    
-    
-}
-
-.btn{
-    transition-duration: 0.4s;
-    border: 2px solid #4CAF50;
-    border-radius: 4px;
-}
-
-.btn:hover{
-    background-color: #4CAF50; 
-    color: white;
-}
-
+  }
+  
+  
