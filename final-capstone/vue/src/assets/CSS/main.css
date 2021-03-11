@@ -25,6 +25,7 @@
     /* width:1415px; */
     min-height:500px; 
     
+    
 }
   
 footer{
@@ -56,4 +57,21 @@ a{
     max-inline-size: 50%;
     border-radius: 50%;
     opacity: 0.75;
+}
+
+.brewery-table{
+    margin: 0 auto;
+}
+
+ul{
+    padding: 0px;
+}
+
+li{
+    display: block;
+    text-align: center;
+}
+
+.brew-list:hover{
+    color:darkorange;
 }
