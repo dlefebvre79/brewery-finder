@@ -19,6 +19,11 @@ getBreweriesById(id)
 getBeerById(id)
 {
     return http.get(`/beer/${id}`);
+},
+
+getBeerByBrewery(id)
+{
+    return http.get(`brewery/beer/${id}`);
 }
 
 
