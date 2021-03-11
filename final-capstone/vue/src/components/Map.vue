@@ -7,7 +7,7 @@ import gmapsInit from "@/utils/gmaps";
 
 export default {
     created() {
-        this.target = this.$store.state.map.location;
+        this.target = this.$store.state.mapTarget;
     },
   name: "gmap",
   target: '',
@@ -18,7 +18,7 @@ export default {
       const map = new google.maps.Map(this.$el);
       const request = {
         query: this.target,
-        fields: ["name", "geometry", "rating"],
+        fields: ["name", "geometry"],
       };
       let infowindow = new google.maps.InfoWindow();
       let service = new google.maps.places.PlacesService(map);
@@ -39,7 +39,6 @@ export default {
               }
               map.setCenter(results[0].geometry.location);
               map.fitBounds(results[0].geometry.viewport);
-              this.$store.commit('SET_GOOGLE_RATING', results[0].rating);
           }
       })
     } catch (error) {
