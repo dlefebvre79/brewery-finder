@@ -1,9 +1,8 @@
 <template>
   <div class="wrapper">
      <h1 class="text-center">Welcome to the Tech Ale-evator Brewery Finder</h1>
-    <div id="login" class="text-center">
+    <div id="login" class="text-body">
     <form class="form-signin" @submit.prevent="login">
-      
       <h2 class="h3 mb-3 font-weight-normal">Please Sign In</h2>
       <div
         class="alert alert-danger"
@@ -38,7 +37,7 @@
       <button type="submit" class="btn">Sign in</button>
     </form>
     <br>
-    <img src="../assets/images/great-lakes.jpg" alt="Great Lakes Brewery" class="login-image">
+   <!--  <img src="../assets/images/great-lakes.jpg" alt="Great Lakes Brewery" class="login-image"> -->
     <br>
     </div>
     

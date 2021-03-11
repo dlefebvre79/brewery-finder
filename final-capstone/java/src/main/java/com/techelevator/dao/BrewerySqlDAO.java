@@ -126,8 +126,8 @@ public class BrewerySqlDAO implements BreweryDAO
 							breweryToUpdate.getHistory(),
 							breweryToUpdate.getAtmosphere(),
 							breweryToUpdate.isFamilyFriendly(),
-							breweryToUpdate.hasPatio(),
-							breweryToUpdate.hasFood(),
+							breweryToUpdate.isPatio(),
+							breweryToUpdate.isFood(),
 							breweryToUpdate.isActive(),
 							breweryToUpdate.getBrewer().getId(),
 							breweryToUpdate.getId());

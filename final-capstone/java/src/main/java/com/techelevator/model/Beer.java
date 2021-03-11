@@ -6,10 +6,11 @@ public class Beer
 {
 	private int id;
 	private String name;
-	private String description;
+	private String info;
 	private BigDecimal abv;
 	private int ibu;
-	private Image image;
+	private String type;
+	private int breweryId;
 	private boolean active;
 	public int getId()
 	{
@@ -27,14 +28,6 @@ public class Beer
 	{
 		this.name = name;
 	}
-	public String getDescription()
-	{
-		return description;
-	}
-	public void setDescription(String description)
-	{
-		this.description = description;
-	}
 	public BigDecimal getAbv()
 	{
 		return abv;
@@ -51,14 +44,38 @@ public class Beer
 	{
 		this.ibu = ibu;
 	}
-	public Image getImage()
+	public String getType()
 	{
-		return image;
+		return type;
 	}
-	public void setImage(Image image)
+	public void setType(String type)
 	{
-		this.image = image;
+		this.type = type;
 	}
+	public String getInfo()
+	{
+		return info;
+	}
+	public void setInfo(String info)
+	{
+		this.info = info;
+	}
+	public int getBreweryId()
+	{
+		return breweryId;
+	}
+	public void setBreweryId(int breweryId)
+	{
+		this.breweryId = breweryId;
+	}
+//	public Image getImage()
+//	{
+//		return image;
+//	}
+//	public void setImage(Image image)
+//	{
+//		this.image = image;
+//	}
 	public boolean isActive()
 	{
 		return active;
