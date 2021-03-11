@@ -1,11 +1,11 @@
 <template>
-<div class = "beer information">
+<div class = "beer-information">
     <div v-if="beer.id > 0">
         <h1>{{beer.name}}</h1>
-        <p>{{beer.abv}}</p>
-        <p>{{beer.ibu}}</p>
-        <p>{{beer.type}}</p>
-        <p>{{beer.info}}</p>
+        <p> ABV: {{beer.abv}}</p>
+        <p> IBU: {{beer.ibu}}</p>
+        <p>TYPE: {{beer.type}}</p>
+        <p>DESCRIPTION: {{beer.info}}</p>
     </div>
 
 </div>
