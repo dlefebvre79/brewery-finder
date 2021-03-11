@@ -9,7 +9,7 @@
      /* flex-wrap: wrap; */
      font-family:'Noto Sans', sans-serif;
      font-size: medium;
-     background-image: url("../images/norwegian_rose.png");
+     background-image: url("../images/great-lakes.jpg");
 }
 
 #nav{
@@ -26,11 +26,10 @@
 .main{
     text-align: center;
     flex-grow:2;
-    /* background-color: grey; */
+    /* background-color: orange; */
    /*  display: block;*/
     /* width:1415px; */
     min-height:500px; 
-    
     
 }
   
@@ -64,27 +63,9 @@ a{
 }
 
 .text-center{
-    color:blue;
-}
-.login-image{
-    max-inline-size: 50%;
-    border-radius: 50%;
-    opacity: 0.75;
+    color:darkorange;
 }
 
-.brewery-table{
-    margin: 0 auto;
-}
-
-ul{
-    padding: 0px;
-}
-
-li{
-    display: block;
-    text-align: center;
-}
-
-.brew-list:hover{
+.registration-button{
     color:darkorange;
 }
