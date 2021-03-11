@@ -6,8 +6,8 @@
         <p>{{brewery.city}}</p>
         <p>{{brewery.zipcode}}</p>
         <p>{{brewery.phoneNumber}}</p>
-        <table>
-            <th colspan=2>Hours of Operation:</th>
+        <table class="brewery-table">
+            <th>Hours of Operation:</th>
             <tr v-for="(day, index) in brewery.daysOpen" v-bind:key="day.id">
                 <td>{{day}}</td>
                 <td>{{formatHours(brewery.hours[index])}}</td>
