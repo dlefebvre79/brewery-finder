@@ -163,7 +163,7 @@ public class Brewery
 		this.familyFriendly = familyFriendly;
 	}
 
-	public boolean hasPatio()
+	public boolean isPatio()
 	{
 		return patio;
 	}
@@ -173,7 +173,7 @@ public class Brewery
 		this.patio = patio;
 	}
 
-	public boolean hasFood()
+	public boolean isFood()
 	{
 		return food;
 	}

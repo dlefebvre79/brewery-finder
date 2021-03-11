@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import Breweries from '@/views/Breweries.vue'
 import BreweryInformation from '@/components/BreweryInformation.vue'
+import Map from '@/components/Map.vue'
 
 Vue.use(Router)
 
@@ -64,6 +65,11 @@ const router = new Router({
       path:"/breweries",
       name: "brewery-list",
       component: Breweries
+    },
+    {
+        path: "/map/:name",
+        name: "map",
+        component: Map
     }
   ]
 })

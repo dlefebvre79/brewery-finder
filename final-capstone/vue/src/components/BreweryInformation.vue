@@ -7,17 +7,18 @@
         <p>{{brewery.zipcode}}</p>
         <p>{{brewery.phoneNumber}}</p>
         <table>
-            <th>Hours of Operation:</th>
+            <th colspan=2>Hours of Operation:</th>
             <tr v-for="(day, index) in brewery.daysOpen" v-bind:key="day.id">
                 <td>{{day}}</td>
                 <td>{{formatHours(brewery.hours[index])}}</td>
             </tr>
         </table>
+        <!-- <gmap :target="brewery.name"/> -->
         <p>{{brewery.history}}</p>
         <p>{{brewery.atmosphere}}</p>
         <p>Is {{brewery.familyFriendly == true ? "" : "not"}} family friendly</p>
-        <p>Does {{brewery.hasPatio == true ? "" : "not"}} have a patio</p>
-        <p>Does {{brewery.hasFood == true ? "" : "not"}} serve food</p>
+        <p>Does {{brewery.patio == true ? "" : "not"}} have a patio</p>
+        <p>Does {{brewery.food == true ? "" : "not"}} serve food</p>
         <!-- <a v-bind:href="brewery.websiteUrl">Website</a>
         <p>{{brewery.googleMapsUrl}}</p>
         <p>{{brewery.userId}}</p> -->
@@ -27,11 +28,19 @@
 
 <script>
 import breweryService from "@/services/BreweryService";
+import gmap from "@/components/Map";
 
 
 export default {
     name: 'brewery-information',
-
+    components: {
+        gmap
+    },
+    computed: {
+        mapTarget() {
+            return this.brewery.name.toLowerCase(); //.replaceAll(" ", "%20");
+        },
+    },
     data(){
         
         return{
@@ -47,8 +56,8 @@ export default {
                 history:'',
                 atmosphere:'',
                 familyFriendly:'',
-                hasPatio:'',
-                hasFood:'',
+                patio:'',
+                food:'',
                 isActive:'',
 
             },
