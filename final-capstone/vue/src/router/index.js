@@ -8,6 +8,7 @@ import store from '../store/index'
 import Breweries from '@/views/Breweries.vue'
 import BreweryInformation from '@/components/BreweryInformation.vue'
 import BeerInformation from '@/components/BeerInformation.vue'
+import BeerList from '@/components/BeerList.vue'
 
 Vue.use(Router)
 
@@ -71,6 +72,11 @@ const router = new Router({
       name:"beer-information",
       component: BeerInformation
     },
+    {
+      path:"brewery/:id/beer",
+      name:"beer-list",
+      component: BeerList
+    }
   ]
 })
 

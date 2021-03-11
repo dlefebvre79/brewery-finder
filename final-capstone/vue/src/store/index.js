@@ -20,7 +20,12 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    mapTarget: ''
+    map: {
+        rating: '',
+        location: ''
+    }
+    //googleRating: '',
+    //mapTarget: ''
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -40,7 +45,10 @@ export default new Vuex.Store({
       axios.defaults.headers.common = {};
     },
     SET_MAP_TARGET(state, place) {
-        state.mapTarget = place;
+        state.map.location = place;
+    },
+    SET_GOOGLE_RATING(state, rating) {
+        state.map.rating = rating;
     }
   }
 })
