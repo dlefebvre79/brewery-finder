@@ -29,7 +29,7 @@
     /* background-color: orange; */
    /*  display: block;*/
     /* width:1415px; */
-    min-height:500px; 
+    min-height:1000px; 
     
 }
   
@@ -45,7 +45,7 @@ a{
 }
 
 .text-center{
-    font-family: 'Pacifico', cursive;
+    font-family: 'ariel';
 }
 
 .text-body{
@@ -68,4 +68,9 @@ a{
 
 .registration-button{
     color:darkorange;
+}
+
+label{
+    color: darkorange;
+    font-family: Arial, Helvetica, sans-serif;
 }
