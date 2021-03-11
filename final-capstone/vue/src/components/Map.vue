@@ -20,6 +20,7 @@ export default {
         query: this.target,
         fields: ["name", "geometry"],
       };
+      let infowindow = new google.maps.InfoWindow();
       let service = new google.maps.places.PlacesService(map);
       service.findPlaceFromQuery(request, (results, status) => {
           if(status === google.maps.places.PlacesServiceStatus.OK && results) {

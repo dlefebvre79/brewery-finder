@@ -8,7 +8,6 @@ import store from '../store/index'
 import Breweries from '@/views/Breweries.vue'
 import BreweryInformation from '@/components/BreweryInformation.vue'
 import BeerInformation from '@/components/BeerInformation.vue'
-import Map from '@/components/Map.vue'
 
 Vue.use(Router)
 
