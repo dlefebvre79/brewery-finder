@@ -50,10 +50,6 @@ a{
 }
 
 .text-center{
-    color:blue;
+    color:darkorange;
 }
-.login-image{
-    max-inline-size: 50%;
-    border-radius: 50%;
-    opacity: 0.75;
-}
+
