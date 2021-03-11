@@ -1,11 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Special+Elite&family=Ultra&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Special+Elite&family=Ultra&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Notable&family=Noto+Sans&family=Pacifico&display=swap");
+
 
 .wrapper, #app{
      display: flex;
      flex-direction: column;
      flex-basis: 0;
      /* flex-wrap: wrap; */
-     font-family:'Special Elite', cursive;
+     font-family:'Noto Sans', sans-serif;
      font-size: medium;
      background-image: url("../images/norwegian_rose.png");
 }
@@ -14,7 +16,11 @@
     text-align: center;
     color:black;
     flex-grow: 1;
-    background-color:darkorange;
+    background: hsla(56, 83%, 59%, 1);
+    background: linear-gradient(360deg, hsla(56, 83%, 59%, 1) 34%, hsla(15, 74%, 54%, 1) 83%);
+    background: -moz-linear-gradient(360deg, hsla(56, 83%, 59%, 1) 34%, hsla(15, 74%, 54%, 1) 83%);
+    background: -webkit-linear-gradient(360deg, hsla(56, 83%, 59%, 1) 34%, hsla(15, 74%, 54%, 1) 83%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#EDE342", endColorstr="#E05E33", GradientType=1 );
     grid-area: nav;
 }
 .main{
@@ -24,6 +30,7 @@
    /*  display: block;*/
     /* width:1415px; */
     min-height:500px; 
+    
     
 }
   
@@ -37,7 +44,14 @@ a{
     color: darkblue;
     text-decoration: none;
 }
-  
+
+.text-center{
+    font-family: 'Pacifico', cursive;
+}
+
+.text-body{
+    font-family: 'Noto Sans', sans-serif;
+}
 .btn{
     transition-duration: 0.4s;
     border: 2px solid cornflowerblue;
@@ -56,4 +70,21 @@ a{
     max-inline-size: 50%;
     border-radius: 50%;
     opacity: 0.75;
+}
+
+.brewery-table{
+    margin: 0 auto;
+}
+
+ul{
+    padding: 0px;
+}
+
+li{
+    display: block;
+    text-align: center;
+}
+
+.brew-list:hover{
+    color:darkorange;
 }
