@@ -22,7 +22,8 @@ export default new Vuex.Store({
     user: currentUser || {},
     map: {
         rating: '',
-        location: ''
+        location: '',
+        price: ''
     }
     //googleRating: '',
     //mapTarget: ''
@@ -49,6 +50,16 @@ export default new Vuex.Store({
     },
     SET_GOOGLE_RATING(state, rating) {
         state.map.rating = rating;
-    }
+    },
+    SET_GOOGLE_PRICE(state, price) {
+        let priceDollars = "";
+        for(let i = 0; i <= price; i++){
+            priceDollars = priceDollars + "$";
+        }
+        if(priceDollars.length === 0){
+            priceDollars = "N/A";
+        }
+        state.map.price = priceDollars;
+    },
   }
 })
