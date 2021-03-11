@@ -1,10 +1,10 @@
 <template>
-  <div class="brewery-list">
+  <div class="beers-list">
     <ul>
-      <li v-for="brewery in breweries" v-bind:key="brewery.id" class="brewery">
+      <li v-for="beer in breweries" v-bind:key="beer.id" class="brewery-beers">
         <router-link v-bind:to="{ name: 'brewery', params: { id: brewery.id } }">
-          {{ brewery.name }}</router-link>
-        | {{ brewery.phoneNumber }} | {{ brewery.address }} | {{ brewery.city }} |  Pricing: ($$)
+          {{ beer.name }}</router-link>
+        | {{ beer.info }} | {{ beer.abv }} | {{ beer.type }} 
       </li>
     </ul>
   </div>
@@ -13,16 +13,16 @@
 <script>
 import breweryService from "@/services/BreweryService";
 export default {
-  name: "brewery-list",
+  name: "beer-list",
   data() {
     return {
-      breweries: [],
+      beer: [],
     };
   },
 
   created() {
     breweryService.list().then((response) => {
-      this.breweries = response.data;
+      this.beer = response.data;
     });
   },
 };

@@ -20,7 +20,13 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    mapTarget: ''
+    map: {
+        rating: '',
+        location: '',
+        price: ''
+    }
+    //googleRating: '',
+    //mapTarget: ''
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -40,7 +46,20 @@ export default new Vuex.Store({
       axios.defaults.headers.common = {};
     },
     SET_MAP_TARGET(state, place) {
-        state.mapTarget = place;
-    }
+        state.map.location = place;
+    },
+    SET_GOOGLE_RATING(state, rating) {
+        state.map.rating = rating;
+    },
+    SET_GOOGLE_PRICE(state, price) {
+        let priceDollars = "";
+        for(let i = 0; i <= price; i++){
+            priceDollars = priceDollars + "$";
+        }
+        if(priceDollars.length === 0){
+            priceDollars = "N/A";
+        }
+        state.map.price = priceDollars;
+    },
   }
 })
