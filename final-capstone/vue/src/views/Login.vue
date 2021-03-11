@@ -38,7 +38,6 @@
       <button type="submit" class="btn">Sign in</button>
     </form>
     <br>
-    <img src="../assets/images/great-lakes.jpg" alt="Great Lakes Brewery" class="login-image">
     <br>
     </div>
     

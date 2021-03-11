@@ -7,7 +7,7 @@
      /* flex-wrap: wrap; */
      font-family:'Special Elite', cursive;
      font-size: medium;
-     background-image: url("../images/norwegian_rose.png");
+     background-image: url("../images/great-lakes.jpg");
 }
 
 #nav{
@@ -20,7 +20,7 @@
 .main{
     text-align: center;
     flex-grow:2;
-    /* background-color: grey; */
+    /* background-color: orange; */
    /*  display: block;*/
     /* width:1415px; */
     min-height:500px; 
