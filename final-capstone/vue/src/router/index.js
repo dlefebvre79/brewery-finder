@@ -72,11 +72,6 @@ const router = new Router({
       name:"beer-information",
       component: BeerInformation
     },
-    {
-        path: "/map/:name",
-        name: "map",
-        component: Map
-    }
   ]
 })
 

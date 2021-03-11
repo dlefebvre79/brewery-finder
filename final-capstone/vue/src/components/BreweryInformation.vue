@@ -6,14 +6,16 @@
         <p>{{brewery.city}}</p>
         <p>{{brewery.zipcode}}</p>
         <p>{{brewery.phoneNumber}}</p>
-        <table class="brewery-table">
-            <th>Hours of Operation:</th>
-            <tr v-for="(day, index) in brewery.daysOpen" v-bind:key="day.id">
-                <td>{{day}}</td>
-                <td>{{formatHours(brewery.hours[index])}}</td>
-            </tr>
-        </table>
-        <!-- <gmap :target="brewery.name"/> -->
+        <div id="hours-map">
+            <table class="brewery-table">
+                <th colspan="2">Hours of Operation:</th>
+                <tr v-for="(day, index) in brewery.daysOpen" v-bind:key="day.id">
+                    <td>{{day}}</td>
+                    <td>{{formatHours(brewery.hours[index])}}</td>
+                </tr>
+            </table>
+            <gmap id="map"/>
+        </div>
         <p>{{brewery.history}}</p>
         <p>{{brewery.atmosphere}}</p>
         <p>Is {{brewery.familyFriendly == true ? "" : "not"}} family friendly</p>
@@ -35,11 +37,6 @@ export default {
     name: 'brewery-information',
     components: {
         gmap
-    },
-    computed: {
-        mapTarget() {
-            return this.brewery.name.toLowerCase(); //.replaceAll(" ", "%20");
-        },
     },
     data(){
         
@@ -66,6 +63,7 @@ export default {
     created(){
         breweryService.getBreweriesById(this.$route.params.id).then((response)=>{
             this.brewery = response.data;
+            this.$store.commit('SET_MAP_TARGET', this.brewery.name);
         })
     },
     methods: {
@@ -83,5 +81,9 @@ export default {
 
 
 <style>
+
+#map {
+    height: 250px;
+}
 
 </style>

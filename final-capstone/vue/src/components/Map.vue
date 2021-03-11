@@ -7,7 +7,7 @@ import gmapsInit from "@/utils/gmaps";
 
 export default {
     created() {
-        this.target = this.$route.params.name;
+        this.target = this.$store.state.mapTarget;
     },
   name: "gmap",
   target: '',
