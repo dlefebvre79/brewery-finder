@@ -19,6 +19,7 @@
         <p>{{brewery.history}}</p>
         <p>{{brewery.atmosphere}}</p>
         <p>Google Rating: {{$store.state.map.rating}}</p>
+        <p>Price Level: {{$store.state.map.price}}</p>
         <p>Is {{brewery.familyFriendly == true ? "" : "not"}} family friendly</p>
         <p>Does {{brewery.patio == true ? "" : "not"}} have a patio</p>
         <p>Does {{brewery.food == true ? "" : "not"}} serve food</p>
