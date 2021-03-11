@@ -9,7 +9,7 @@
         <div id="hours-map">
             <table class="brewery-table">
                 <th colspan="2">Hours of Operation:</th>
-                <tr v-for="(day, index) in brewery.daysOpen" v-bind:key="day.id">
+                <tr v-for="(day, index) in brewery.daysOpen" v-bind:key="day.id" class="table">
                     <td>{{day}}</td>
                     <td>{{formatHours(brewery.hours[index])}}</td>
                 </tr>
