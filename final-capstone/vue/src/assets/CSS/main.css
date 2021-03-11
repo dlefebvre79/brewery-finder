@@ -1,50 +1,59 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Special+Elite&family=Ultra&display=swap");
 
-.text-center{
-    align-content: flex-end;
-    justify-content: center;
-    font-family: 'Special Elite', cursive;
+.wrapper, #app{
+     display: flex;
+     flex-direction: column;
+     flex-basis: 0;
+     /* flex-wrap: wrap; */
+     font-family:'Special Elite', cursive;
+     font-size: medium;
+     background-image: url("../images/norwegian_rose.png");
 }
 
-.main-nav{
-    font-family: 'Special Elite', cursive;
+#nav{
+    text-align: center;
+    color:black;
+    flex-grow: 1;
+    background-color:darkorange;
+    grid-area: nav;
+}
+.main{
+    text-align: center;
+    flex-grow:2;
+    /* background-color: grey; */
+   /*  display: block;*/
+    /* width:1415px; */
+    min-height:500px; 
     
 }
-
-a.router-link-active{
-    text-decoration: none;
+  
+footer{
+    background-color:darkorange;
+    flex-grow: 1;
+    text-align: center;
 }
 
 a{
+    color: darkblue;
     text-decoration: none;
 }
-
-@keyframes word{
-    0%{background-color:aquamarine;}
-    50%{background-color:rgb(64, 156, 126)}
-    100%{background-color: rgb(13, 83, 60);}
-    
-  }
-
-.container{
-    display: flex;
-    justify-content: space-evenly;
-    background-color: aquamarine;
-    border-radius: 10px;
-    animation-name: word;
-    animation-duration: 8s;
-    animation-iteration-count: infinite;
-    animation-direction:alternate;
-}
-
+  
 .btn{
     transition-duration: 0.4s;
-    border: 2px solid #4CAF50;
+    border: 2px solid cornflowerblue;
     border-radius: 4px;
 }
 
 .btn:hover{
-    background-color: #4CAF50; 
+    background-color: cornflowerblue; 
     color: white;
 }
 
+.text-center{
+    color:blue;
+}
+.login-image{
+    max-inline-size: 50%;
+    border-radius: 50%;
+    opacity: 0.75;
+}
