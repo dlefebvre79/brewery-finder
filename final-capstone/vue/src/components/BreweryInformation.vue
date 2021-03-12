@@ -14,7 +14,9 @@
                     <td>{{formatHours(brewery.hours[index])}}</td>
                 </tr>
             </table>
+            <br>
             <gmap id="map"/>
+            <br>
         </div>
         <p>{{brewery.history}}</p>
         <p>{{brewery.atmosphere}}</p>
@@ -38,7 +40,7 @@ import gmap from "@/components/Map";
 export default {
     name: 'brewery-information',
     components: {
-        gmap
+        gmap,
     },
     data(){
         

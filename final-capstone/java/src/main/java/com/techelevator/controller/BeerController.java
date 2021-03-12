@@ -66,6 +66,13 @@ public class BeerController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "/brewery/{id}", method = RequestMethod.GET)
+	public List<Beer> getByBreweryId(@Valid @PathVariable int id)
+	{
+		return beerDAO.getByBreweryId(id);
+	}
+	
+	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/name/{name}", method = RequestMethod.GET)
 	public List<Beer> getByName(@Valid @PathVariable String name)
 	{

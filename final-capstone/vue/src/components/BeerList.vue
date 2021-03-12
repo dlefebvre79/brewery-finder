@@ -1,8 +1,8 @@
 <template>
   <div class="beers-list">
     <ul>
-      <li v-for="beer in breweries" v-bind:key="beer.id" class="brewery-beers">
-        <router-link v-bind:to="{ name: 'beer', params: { id: beer.id } }">
+      <li v-for="beer in beers" v-bind:key="beer.id" class="brewery-beers">
+        <router-link v-bind:to="{ name: 'brewery', params: { id: brewery.id } }">
           {{ beer.name }}</router-link>
         | {{ beer.info }} | {{ beer.abv }} | {{ beer.type }} 
       </li>
@@ -16,13 +16,17 @@ export default {
   name: "beer-list",
   data() {
     return {
-      beer: [],
+      brewery: {},
+      beers: [],
     };
   },
 
   created() {
-    breweryService.list().then((response) => {
-      this.beer = response.data;
+    breweryService.getBreweriesById(this.$route.params.id).then((response) => {
+      this.brewery = response.data;
+    });
+    breweryService.getBeerByBrewery(this.$route.params.id).then((response) => {
+      this.beers = response.data;
     });
   },
 };
