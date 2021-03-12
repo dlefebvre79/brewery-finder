@@ -6,20 +6,26 @@ const http = axios.create({
 
 export default {
 
-  findAll() {
-    return http.get('')
-  },
+    findAll()
+    {
+        return http.get('')
+    },
 
-  update(user) {
-    return http.put('/update', user)
-  },
+    getByUsername(username)
+    {
+        axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+        return http.get(`/get?username=${username}`);
+    },
 
-  updateRole(user, role) {
-      //user.authorities = [{name: ""}];
-      axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
-    //   console.log(localStorage.getItem('token'));
-    //   console.log(user);
-      return http.put(`/role?role=${role}`, user);
-  },
+    update(user)
+    {
+        return http.put('/update', user)
+    },
+
+    updateRole(user, role)
+    {
+        axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+        return http.put(`/role?role=${role}`, user);
+    },
 
 }
