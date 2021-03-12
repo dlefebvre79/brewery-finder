@@ -9,7 +9,7 @@ import Breweries from '@/views/Breweries.vue'
 import BreweryInformation from '@/components/BreweryInformation.vue'
 import BeerInformation from '@/components/BeerInformation.vue'
 import BeerList from '@/components/BeerList.vue'
-import UserList from '@/components/UserList.vue'
+import Users from '@/views/Users.vue'
 
 Vue.use(Router)
 
@@ -80,8 +80,8 @@ const router = new Router({
     },
     {
         path:"/user",
-        name:"user-list",
-        component: UserList
+        name:"users",
+        component: Users
     }
   ]
 })

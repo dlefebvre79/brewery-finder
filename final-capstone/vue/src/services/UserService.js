@@ -14,9 +14,12 @@ export default {
     return http.put('/update', user)
   },
 
-  updateRole(user) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${$state.store.token}`
-      return http.put('/role?role=brewer', user.username)
+  updateRole(user, role) {
+      //user.authorities = [{name: ""}];
+      axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+    //   console.log(localStorage.getItem('token'));
+    //   console.log(user);
+      return http.put(`/role?role=${role}`, user);
   },
 
 }
