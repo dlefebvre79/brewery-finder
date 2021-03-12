@@ -6,6 +6,8 @@
         <div class="alert alert-danger" role="alert" v-if="registrationErrors">
           {{ registrationErrorMsg }}
         </div>
+        <table>
+        <tr>
         <label for="username" class="sr-only">Username  </label>
         <input
           type="text"
@@ -16,8 +18,9 @@
           required
           autofocus
         />
+        </tr>
         <br />
-        <br />
+        <tr>
         <label for="password" class="sr-only">Password  </label>
         <input
           type="password"
@@ -27,8 +30,10 @@
           v-model="user.password"
           required
         />
+        </tr>
         <br />
-        <br />
+        <tr>
+        <label for="Confirm" class="sr-only">Confirm pwd  </label>
         <input
           type="password"
           id="confirmPassword"
@@ -37,8 +42,9 @@
           v-model="user.confirmPassword"
           required
         />
+        </tr>
         <br />
-        <br />
+        <tr>
         <label for="first-name" class="sr-only">First Name  </label>
         <input
           type="first-name"
@@ -48,8 +54,9 @@
           v-model="user.firstName"
           required
         />
+        </tr>
         <br />
-        <br />
+        <tr>
         <label for="last-name" class="sr-only">Last Name  </label>
         <input
           type="last-name"
@@ -59,8 +66,9 @@
           v-model="user.lastName"
           required
         />
+        </tr>
         <br />
-        <br />
+        <tr>
         <label for="email-address" class="sr-only">Email Address  </label>
         <input
           type="email-address"
@@ -70,8 +78,9 @@
           v-model="user.email"
           required
         />
+        </tr>
         <br />
-        <br />
+        <tr>
         <label for="birth-date" class="sr-only">Birth Date  </label>
         <input
           type="date"
@@ -82,8 +91,9 @@
           v-model="user.birthDate"
           required
         />
+        </tr>
         <br />
-        <br />
+        <tr>
         <label for="zip-code" class="sr-only">Zip Code  </label>
         <input
           type="zip-code"
@@ -93,7 +103,8 @@
           v-model="user.zip"
           required
         />
-        <br />
+        </tr>
+        </table>
         <br />
         <input
           type="checkbox"
@@ -113,7 +124,9 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">
           Create Account
         </button>
+        
       </form>
+
     </div>
   </div>
 </template>
@@ -182,4 +195,9 @@ export default {
 </script>
 
 <style>
+  table {
+    text-align: justify;
+    margin: 0 auto;
+  }
+
 </style>
