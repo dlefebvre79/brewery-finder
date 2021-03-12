@@ -4,6 +4,7 @@
       <brewery-list/>
       <beer-information v-bind:beer-id="$route.params.id"/>
       <beer-list/>
+      <add-beer/>
   </div>
 </template>
 
@@ -12,13 +13,15 @@ import BreweryInformation from '@/components/BreweryInformation.vue';
 import BreweryList from '@/components/BreweryList.vue';
 import BeerInformation from '@/components/BeerInformation.vue';
 import BeerList from '@/components/BeerList.vue';
+import AddBeer from '@/components/AddBeer.vue';
 export default {
     name: 'Breweries',
     components:{
         BreweryInformation,
         BreweryList,
         BeerInformation,
-        BeerList
+        BeerList,
+        AddBeer
     }
 
 }
