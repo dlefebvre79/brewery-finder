@@ -10,11 +10,8 @@ import BreweryInformation from '@/components/BreweryInformation.vue'
 import BeerInformation from '@/components/BeerInformation.vue'
 import BeerList from '@/components/BeerList.vue'
 import Users from '@/views/Users.vue'
-<<<<<<< HEAD
 import AddBeer from '@/components/AddBeer.vue'
-=======
 import CreateBrewery from '@/components/CreateBrewery.vue'
->>>>>>> develop
 
 Vue.use(Router)
 
