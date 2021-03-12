@@ -6,7 +6,7 @@
         <div class="alert alert-danger" role="alert" v-if="registrationErrors">
           {{ registrationErrorMsg }}
         </div>
-        <label for="username" class="sr-only">Username</label>
+        <label for="username" class="sr-only">Username  </label>
         <input
           type="text"
           id="username"
@@ -18,7 +18,7 @@
         />
         <br />
         <br />
-        <label for="password" class="sr-only">Password</label>
+        <label for="password" class="sr-only">Password  </label>
         <input
           type="password"
           id="password"
@@ -39,7 +39,7 @@
         />
         <br />
         <br />
-        <label for="first-name" class="sr-only">First Name</label>
+        <label for="first-name" class="sr-only">First Name  </label>
         <input
           type="first-name"
           id="firstName"
@@ -50,7 +50,7 @@
         />
         <br />
         <br />
-        <label for="last-name" class="sr-only">Last Name</label>
+        <label for="last-name" class="sr-only">Last Name  </label>
         <input
           type="last-name"
           id="lastName"
@@ -61,7 +61,7 @@
         />
         <br />
         <br />
-        <label for="email-address" class="sr-only">Email Address</label>
+        <label for="email-address" class="sr-only">Email Address  </label>
         <input
           type="email-address"
           id="emailAddress"
@@ -72,7 +72,7 @@
         />
         <br />
         <br />
-        <label for="birth-date" class="sr-only">Birth Date</label>
+        <label for="birth-date" class="sr-only">Birth Date  </label>
         <input
           type="date"
           id="birthDate"
@@ -84,7 +84,7 @@
         />
         <br />
         <br />
-        <label for="zip-code" class="sr-only">Zip Code</label>
+        <label for="zip-code" class="sr-only">Zip Code  </label>
         <input
           type="zip-code"
           id="zipCode"
@@ -102,10 +102,12 @@
           value="opt-in"
           v-model="user.subscribed"
         />
-        <label for="notifications">Would you like to receive spam?</label>
+        <label for="notifications">Would you like to receive spam?  </label>
         <br />
         <br />
-        <router-link :to="{ name: 'login' }">Have an account?</router-link>
+        
+        <router-link :to="{ name: 'login' }" class="register-text">Have an account?  </router-link>
+        
         <br />
         <br />
         <button class="btn btn-lg btn-primary btn-block" type="submit">
