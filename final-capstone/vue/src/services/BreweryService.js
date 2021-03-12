@@ -24,6 +24,11 @@ getBeerById(id)
 getBeerByBrewery(id)
 {
     return http.get(`/beer/brewery/${id}`);
+},
+
+create(brewery) {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+    return http.post('/brewery/create', brewery);
 }
 
 

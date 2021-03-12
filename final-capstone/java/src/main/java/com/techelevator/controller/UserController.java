@@ -96,6 +96,13 @@ public class UserController
 		return userDAO.findAll();
 	}
 	
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "/get", method = RequestMethod.GET)
+	public User getByUsername(@RequestParam String username)
+	{
+		return userDAO.findByUsername(username);
+	}
+	
 	
 	private boolean isLegalAge(LocalDate birthDate)
 	{

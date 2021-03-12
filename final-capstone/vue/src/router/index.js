@@ -10,6 +10,7 @@ import BreweryInformation from '@/components/BreweryInformation.vue'
 import BeerInformation from '@/components/BeerInformation.vue'
 import BeerList from '@/components/BeerList.vue'
 import Users from '@/views/Users.vue'
+import CreateBrewery from '@/components/CreateBrewery.vue'
 
 Vue.use(Router)
 
@@ -81,17 +82,36 @@ const router = new Router({
     {
         path:"/user",
         name:"users",
-        component: Users
-    }
-  ]
+        component: Users,
+        meta: {
+            requiresAdmin: true
+          }
+    },
+    {
+        path:"/create-brewery",
+        name:"create-brewery",
+        component: CreateBrewery,
+        meta: {
+            requiresAdmin: true
+          }
+    },
+    ]
 })
 
 router.beforeEach((to, from, next) => {
   // Determine if the route requires Authentication
   const requiresAuth = to.matched.some(x => x.meta.requiresAuth);
+  const requiresAdmin = to.matched.some(x => x.meta.requiresAdmin);
 
   // If it does and they are not logged in, send the user to "/login"
   if (requiresAuth && store.state.token === '') {
+    next("/login");
+  } else {
+    // Else let them go to their next destination
+    next();
+  }
+  // If it does and they are not logged in, send the user to "/login"
+  if (requiresAdmin && store.state.user.authorities[0].name != 'ROLE_ADMIN') {
     next("/login");
   } else {
     // Else let them go to their next destination
