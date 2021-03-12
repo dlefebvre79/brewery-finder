@@ -38,7 +38,7 @@ import gmap from "@/components/Map";
 export default {
     name: 'brewery-information',
     components: {
-        gmap
+        gmap,
     },
     data(){
         

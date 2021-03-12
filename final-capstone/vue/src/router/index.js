@@ -73,7 +73,7 @@ const router = new Router({
       component: BeerInformation
     },
     {
-      path:"/brewery/:id/beer",
+      path:"/beer/brewery/:id",
       name:"beer-list",
       component: BeerList
     }
