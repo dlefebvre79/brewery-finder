@@ -2,7 +2,7 @@
   <div class= "breweries">
       <brewery-information class="brewery-listing" v-bind:brewery-id="$route.params.id"/>
       <brewery-list/>
-      <beer-information/>
+      <beer-information v-bind:beer-id="$route.params.id"/>
       <beer-list/>
   </div>
 </template>
