@@ -52,13 +52,14 @@ a{
 a:hover{
     color: white;
 }
-.text-center{
-    font-family: 'ariel';
+
+h1{
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .text-body{
     font-family: 'Noto Sans', sans-serif;
-    color:darkorange;
+    color: darkblue;
 }
 .btn{
     transition-duration: 0.4s;
@@ -72,50 +73,67 @@ a:hover{
 }
 
 .text-center{
-    color:darkorange;
+    color: darkblue;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .registration-button{
-    color:darkorange;
+    color:darkblue;
 }
 
 label{
-    color: darkorange;
+    color: darkblue;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .breweries{
-    color: darkorange;
+    color: darkblue;
 }
 
 .breweries:hover{
     color: white;
 }
 .brewery{
-    color:coral;
+    color: darkblue;
     list-style-type: none;
 }
 .account-text{
     color: darkorange;
 }
 .register-text{
-    color: darkorange;
+    color: darkblue;
 }
 .brewery-listing{
     color: darkorange;
 }
+/* .brewery-list{
+    color:black;
+} */
 .brewery-information{
-    color: orange;
+    /* color: darkorange; */
+    margin: 5%;
+    font-weight: bold;
+    color: #000000;
+      
 }
 .brewery-table{
     margin: 0 auto;
 }
 .beer-information{
-    color:darkorange;
+    color:black;
 }
 
 .gmap{
     max-width: 35%;
     margin: auto;
     border-radius: 10%;
+    opacity: 1;
 }
+
+.transbox {
+    margin: 30px;
+    /* background-color: #ffffff;
+    opacity: 0.5; */
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+  }
