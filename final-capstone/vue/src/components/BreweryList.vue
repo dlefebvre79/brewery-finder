@@ -4,7 +4,7 @@
       <li v-for="brewery in breweries" v-bind:key="brewery.id" class="brewery">
         <router-link v-bind:to="{ name: 'brewery', params: { id: brewery.id } }" class="breweries">
           {{ brewery.name }}</router-link>
-        | {{ brewery.phoneNumber }} | {{ brewery.address }} | {{ brewery.city }} |  Pricing: ($$)
+        | {{ brewery.phoneNumber }} | {{ brewery.address }} | {{ brewery.city }}
       </li>
     </ul>
   </div>

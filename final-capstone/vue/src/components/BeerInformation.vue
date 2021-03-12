@@ -37,6 +37,7 @@ export default {
     created(){
         breweryService.getBeerById(this.$route.params.id).then((response)=>{
             this.beer = response.data;
+            
         })
     }
 
