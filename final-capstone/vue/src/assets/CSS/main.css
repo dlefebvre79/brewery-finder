@@ -52,9 +52,7 @@ a{
 a:hover{
     color: white;
 }
-.text-center{
-    font-family: 'ariel';
-}
+
 
 .text-body{
     font-family: 'Noto Sans', sans-serif;
@@ -72,7 +70,8 @@ a:hover{
 }
 
 .text-center{
-    color:darkorange;
+    color:black;
+    font-family: 'ariel';
 }
 
 .registration-button{
@@ -80,30 +79,33 @@ a:hover{
 }
 
 label{
-    color: darkorange;
+    color:black;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .breweries{
-    color: darkorange;
+    color:black;
 }
 
 .breweries:hover{
     color: white;
 }
 .brewery{
-    color:coral;
+    color:black;
     list-style-type: none;
 }
 .account-text{
     color: darkorange;
 }
 .register-text{
-    color: darkorange;
+    color:black;
 }
 .brewery-listing{
     color: darkorange;
 }
+/* .brewery-list{
+    color:black;
+} */
 .brewery-information{
     /* color: darkorange; */
     margin: 5%;
@@ -115,7 +117,7 @@ label{
     margin: 0 auto;
 }
 .beer-information{
-    color:darkorange;
+    color:black;
 }
 
 .gmap{
