@@ -1,5 +1,6 @@
 <template>
   <div class = "brewery-information">
+    <div class="transbox">
       <div v-if="brewery.id > 0">
         <h1>{{brewery.name}}</h1>
         <p>{{brewery.address}}</p>
@@ -36,6 +37,7 @@
         <p>{{brewery.googleMapsUrl}}</p>
         <p>{{brewery.userId}}</p> -->
       </div>
+    </div>
     </div>
 </template>
 

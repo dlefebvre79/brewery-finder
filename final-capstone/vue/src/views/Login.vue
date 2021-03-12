@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper">
-     <h1 class="text-center">Welcome to the Tech Ale-evator Brewery Finder</h1>
+    <div class="transbox">
+     <h1 class="text-center">Welcome to the Tech Ale-Evator Brewery Finder</h1>
     <div id="login" class="text-body">
     <form class="form-signin" @submit.prevent="login">
       <h2 class="h3 mb-3 font-weight-normal">Please Sign In</h2>
@@ -40,7 +41,7 @@
    <!--  <img src="../assets/images/great-lakes.jpg" alt="Great Lakes Brewery" class="login-image"> -->
     <br>
     </div>
-    
+    </div>
     </div>
   
 </template>
