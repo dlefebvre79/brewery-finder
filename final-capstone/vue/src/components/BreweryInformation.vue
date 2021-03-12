@@ -1,8 +1,8 @@
 <template>
   <div>
     <div v-if="brewery.id > 0" class="brewery-information">
-      <h1 class="headline">{{ brewery.name }}</h1>
     <div class="transbox">
+      <h1 class="headline">{{ brewery.name }}</h1>
       <div class="brewery-details">
         <p id="address">{{ brewery.address }}</p>
         <p id="city">{{ brewery.city }}</p>
@@ -157,7 +157,7 @@ export default {
 
 <style>
 
-.brewery-information {
+.transbox {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px 50px;
