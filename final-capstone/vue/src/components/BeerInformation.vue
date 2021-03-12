@@ -1,5 +1,6 @@
 <template>
 <div class = "beer-information">
+    <div class="transbox">
     <div v-if="beer.id > 0">
         <h1>{{beer.name}}</h1>
         <p> ABV: {{beer.abv}}</p>
@@ -7,7 +8,7 @@
         <p>TYPE: {{beer.type}}</p>
         <p>DESCRIPTION: {{beer.info}}</p>
     </div>
-
+    </div>
 </div>
   
 </template>

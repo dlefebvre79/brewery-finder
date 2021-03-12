@@ -1,5 +1,6 @@
 <template>
   <div class="beers-list">
+    <div class="transbox">
     <ul>
       <li v-for="beer in beers" v-bind:key="beer.id" class="brewery-beers">
         <router-link v-bind:to="{ name: 'brewery', params: { id: brewery.id } }">
@@ -7,6 +8,7 @@
         | {{ beer.info }} | {{ beer.abv }} | {{ beer.type }} 
       </li>
     </ul>
+    </div>
   </div>
 </template>
 

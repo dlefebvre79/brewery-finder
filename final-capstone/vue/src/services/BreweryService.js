@@ -25,9 +25,9 @@ getBeerByBrewery(id)
 {
     return http.get(`/beer/brewery/${id}`);
 },
-addBeerByBrewery(id, beer)
+addBeerByBrewery(beer)
 {
-    return http.post(`/brewery/${id}`, beer);
+    return http.post(`/beer/create`, beer);
 },
 create(brewery) {
     axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
