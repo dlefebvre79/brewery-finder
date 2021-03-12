@@ -56,6 +56,7 @@ public class UserController
 	}
 
 	@ResponseStatus(HttpStatus.OK)
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/role", method = RequestMethod.PUT)
 	public User updateRole(@Valid @RequestBody User userToUpdate, @RequestParam String role)
 	{
