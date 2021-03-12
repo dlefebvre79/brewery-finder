@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="transbox">
-     <h1 class="text-center">Welcome to the Tech Ale-evator Brewery Finder</h1>
+     <h1 class="text-center">Welcome to the Tech Ale-Evator Brewery Finder</h1>
     <div id="login" class="text-body">
     <form class="form-signin" @submit.prevent="login">
       <h2 class="h3 mb-3 font-weight-normal">Please Sign In</h2>

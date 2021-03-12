@@ -17,10 +17,10 @@ export default {
 <style>
 .home-title{
   color:darkorange;
-  text-shadow: 2px 2px 5px;
+  /* text-shadow: 2px 2px 5px; */
 }
 .home-blurb{
   color:darkorange;
-  text-shadow: 2px 2px 5px;
+  /* text-shadow: 2px 2px 5px; */
 }
 </style>
