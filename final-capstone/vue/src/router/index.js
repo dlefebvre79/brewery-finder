@@ -10,6 +10,7 @@ import BreweryInformation from '@/components/BreweryInformation.vue'
 import BeerInformation from '@/components/BeerInformation.vue'
 import BeerList from '@/components/BeerList.vue'
 import Users from '@/views/Users.vue'
+import AddBeer from '@/components/AddBeer.vue'
 import CreateBrewery from '@/components/CreateBrewery.vue'
 
 Vue.use(Router)
@@ -82,6 +83,17 @@ const router = new Router({
     {
         path:"/user",
         name:"users",
+        component: Users
+    }, 
+    {
+      path:"/brewery/:id/add-beer",
+      name: "add-beer",
+      component: AddBeer
+
+    },
+    {
+        path: "/user",
+        name: "users",
         component: Users,
         meta: {
             requiresAdmin: true
