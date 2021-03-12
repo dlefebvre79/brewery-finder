@@ -74,8 +74,6 @@ public class BeerSqlDao implements BeerDAO
 			throw new BeerNotFoundException();	
 		}
 		return beers;
-		
-		
 	}
 	
 	
@@ -119,6 +117,23 @@ public class BeerSqlDao implements BeerDAO
 		
 		return getById(beerToUpdate.getId());
 	}
+	
+	@Override
+	public List<Beer> getByBreweryId(int id)
+	{
+		List<Beer> beers = new ArrayList<>();
+		String sql = "SELECT * FROM beer WHERE brewery_id = ?";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
+		while(results.next())
+		{
+			Beer beer = mapRowToBeer(results);
+			beers.add(beer);
+		}
+		
+		return beers;
+	}
+
 	
 	private Beer mapRowToBeer(SqlRowSet rows)
 	{

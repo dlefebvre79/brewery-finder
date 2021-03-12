@@ -15,4 +15,6 @@ public interface BeerDAO
 	int create(String name, int breweryId);
 	
 	Beer update(Beer beerToUpdate);
+	
+	List<Beer> getByBreweryId(int id);
 }
