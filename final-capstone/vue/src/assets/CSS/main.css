@@ -113,3 +113,9 @@ label{
 .beer-information{
     color:darkorange;
 }
+
+.gmap{
+    max-width: 35%;
+    margin: auto;
+    border-radius: 10%;
+}

@@ -14,7 +14,9 @@
                     <td>{{formatHours(brewery.hours[index])}}</td>
                 </tr>
             </table>
+            <br>
             <gmap id="map"/>
+            <br>
         </div>
         <p>{{brewery.history}}</p>
         <p>{{brewery.atmosphere}}</p>
