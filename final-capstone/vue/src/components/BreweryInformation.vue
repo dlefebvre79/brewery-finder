@@ -25,6 +25,13 @@
         <p>Is {{brewery.familyFriendly == true ? "" : "not"}} family friendly</p>
         <p>Does {{brewery.patio == true ? "" : "not"}} have a patio</p>
         <p>Does {{brewery.food == true ? "" : "not"}} serve food</p>
+        <ul>
+      <li v-for="beer in beers" v-bind:key="beer.id" class="brewery-beers">
+        <router-link v-bind:to="{ name: 'beer-information', params: { id: beer.id } }">
+          {{ beer.name }}</router-link>
+        | {{ beer.info }} | {{ beer.abv }} | {{ beer.type }} 
+      </li>
+    </ul>
         <!-- <a v-bind:href="brewery.websiteUrl">Website</a>
         <p>{{brewery.googleMapsUrl}}</p>
         <p>{{brewery.userId}}</p> -->
@@ -62,13 +69,18 @@ export default {
                 isActive:'',
 
             },
+            beers: []
         }
     },
     created(){
         breweryService.getBreweriesById(this.$route.params.id).then((response)=>{
             this.brewery = response.data;
             this.$store.commit('SET_MAP_TARGET', this.brewery.name);
+        }),
+        breweryService.getBeerByBrewery(this.$route.params.id).then((response)=>{
+            this.beers = response.data;
         })
+
     },
     methods: {
         formatHours(hours) {
