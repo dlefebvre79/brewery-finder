@@ -2,6 +2,7 @@
 
   <form v-on:submit.prevent>
       <title>Add A Beer To A Brewery Of Your Choice</title>
+      <div>
     <!-- <div class="field">
       <label for="name">Name</label>
       <input type="text" v-model="beer.name" />
