@@ -6,8 +6,8 @@
           <th>First Name</th>
           <th>Last Name</th>
           <th>Username</th>
+          <th>Email Address</th>
           <th>Role</th>
-          <th>Active</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -22,7 +22,6 @@
           <td>{{ user.username }}</td>
           <td>{{ user.email }}</td>
           <td>{{ user.authorities[0].name }}</td>
-          <td>{{ user.active }}</td>
           <td>
             <div class="all-actions">
               <button v-on:click="changeRole(user, 'brewer')">Make Brewer</button>
@@ -52,11 +51,11 @@ export default {
       const jsonUser = {
         username: user.username,
       };
-      userService.updateRole(jsonUser, role);
-      this.getUsers();
+      userService.updateRole(jsonUser, role).then(() => {
+        this.getUsers();
+      });
     },
     getUsers() {
-      this.users = [];
       userService.findAll().then((response) => {
         this.users = response.data;
       });
@@ -71,5 +70,8 @@ export default {
 </script>
 
 <style>
+table {
 
+    background-color: rgba(255, 181, 22, 0.651);
+}
 </style>

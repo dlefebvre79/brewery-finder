@@ -387,6 +387,10 @@ VALUES(12,
 
 -- reset the sequence numbering for the users table
 ALTER SEQUENCE seq_user_id RESTART WITH 4;
+ALTER SEQUENCE beer_beer_id_seq RESTART WITH 19;
+ALTER SEQUENCE breweries_brewery_id_seq RESTART WITH 5;
+ALTER SEQUENCE reviews_review_id_seq RESTART WITH 13;
+ALTER SEQUENCE images_image_id_seq RESTART WITH 13;
 
 
 
