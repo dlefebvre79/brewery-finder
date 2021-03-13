@@ -45,7 +45,7 @@ public class BeerController {
 		}
 		catch (BeerNotFoundException e)
 		{
-			int beerId = beerDAO.create(beer.getName(), beer.getBreweryId());
+			int beerId = beerDAO.create(beer);
 			newBeer = beerDAO.getById(beerId);
 		}
 		return newBeer;
@@ -79,6 +79,12 @@ public class BeerController {
 		return beerDAO.getByName(name);
 	}
 	
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "/delete-beer/{id}", method = RequestMethod.DELETE)
+	public int deleteBeerById(@Valid @PathVariable int id)
+	{
+		return beerDAO.deleteBeerById(id);
+	}
 	
 	
 	

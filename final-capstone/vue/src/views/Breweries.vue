@@ -1,27 +1,23 @@
 <template>
   <div class= "breweries">
-      <brewery-information class="brewery-listing" v-bind:brewery-id="$route.params.id"/>
+      
       <brewery-list/>
-      <beer-information v-bind:beer-id="$route.params.id"/>
-      <beer-list/>
-      <add-beer/>
+      
+      
   </div>
 </template>
 
 <script>
-import BreweryInformation from '@/components/BreweryInformation.vue';
+
 import BreweryList from '@/components/BreweryList.vue';
-import BeerInformation from '@/components/BeerInformation.vue';
-import BeerList from '@/components/BeerList.vue';
-import AddBeer from '@/components/AddBeer.vue';
+
 export default {
     name: 'Breweries',
     components:{
-        BreweryInformation,
+       
         BreweryList,
-        BeerInformation,
-        BeerList,
-        AddBeer
+       
+        
     }
 
 }

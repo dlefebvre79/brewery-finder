@@ -81,11 +81,6 @@ const router = new Router({
       component: BeerList
     },
     {
-        path:"/user",
-        name:"users",
-        component: Users
-    }, 
-    {
       path:"/brewery/:id/add-beer",
       name: "add-beer",
       component: AddBeer
