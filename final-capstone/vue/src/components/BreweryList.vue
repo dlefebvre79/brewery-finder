@@ -2,10 +2,10 @@
   <div class="brewery-list">
     <div class="transbox" id="brewery-list-container">
       <table id="brewery-list-table">
-        <th>Brewery Name</th>
-        <th>Phone Number</th>
-        <th>Address</th>
-        <th>City</th>
+        <th class="brewery-header">Brewery Name</th>
+        <th class="brewery-header">Phone Number</th>
+        <th class="brewery-header">Address</th>
+        <th class="brewery-header">City</th>
         <th v-if="isAdmin">Brewer</th>
         <th v-if="isAdmin"></th>
         <tr

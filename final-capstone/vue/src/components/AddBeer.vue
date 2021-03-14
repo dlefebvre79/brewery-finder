@@ -1,5 +1,5 @@
 <template>
-
+  <div class="transbox">
   <form v-on:submit.prevent>
       <title>Add A Beer To A Brewery Of Your Choice</title>
    <table id="add-beer">   
@@ -56,10 +56,11 @@
    </table>
    <br />
     <div class="actions">
-      <button type="button" v-on:click="cancel()">Cancel</button>&nbsp;
-      <button type="submit" v-on:click="saveBeer()">Save Beer</button>
+      <button type="button" class="btn" v-on:click="cancel()">Cancel</button>&nbsp;
+      <button type="submit" class="btn" v-on:click="saveBeer()">Save Beer</button>
     </div>
   </form>
+  </div>
 </template>
 
 <script>
