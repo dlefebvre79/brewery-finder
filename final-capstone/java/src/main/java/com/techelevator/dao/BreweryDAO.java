@@ -17,4 +17,6 @@ public interface BreweryDAO
 	
 	Brewery update(Brewery breweryToUpdate);
 	
+	boolean deleteById(int id);
+	
 }
