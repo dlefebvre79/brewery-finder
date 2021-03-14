@@ -18,7 +18,7 @@ VALUES (1, 'Great Lakes Brewing'
 		, '2516 Market Avenue'
 		, 'Cleveland'
 		, '44113'
-		, '216-771-4404'
+		, '(216)-771-4404'
 		, 'Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'
 		, '1200-1800,1200-1800,1200-1800,1200-1800,1200-1800,1200-1800'
 		, 'Two Irish brothers with limited brewing experience. A city that shuttered its last production brewery in the early 80s.
@@ -34,7 +34,7 @@ VALUES (2, 'Saucy Brew Works'
 		, '2885 Detroit Rd'
 		, 'Cleveland'
 		, 44113
-		,'(216) 666-2568'
+		,'(216)-666-2568'
 		,
         'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'
 		, '1100-2200,1100-2200,1100-2200,1100-2200,1100-2200,1100-2200,1100-2200'
@@ -54,7 +54,7 @@ VALUES (3, 'Rocky River Brewing Company'
 	, '21290 Center Ridge Road'
 	, 'Rocky River'
 	, '44116'
-	, '440-895-2739'
+	, '(440)-895-2739'
 	, 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'
 	, '1130-2200,1130-2200,1130-2200,1130-2200,1130-2200,1130-2300,1130-2300'
 	, 'Pleasing Palettes Since 1998 - AWARD-WINNING HANDCRAFTED FOOD & BEER - BrewPub & Restaurant.'
@@ -73,7 +73,7 @@ VALUES (4, 'Sibling Revelry Brewing'
 	, '29305 Clemens Rd'
 	, 'Westlake'
 	, '44145'
-	, '440-471-8589'
+	, '(440)-471-8589'
 	, 'Thursday,Friday,Saturday'
 	, '1600-2100,1600-2100,1200-2100'
 	, 'Sibling Revelry Brewing was founded by a family of brothers and cousins from Cleveland who wanted to share their passion for great beer with others.
@@ -387,9 +387,13 @@ VALUES(12,
 
 -- reset the sequence numbering for the users table
 ALTER SEQUENCE seq_user_id RESTART WITH 4;
+ALTER SEQUENCE beer_beer_id_seq RESTART WITH 19;
+ALTER SEQUENCE breweries_brewery_id_seq RESTART WITH 5;
+ALTER SEQUENCE reviews_review_id_seq RESTART WITH 13;
+ALTER SEQUENCE images_image_id_seq RESTART WITH 13;
 
 
 
 COMMIT TRANSACTION;
 
---ROLLBACK TRANSACTION;
+ROLLBACK TRANSACTION;

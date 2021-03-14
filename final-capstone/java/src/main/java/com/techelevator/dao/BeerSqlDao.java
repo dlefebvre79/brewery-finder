@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -80,17 +81,33 @@ public class BeerSqlDao implements BeerDAO
 	
 	
 	@Override
-	public int create(String name, int breweryId)
+	public int create(Beer beer)
 	{
 		int beerId = getNextId();
 		String sql = "INSERT INTO beer "
-				   + "(beer_id, name, brewery_id) "
-				   + "values(?, ?, ?);";
+				   + "(beer_id, name, type, info, abv, ibu, brewery_id) "
+				   + "values(?, ?, ?, ?, ?, ?, ?);";
 		
 		jdbcTemplate.update(sql,
-							beerId,
-							name,
-							breweryId);
+							beer.getId(),
+							beer.getName(),
+							beer.getType(),
+							beer.getInfo(),
+							beer.getAbv(),
+							beer.getIbu(),
+							beer.getBreweryId());
+		return beerId;
+	}
+	
+	@Override
+	public int deleteBeerById(int id)
+	{
+		int beerId = getNextId();
+		String sql = "DELETE * FROM beer"
+					+ "WHERE beer_id = ?;";
+		
+		jdbcTemplate.update(sql, id);
+		
 		return beerId;
 	}
 	

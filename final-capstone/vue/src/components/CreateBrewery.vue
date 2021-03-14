@@ -57,11 +57,12 @@ export default {
         createBrewery() {
             userService.getByUsername(this.user.username).then((response) => {
             this.brewery.brewer = response.data;
+                this.brewery.brewer.authorities = "";
+                breweryService.create(this.brewery).then((response) => {
+                this.brewery = response.data;
+                });
             });
-            this.brewery.brewer.authorities = "";
-            breweryService.create(this.brewery).then((response) => {
-            this.brewery = response.data;
-            });
+            
         }
     },
 }

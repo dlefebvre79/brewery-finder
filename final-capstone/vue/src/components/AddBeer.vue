@@ -2,8 +2,7 @@
 
   <form v-on:submit.prevent>
       <title>Add A Beer To A Brewery Of Your Choice</title>
-      <div>
-    <!-- <div class="field">
+    <div class="field">
       <label for="name">Name</label>
       <input type="text" v-model="beer.name" />
     </div>
@@ -21,11 +20,11 @@
     </div>
     <div class="field">
       <label for="IBU">IBU</label>
-      <input type="text" v-model="beer.ibu" />
+      <input type="number" v-model="beer.ibu" />
     </div>
     <div class="actions">
       <button type="button" v-on:click="cancel()">Cancel</button>&nbsp;
-      <button type="submit" v-on:click="saveBeer()">Save Beer</button> -->
+      <button type="submit" v-on:click="saveBeer()">Save Beer</button>
     </div>
   </form>
 </template>
@@ -45,14 +44,16 @@ export default {
         type: "",
         info: "",
         abv: "",
-        ibu: ""
+        ibu: "",
+        breweryId: ""
       }
     };
   },
   methods: {
     saveBeer() {
+      this.beer.breweryId = this.$route.params.id
       breweryService
-          .addBeerByBrewery(this.beer.id)
+          .addBeerByBrewery(this.beer)
           .then((response)=>{
             if (response.status === 201){
               this.$router.push("/");
