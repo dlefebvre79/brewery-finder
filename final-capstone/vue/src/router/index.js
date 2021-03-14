@@ -11,6 +11,7 @@ import BeerInformation from '@/components/BeerInformation.vue'
 import BeerList from '@/components/BeerList.vue'
 import Users from '@/views/Users.vue'
 import AddBeer from '@/components/AddBeer.vue'
+import DeleteBeer from '@/components/DeleteBeer.vue'
 import CreateBrewery from '@/components/CreateBrewery.vue'
 
 Vue.use(Router)
@@ -84,6 +85,12 @@ const router = new Router({
       path:"/brewery/:id/add-beer",
       name: "add-beer",
       component: AddBeer
+
+    },
+    {
+      path:"/brewery/:id/delete-beer",
+      name: "delete-beer",
+      component: DeleteBeer
 
     },
     {
