@@ -65,6 +65,15 @@ public class BreweryController
 		return breweryDAO.getById(id);
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public boolean deleteById(@Valid @PathVariable int id)
+	{
+		return breweryDAO.deleteById(id);
+	}
+
+	
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/name/{name}", method = RequestMethod.GET)
 	public List<Brewery> getByName(@Valid @PathVariable String name)
