@@ -7,8 +7,11 @@
           {{ registrationErrorMsg }}
         </div>
         <table>
-        <tr>
+        <tr>  
+        <td class="left">
         <label for="username" class="sr-only">Username  </label>
+        </td>
+        <td class="right">
         <input
           type="text"
           id="username"
@@ -18,10 +21,14 @@
           required
           autofocus
         />
+        </td>
         </tr>
         <br />
         <tr>
+        <td class="left">
         <label for="password" class="sr-only">Password  </label>
+        </td>
+        <td class="right">
         <input
           type="password"
           id="password"
@@ -30,10 +37,14 @@
           v-model="user.password"
           required
         />
+        </td>
         </tr>
         <br />
         <tr>
+        <td class="left">
         <label for="Confirm" class="sr-only">Confirm pwd  </label>
+        </td>
+        <td class="right">
         <input
           type="password"
           id="confirmPassword"
@@ -42,10 +53,14 @@
           v-model="user.confirmPassword"
           required
         />
+        </td>
         </tr>
         <br />
         <tr>
+        <td class="left">
         <label for="first-name" class="sr-only">First Name  </label>
+        </td>
+        <td class="right">
         <input
           type="first-name"
           id="firstName"
@@ -54,10 +69,14 @@
           v-model="user.firstName"
           required
         />
+        </td>
         </tr>
         <br />
         <tr>
+        <td class="left">
         <label for="last-name" class="sr-only">Last Name  </label>
+        </td>
+        <td class="right">
         <input
           type="last-name"
           id="lastName"
@@ -66,10 +85,14 @@
           v-model="user.lastName"
           required
         />
+        </td>
         </tr>
         <br />
         <tr>
+        <td class="left">
         <label for="email-address" class="sr-only">Email Address  </label>
+        </td>
+        <td class="right">
         <input
           type="email-address"
           id="emailAddress"
@@ -78,10 +101,14 @@
           v-model="user.email"
           required
         />
+        </td>
         </tr>
         <br />
         <tr>
+        <td class="left">
         <label for="birth-date" class="sr-only">Birth Date  </label>
+        </td>
+        <td class="right">
         <input
           type="date"
           id="birthDate"
@@ -91,10 +118,14 @@
           v-model="user.birthDate"
           required
         />
+        </td>
         </tr>
         <br />
         <tr>
+        <td class="left">
         <label for="zip-code" class="sr-only">Zip Code  </label>
+        </td>
+        <td class="right">
         <input
           type="zip-code"
           id="zipCode"
@@ -103,6 +134,7 @@
           v-model="user.zip"
           required
         />
+        </td>
         </tr>
         </table>
         <br />
@@ -196,8 +228,14 @@ export default {
 
 <style>
   table {
-    text-align: justify;
+    text-align: center;
     margin: 0 auto;
+  }
+  .left {
+    text-align: start;
+  }
+  .right {
+    text-align: start;
   }
 
 </style>
