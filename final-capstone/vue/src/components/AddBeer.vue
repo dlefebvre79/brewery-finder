@@ -2,26 +2,59 @@
 
   <form v-on:submit.prevent>
       <title>Add A Beer To A Brewery Of Your Choice</title>
+   <table id="add-beer">   
     <div class="field">
-      <label for="name">Name</label>
+      <tr>
+       <td class="left"> 
+        <label for="name">Name</label>
+       </td> 
+       <td class="right"> 
       <input type="text" v-model="beer.name" />
+       </td> 
+      </tr>
     </div>
     <div class="field">
+      <tr>
+       <td class="left"> 
       <label for="type">Type</label>
+      </td>
+      <td class="right"> 
       <input type="text" v-model="beer.type" />
+      </td>
+      </tr>
     </div>
     <div class="field">
+      <tr>
+       <td class="left">      
       <label for="info">Description</label>
+       </td>
+       <td class="right"> 
       <textarea spellcheck="false" v-model="beer.info" />
+      </td>
+      </tr>      
     </div>
     <div class="field">
+      <tr>
+       <td class="left">       
       <label for="ABV">ABV</label>
+       </td>
+       <td class="right">      
       <input type="text" v-model="beer.abv" />
+      </td>
+      </tr>       
     </div>
     <div class="field">
+      <tr>
+       <td class="left">       
       <label for="IBU">IBU</label>
+       </td>
+       <td class="right">      
       <input type="number" v-model="beer.ibu" />
+      </td>
+      </tr>          
     </div>
+   </table>
+   <br />
     <div class="actions">
       <button type="button" v-on:click="cancel()">Cancel</button>&nbsp;
       <button type="submit" v-on:click="saveBeer()">Save Beer</button>
@@ -66,3 +99,18 @@ export default {
   }
 };
 </script>
+
+<style>
+table#add-beer {
+  text-align: center;
+  margin: 0 auto;
+}
+.left {
+    width: 150px;
+  text-align: start;
+}
+.right {
+    width: 180px;
+  text-align: start;
+}
+</style>
