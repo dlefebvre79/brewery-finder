@@ -59,6 +59,22 @@ public class BrewerySqlDAO implements BreweryDAO
 	}
 
 	@Override
+	public boolean deleteById(int id)
+	{
+		String sql = "DELETE FROM breweries WHERE brewery_id = ?";
+		int success = jdbcTemplate.update(sql, id);
+		if(success > 0)
+		{
+			return true;
+		}
+		else
+		{
+			throw new RuntimeException("breweryId " + id + " was not found.");
+		}
+	}
+
+	
+	@Override
 	public List<Brewery> getByName(String name)
 	{
 		List<Brewery> breweries = new ArrayList<>();
