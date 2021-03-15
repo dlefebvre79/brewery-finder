@@ -64,6 +64,9 @@ export default new Vuex.Store({
     },
     LOAD_BREWERIES(state, breweries) {
         state.breweries = breweries;
+    },
+    LOAD_REVIEWS(state, reviews){
+      state.reviews = reviews;
     }
   }
 })

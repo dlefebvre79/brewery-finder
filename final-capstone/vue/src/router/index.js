@@ -13,6 +13,10 @@ import Users from '@/views/Users.vue'
 import AddBeer from '@/components/AddBeer.vue'
 import DeleteBeer from '@/components/DeleteBeer.vue'
 import CreateBrewery from '@/components/CreateBrewery.vue'
+import AddAReview from '@/components/AddAReview.vue'
+import ReviewList from '@/components/ReviewList.vue'
+
+
 
 Vue.use(Router)
 
@@ -109,6 +113,16 @@ const router = new Router({
             requiresAdmin: true
           }
     },
+    {
+      path:"/add-review",
+      name: "add-review",
+      component: AddAReview
+    },
+    {
+      path: "/review-list",
+      name: "review-list",
+      component: ReviewList
+    }
     ]
 })
 

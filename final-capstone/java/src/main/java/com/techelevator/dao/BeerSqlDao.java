@@ -137,6 +137,7 @@ public class BeerSqlDao implements BeerDAO
 		
 		return getById(beerToUpdate.getId());
 	}
+	
 	@Override
 	public List<Beer> getByBreweryId(int id)
 	{
