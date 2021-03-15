@@ -198,11 +198,15 @@ export default {
     flex-direction: row;
     justify-content:center;
     max-width: 500px;
+    
+    
 }
 
 .amenities > img {
   width: 25px;
   filter: invert() sepia(100%) saturate(100%) brightness(0.25);
+  
+   
 }
 
 .beer-list {
@@ -217,6 +221,7 @@ export default {
 
 img.active {
   filter: invert() sepia(100%) saturate(100%) brightness(1);
+  
 }
 
 li {

@@ -6,7 +6,7 @@
         <th class="brewery-header">Phone Number</th>
         <th class="brewery-header">Address</th>
         <th class="brewery-header">City</th>
-        <th v-if="isAdmin">Brewer</th>
+        <th v-if="isAdmin" class="brewery-header">Brewer</th>
         <th v-if="isAdmin"></th>
         <tr
           v-for="brewery in breweries"
