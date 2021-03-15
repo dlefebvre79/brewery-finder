@@ -85,7 +85,7 @@
             >
                 {{ beer.name }}</router-link
             >
-            | {{ beer.info }} | {{ beer.abv }} | {{ beer.type }}
+            | {{ beer.type }} | {{ beer.abv }} | {{ beer.info }}
             </li>
         </ul>
       </div>
