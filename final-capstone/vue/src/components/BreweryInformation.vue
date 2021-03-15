@@ -85,7 +85,7 @@
             >
                 {{ beer.name }}</router-link
             >
-            | {{ beer.type }} | {{ beer.abv }} | {{ beer.info }}
+             |abv {{ beer.abv }} |ibu {{ beer.ibu }} | "{{ beer.info }}"
             </li>
         </ul>
       </div>
@@ -217,5 +217,10 @@ export default {
 
 img.active {
   filter: invert() sepia(100%) saturate(100%) brightness(1);
+}
+
+li {
+  display: grid;
+  justify-content: left;
 }
 </style>
