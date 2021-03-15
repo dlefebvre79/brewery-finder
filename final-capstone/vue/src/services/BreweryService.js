@@ -29,11 +29,30 @@ addBeerByBrewery(beer)
 {
     return http.post(`/beer/create`, beer);
 },
+deleteBeerByBrewery(beer)
+{
+    return http.delete(`/beer/delete-beer`, beer);
+},
+deleteBrewery(breweryId)
+{
+    return http.delete(`/brewery/${breweryId}`);
+},
 create(brewery) {
     axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
     return http.post('/brewery/create', brewery);
+},
+sortBreweries(breweries) {
+    let sortedBreweries = breweries.sort((a, b) => {
+        let nameA = a.name.toLowerCase();
+        let nameB = b.name.toLowerCase();
+        if (nameA < nameB) {
+          return -1;
+        } else if (nameA > nameB) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+      return sortedBreweries;
 }
-
-
-
 }
