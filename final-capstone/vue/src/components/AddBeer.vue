@@ -1,7 +1,7 @@
 <template>
   <div class="transbox">
   <form v-on:submit.prevent>
-    <h1 class="h3 mb-3 font-weight-normal">Add A Beer</h1>
+    <h1 class="page-title">Add A Beer</h1>
       <title>Add A Beer To A Brewery Of Your Choice</title>
    <table id="add-beer">
      <br >   
