@@ -90,9 +90,9 @@ export default {
   },
   methods: {
     saveReview() {
-      this.reviews.beerId = this.$route.params.id
+      this.review.beerId = this.$route.params.id
       breweryService
-          .addReviewByBeerId(this.reviews)
+          .addReviewByBeerId(this.review)
           .then((response)=>{
             if (response.status === 201){
               this.$router.push("/");

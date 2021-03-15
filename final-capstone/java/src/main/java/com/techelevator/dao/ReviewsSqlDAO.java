@@ -96,7 +96,7 @@ public class ReviewsSqlDAO implements ReviewsDAO
 	{
 		String result;
 		Reviews reviews = new Reviews();
-		reviews.setId(rows.getInt("reviews_id"));
+		reviews.setId(rows.getInt("review_id"));
 		reviews.setBeerId(rows.getInt("beer_id"));
 		reviews.setUserId(rows.getInt("user_id"));
 		reviews.setSubjectTitle(rows.getString("subject_title"));
