@@ -22,7 +22,8 @@ export default {
   margin: 0 auto;
   font-family: 'Noto Sans JP', sans-serif;
  /*  letter-spacing: 5px; */ 
-  word-spacing: 10px;
+  /* word-spacing: 10px; */
+  font-size: 4vw;
   
   /* text-shadow: 2px 2px 5px; */
 }
