@@ -58,6 +58,9 @@ h1{
     font-family: 'Noto Sans', sans-serif;
 }
 
+.page-title{
+    color:darkblue;
+}
 .text-body{
     font-family: 'Noto Sans', sans-serif;
     color: darkblue;
