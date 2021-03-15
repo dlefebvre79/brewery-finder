@@ -11,6 +11,7 @@
      font-family:'Noto Sans', sans-serif;
      font-size: medium;
      background-image: url("../images/great-lakes.jpg");
+     background-size: cover;
      
     
 }
@@ -32,7 +33,7 @@
     flex-grow:2;
    /*  display: block;*/
     /* width:1415px; */
-    min-height:715px; 
+    min-height:875px; 
     
 }
   

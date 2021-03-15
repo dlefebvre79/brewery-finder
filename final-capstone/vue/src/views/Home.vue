@@ -2,11 +2,11 @@
 <div class="wrapper">
   <br>
   <h1 class="home-title">Tech Ale-Evator Brewery Finder</h1>
-  
-  <p class="home-blurb">The world's foremost resource for developer libations<br><!-- </p> -->
-  <!-- <p class="home-blurb"> -->Because if this class didn't make you want to drink, nothing will</p>
+  <div>
+  <p class="home-blurb">The world's foremost resource for developer libations.  <!-- </p> -->
+  <!-- <p class="home-blurb"> -->Because if this class didn't make you want to drink, nothing will!</p>
     </div>
-   
+   </div>
   
 </template>
 
