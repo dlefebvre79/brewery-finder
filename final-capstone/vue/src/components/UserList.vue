@@ -70,7 +70,7 @@ export default {
 </script>
 
 <style>
-table {
+#tblUsers {
 
     background-color: rgba(255, 181, 22, 0.651);
 }

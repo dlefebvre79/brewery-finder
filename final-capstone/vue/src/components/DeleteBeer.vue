@@ -1,17 +1,19 @@
 <template>
+<div class="transbox">
 <form v-on:submit.prevent>
-     <div class = "delete beer"> Delete Beer
+     <div class = "text-center"> Delete Beer
     <div class="field">
-      <label for="name">Name</label>
+      <label for="name">Name </label>
       <input type="text" v-model="beer.name" />
     </div>
     <div class="actions">
-      <button type="button" v-on:click="cancel()">Cancel</button>&nbsp;
-      <button type="submit" v-on:click="deleteBeer()">Delete Beer</button>
+      <button type="button" class="btn" v-on:click="cancel()">Cancel</button>&nbsp;
+      <button type="submit" class ="btn" v-on:click="deleteBeer()">Delete Beer</button>
     </div>
     </div>
      
   </form>
+  </div>
 </template>
 
 <script>
