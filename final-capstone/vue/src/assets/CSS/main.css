@@ -1,5 +1,6 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Special+Elite&family=Ultra&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Notable&family=Noto+Sans&family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&display=swap");
 
 
 .wrapper, #app{
@@ -57,6 +58,9 @@ h1{
     font-family: 'Noto Sans', sans-serif;
 }
 
+.page-title{
+    color:darkblue;
+}
 .text-body{
     font-family: 'Noto Sans', sans-serif;
     color: darkblue;
@@ -88,30 +92,38 @@ label{
 
 .breweries{
     color: darkblue;
+    /* font-weight: bold; */
 }
 
 .breweries:hover{
     color: white;
 }
+
 .brewery{
     color: darkblue;
     list-style-type: none;
 }
+
 .brewery-header{
     color: darkblue;
 }
+
 .account-text{
     color: darkorange;
 }
+
 .register-text{
     color: darkblue;
 }
+
 .brewery-listing{
     color: darkorange;
 }
+
 /* .brewery-list{
     color:black;
 } */
+
 .brewery-information{
     /* color: darkorange; */
     margin: 5%;
@@ -139,11 +151,15 @@ label{
     opacity: 0.5; */
     background: rgba(255, 255, 255, 0.6);
     border-radius: 10px;
+    display: inline-block;
+    padding: 10px;
     
-  }
+}
+
 input{
     border-radius: 5px;
 }
+
 textarea{
     border-radius: 5px;
     min-width: 170px;
