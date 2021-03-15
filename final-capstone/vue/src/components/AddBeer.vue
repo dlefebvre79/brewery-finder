@@ -1,8 +1,10 @@
 <template>
-
+  <div class="transbox">
   <form v-on:submit.prevent>
+    <h1 class="h3 mb-3 font-weight-normal">Add A Beer</h1>
       <title>Add A Beer To A Brewery Of Your Choice</title>
-   <table id="add-beer">   
+   <table id="add-beer">
+     <br >   
     <div class="field">
       <tr>
        <td class="left"> 
@@ -13,6 +15,7 @@
        </td> 
       </tr>
     </div>
+    <br />
     <div class="field">
       <tr>
        <td class="left"> 
@@ -23,6 +26,7 @@
       </td>
       </tr>
     </div>
+    <br />
     <div class="field">
       <tr>
        <td class="left">      
@@ -33,6 +37,7 @@
       </td>
       </tr>      
     </div>
+    <br />
     <div class="field">
       <tr>
        <td class="left">       
@@ -43,6 +48,7 @@
       </td>
       </tr>       
     </div>
+    <br />
     <div class="field">
       <tr>
        <td class="left">       
@@ -60,6 +66,7 @@
       <button type="submit" v-on:click="saveBeer()">Save Beer</button>
     </div>
   </form>
+  </div>
 </template>
 
 <script>
