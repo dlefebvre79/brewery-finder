@@ -29,9 +29,9 @@ addBeerByBrewery(beer)
 {
     return http.post(`/beer/create`, beer);
 },
-deleteBeerByBrewery(beer)
+deleteBeerByBrewery(id)
 {
-    return http.delete(`/beer/delete-beer`, beer);
+    return http.delete(`/beer/delete-beer/${id}`);
 },
 create(brewery) {
     axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
