@@ -6,6 +6,10 @@
       <label for="name">Name </label>
       <input type="text" v-model="beer.name" />
     </div>
+    <div class="field">
+      <label for="beerId">Beer Id</label>
+      <input type="text" v-model="beer.id" />
+    </div>
     <div class="actions">
       <button type="button" class="btn" v-on:click="cancel()">Cancel</button>&nbsp;
       <button type="submit" class ="btn" v-on:click="deleteBeer()">Delete Beer</button>
@@ -27,8 +31,8 @@ export default {
     return {
       beer: {
         id: "",
-        name: "",
-        breweryId: ""
+        name: ""
+        
       }
     };
   },
