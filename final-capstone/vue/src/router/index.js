@@ -15,7 +15,7 @@ import DeleteBeer from '@/components/DeleteBeer.vue'
 import CreateBrewery from '@/components/CreateBrewery.vue'
 import AddAReview from '@/components/AddAReview.vue'
 import ReviewList from '@/components/ReviewList.vue'
-
+import ImageList from '@/components/ImageList.vue'
 
 
 Vue.use(Router)
@@ -122,7 +122,12 @@ const router = new Router({
       path: "/review-list",
       name: "review-list",
       component: ReviewList
-    }
+    },
+    {
+      path: "/images",
+      name: "image-list",
+      component: ImageList
+    },
     ]
 })
 

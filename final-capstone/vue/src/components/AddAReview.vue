@@ -45,7 +45,7 @@
       <button type="submit" class="btn" v-on:click="saveReview()">Save Review</button>
     </div>
   </form>
-  <div v-else>Pleae login</div>
+  <div v-else>Please Login To Review A Beer</div>
   </div>
 </template>
 
