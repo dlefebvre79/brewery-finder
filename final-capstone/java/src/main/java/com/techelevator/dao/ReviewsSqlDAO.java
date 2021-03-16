@@ -77,12 +77,13 @@ public class ReviewsSqlDAO implements ReviewsDAO
 	{
 		int beerId = getNextId();
 		String sql = "INSERT INTO reviews "
-				   + "(review_id, beer_id, user_id, subject_title, review, rating, create_date) "
-				   + "values(?, ?, ?, ?, ?, ?, ?);";
+				   + "(review_id, beer_id, beer_name, user_id, subject_title, review, rating, create_date) "
+				   + "values(?, ?, ?, ?, ?, ?, ?, ?);";
 		
 		jdbcTemplate.update(sql,
 							review.getId(),
 							review.getBeerId(),
+							review.getBeerName(),
 							review.getUserId(),
 							review.getSubjectTitle(),
 							review.getReview(),
@@ -98,6 +99,7 @@ public class ReviewsSqlDAO implements ReviewsDAO
 		Reviews reviews = new Reviews();
 		reviews.setId(rows.getInt("review_id"));
 		reviews.setBeerId(rows.getInt("beer_id"));
+		reviews.setBeerName(rows.getString("beer_name"));
 		reviews.setUserId(rows.getInt("user_id"));
 		reviews.setSubjectTitle(rows.getString("subject_title"));
 		reviews.setReview(rows.getString("review"));

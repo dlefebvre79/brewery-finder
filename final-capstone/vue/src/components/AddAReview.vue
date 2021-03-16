@@ -1,36 +1,15 @@
 <template>
-  <div class="transbox">
-  <form v-on:submit.prevent>
+  <div>
     <h1 class="h3 mb-3 font-weight-normal">Add A Review</h1>
+  <form v-on:submit.prevent v-if="$store.state.user">
+    
       <title>Add A Review To A Beer Of Your Choice</title>
    <table id="add-review">
      <br >   
     <div class="field">
       <tr>
-       <td class="left"> 
-        <label for="beer-review">Beer-ID</label>
-       </td> 
-       <td class="right"> 
-      <input type="number" v-model="reviews.beerId" />
-       </td> 
-      </tr>
-    </div>
-    <br />
-    <div class="field">
-      <tr>
-       <td class="left"> 
-      <label for="user-review-number">User-Id Number</label>
-      </td>
-      <td class="right"> 
-      <input type="number" v-model="reviews.userId" />
-      </td>
-      </tr>
-    </div>
-    <br />
-    <div class="field">
-      <tr>
        <td class="left">      
-      <label for="review-title">Review Title / (Beer Name)</label>
+      <label for="review-title">Review Title</label>
        </td>
        <td class="right"> 
       <input type="text" v-model="reviews.subjectTitle" />
@@ -66,6 +45,7 @@
       <button type="submit" class="btn" v-on:click="saveReview()">Save Review</button>
     </div>
   </form>
+  <div v-else>Pleae login</div>
   </div>
 </template>
 
@@ -81,6 +61,7 @@ export default {
       reviews: {
         id: "",
         beerId: "",
+        beerName: "",
         userId: "",
         subjectTitle: "",
         review: "",
@@ -90,17 +71,25 @@ export default {
   },
   methods: {
     saveReview() {
-      this.review.beerId = this.$route.params.id
+      this.reviews.beerId = this.$route.params.id
+      // get the userId from the store
+      this.reveiws.userId = this.$store.state.user.userId;
       breweryService
-          .addReviewByBeerId(this.review)
+          .addReviewByBeerId(this.reviews)
           .then((response)=>{
             if (response.status === 201){
-              this.$router.push("/");
+              //reload reviews 
+              this.reloadReviews();
             }
           })
     },
+    reloadReviews() {
+      breweryService.getReviewsByBeerId(this.$route.params.id).then((response) => {
+      this.$store.commit('LOAD_REVIEWS', response.data)
+    });
+    },
     cancel() {
-      this.$router.push("/");
+     
     }
   }
 };

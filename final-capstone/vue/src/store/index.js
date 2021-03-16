@@ -26,7 +26,8 @@ export default new Vuex.Store({
         rating: '',
         location: '',
         price: ''
-    }
+    }, 
+    reviews: []
     //googleRating: '',
     //mapTarget: ''
   },
