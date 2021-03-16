@@ -38,7 +38,7 @@ export default {
     });
 
     imageService.getByBeerId(this.$route.params.id).then((response)=>{
-        this.beers = response.data;
+        this.beer = response.data;
     });
 
     imageService.getByUrl(this.$route.params.url).then((response)=>{
