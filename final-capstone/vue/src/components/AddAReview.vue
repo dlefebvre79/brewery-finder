@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="h3 mb-3 font-weight-normal">Add A Review</h1>
-  <form v-on:submit.prevent v-if="$store.state.user">
+  <form v-on:submit.prevent v-if="$store.state.user.id">
     
       <title>Add A Review To A Beer Of Your Choice</title>
    <table id="add-review">
@@ -73,14 +73,12 @@ export default {
     saveReview() {
       this.reviews.beerId = this.$route.params.id
       // get the userId from the store
-      this.reviews.userId = this.$store.state.user.userId;
+      this.reviews.userId = this.$store.state.user.id;
       breweryService
           .addReviewByBeerId(this.reviews)
-          .then((response)=>{
-            if (response.status === 201){
-              //reload reviews 
-              this.reloadReviews();
-            }
+          .then(()=>{
+            //reload reviews 
+            this.reloadReviews();
           })
     },
     reloadReviews() {
