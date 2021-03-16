@@ -8,7 +8,9 @@ import com.techelevator.model.User;
 public interface BreweryDAO
 {
 	List<Brewery> findAll();
-	
+
+	List<Brewery> findAll(Integer brewerId);
+
 	Brewery getById(int id);
 	
 	List<Brewery> getByName(String name);
@@ -17,4 +19,7 @@ public interface BreweryDAO
 	
 	Brewery update(Brewery breweryToUpdate);
 	
+	boolean deleteById(int id);
+
+
 }

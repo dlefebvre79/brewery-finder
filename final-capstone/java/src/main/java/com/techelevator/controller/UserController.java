@@ -56,6 +56,7 @@ public class UserController
 	}
 
 	@ResponseStatus(HttpStatus.OK)
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/role", method = RequestMethod.PUT)
 	public User updateRole(@Valid @RequestBody User userToUpdate, @RequestParam String role)
 	{
@@ -93,6 +94,21 @@ public class UserController
 	public List<User> getAll()
 	{
 		return userDAO.findAll();
+	}
+
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "/brewers", method = RequestMethod.GET)
+	public List<User> getAllBrewers()
+	{
+		return userDAO.findAllBrewers();
+	}
+	
+	
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "/get", method = RequestMethod.GET)
+	public User getByUsername(@RequestParam String username)
+	{
+		return userDAO.findByUsername(username);
 	}
 	
 	

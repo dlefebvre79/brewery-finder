@@ -18,9 +18,9 @@ VALUES (1, 'Great Lakes Brewing'
 		, '2516 Market Avenue'
 		, 'Cleveland'
 		, '44113'
-		, '216-771-4404'
+		, '(216) 771-4404'
 		, 'Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'
-		, '1200-1800,1200-1800,1200-1800,1200-1800,1200-1800,1200-1800'
+		, '12:00-18:00,12:00-18:00,12:00-18:00,12:00-18:00,12:00-18:00,12:00-18:00'
 		, 'Two Irish brothers with limited brewing experience. A city that shuttered its last production brewery in the early 80s.
           A neighborhood in serious need of a facelift. In 1986 when Patrick and Daniel Conway opened their fledgling operation in Cleveland`s
           Ohio City neighborhood the odds were stacked against them. Fortunately they surrounded themselves with a staff of passionate knowledgeable people and
@@ -37,7 +37,7 @@ VALUES (2, 'Saucy Brew Works'
 		,'(216) 666-2568'
 		,
         'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'
-		, '1100-2200,1100-2200,1100-2200,1100-2200,1100-2200,1100-2200,1100-2200'
+		, '11:00-22:00,11:00-22:00,11:00-22:00,11:00-22:00,11:00-22:00,11:00-22:00,11:00-22:00'
 		, 'The story starts with our Brew Master Eric Anderson and Entrepreneur Brent Zimmerman. 
          Beer fanatics. Always up for adventure. They decided to transform the Steelman Building into the kind of place that delivers nothing less than crazy good beer and legendary good times.'
 		 , 'Two-tiered brewery offering housemade European-style beer & customizable thin-crust pizzas.'
@@ -54,9 +54,9 @@ VALUES (3, 'Rocky River Brewing Company'
 	, '21290 Center Ridge Road'
 	, 'Rocky River'
 	, '44116'
-	, '440-895-2739'
+	, '(440) 895-2739'
 	, 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'
-	, '1130-2200,1130-2200,1130-2200,1130-2200,1130-2200,1130-2300,1130-2300'
+	, '11:30-22:00,11:30-22:00,11:30-22:00,11:30-22:00,11:30-22:00,11:30-23:00,11:30-23:00'
 	, 'Pleasing Palettes Since 1998 - AWARD-WINNING HANDCRAFTED FOOD & BEER - BrewPub & Restaurant.'
 	, 'Classic Bar and Restaurant'
 	, 'true'
@@ -73,9 +73,9 @@ VALUES (4, 'Sibling Revelry Brewing'
 	, '29305 Clemens Rd'
 	, 'Westlake'
 	, '44145'
-	, '440-471-8589'
+	, '(440) 471-8589'
 	, 'Thursday,Friday,Saturday'
-	, '1600-2100,1600-2100,1200-2100'
+	, '16:00-21:00,16:00-21:00,12:00-21:00'
 	, 'Sibling Revelry Brewing was founded by a family of brothers and cousins from Cleveland who wanted to share their passion for great beer with others.
 	 Noticing a lack of breweries in the west side suburbs - the relatives set out to create a unique taproom and drinking experience rooted right in their own backyards. 
 	 Sibling Revelry''s sophisticated taproom offers a full selection of craft beers including year-round brews - seasonal varieties - limited releases and taproom exclusives. 
@@ -181,7 +181,7 @@ VALUES (13, 'IPA'
 	,  6.5
 	,  60
 	, 'India Pale Ale'
-	, 'Our Indai Pale Ale has big pine, citrus and stone fruit aromas with a clean, dry finish.  It is like Grandpa Bert - not that bitter once you get to know him.'
+	, 'Our Indai Pale Ale has big pine, citrus and stone fruit aromas with a clean, dry finish. It is like Grandpa Bert - not that bitter once you get to know him.'
 	,  4
 	, 'true');
 
@@ -190,8 +190,8 @@ VALUES 	(14, 'Red'
 	, 5.5
 	, 35
 	, 'American Red Ale'
-	, 'An American red ale brewed in the Irish tradition.'
-	,  4
+        , 'An American red ale brewed in the Irish tradition with UK malts providing a light, toasted caramel profile and finished with a healthy amount of American hops for a fresh, moderatly citrus aroma.'	
+        ,  4
 	, 'true');
 	
 INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
@@ -199,8 +199,8 @@ VALUES 	(15, 'Swing State'
 	, 4.5
 	, 40
 	, 'Dry Hopped Pale Ale'
-	, 'A dry-hopped, light bodied American Pale Ale.'
-	,  4
+        , 'A dry-hopped, light bodied American Pale Ale. A light malt body with a citrusy hop character leads to a dry hoppy finish.'	
+        ,  4
 	, 'true');
 	
 INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
@@ -232,58 +232,58 @@ VALUES (18, 'Mocha Oatmeal Stout'
 	
 
 --Reviews
-INSERT INTO reviews (beer_id, user_id, subject_title, review, rating, create_date) 
-VALUES (1, 1, 'Best Christmas present ever!','Who needs a bunch of presents when you only need a six pack of Christmas Ale!',
+INSERT INTO reviews (beer_id, beer_name, user_id, subject_title, review, rating, create_date) 
+VALUES (1,'Christmas Ale', 1, 'Best Christmas present ever!','Who needs a bunch of presents when you only need a six pack of Christmas Ale!',
 5,now());
 
-INSERT INTO reviews (beer_id, user_id, subject_title, review, rating, create_date) 
-VALUES (2, 1, 'One of the greatest I have tasted.','Greeat taste, better balance, best to drink before drunk!',
+INSERT INTO reviews (beer_id, beer_name, user_id, subject_title, review, rating, create_date) 
+VALUES (2,'Eliot Ness', 1, 'One of the greatest I have tasted.','Greeat taste, better balance, best to drink before drunk!',
 5,now());
 
-INSERT INTO reviews (beer_id, user_id, subject_title, review, rating, create_date)
- VALUES (3, 1, 'It is the piney taste for me',
+INSERT INTO reviews (beer_id, beer_name, user_id, subject_title, review, rating, create_date)
+ VALUES (3,'Burning River', 1, 'It is the piney taste for me',
 'I think this is the perfect beer for my taste buds!',
 5,now());
 
-INSERT INTO reviews (beer_id, user_id, subject_title, review, rating, create_date)
- VALUES (4, 1, 'I see why they call it Habituale',
+INSERT INTO reviews (beer_id, beer_name, user_id, subject_title, review, rating, create_date)
+ VALUES (4, 'Habituale', 1, 'I see why they call it Habituale',
 'It is becoming a habit drinking these, everyday!',
 4,now());
 
-INSERT INTO reviews (beer_id, user_id, subject_title, review, rating, create_date)
- VALUES (5, 1, 'This wheat beer is better than wheat bread!',
+INSERT INTO reviews (beer_id, beer_name, user_id, subject_title, review, rating, create_date)
+ VALUES (5, 'B.F. Hefe', 1, 'This wheat beer is better than wheat bread!',
 'I think I will just slap my lunchmeat in between two bottles of these from now on, now that is a sandwich!',
 4,now());
 
-INSERT INTO reviews (beer_id, user_id, subject_title, review, rating, create_date)
- VALUES (6, 1, 'Good for when you can not come up with the right words',
+INSERT INTO reviews (beer_id, beer_name, user_id, subject_title, review, rating, create_date)
+ VALUES (6, 'Punchline', 1, 'Good for when you can not come up with the right words',
 'Punchline is a great balance of taste, full body, and dancing without having to be nervous, lol!',
 5,now());
 
-INSERT INTO reviews (beer_id, user_id, subject_title, review, rating, create_date) 
-VALUES (7, 1, 'Pirate Light is a true gardeners brew!','Smooth, golden and low enough avb to pound all day and still ride the mower!',
+INSERT INTO reviews (beer_id, beer_name, user_id, subject_title, review, rating, create_date) 
+VALUES (7, 'Rocky River Pirate Light', 1, 'Pirate Light is a true gardeners brew!','Smooth, golden and low enough avb to pound all day and still ride the mower!',
 4,now());
 
-INSERT INTO reviews (beer_id, user_id, subject_title, review, rating, create_date) 
-VALUES (8, 1, 'A spooky brew','The perfect partner for that Halloween party treat!',
+INSERT INTO reviews (beer_id, beer_name, user_id, subject_title, review, rating, create_date) 
+VALUES (8, 'Hop Goblin IPA', 1, 'A spooky brew','The perfect partner for that Halloween party treat!',
 5,now());
 
-INSERT INTO reviews (beer_id, user_id, subject_title, review, rating, create_date)
- VALUES (9, 1, 'Barney would be proud',
+INSERT INTO reviews (beer_id, beer_name, user_id, subject_title, review, rating, create_date)
+ VALUES (9, 'Blarney Rubble Irish Red', 1, 'Barney would be proud',
 'You will be singing the Flintstones song after a couple of these!',
 5,now());
 
-INSERT INTO reviews (beer_id, user_id, subject_title, review, rating, create_date)
- VALUES (10, 1, 'Its a gold rush',
+INSERT INTO reviews (beer_id, beer_name, user_id, subject_title, review, rating, create_date)
+ VALUES (10,'Cooper''s Gold Kolsch', 1, 'Its a gold rush',
 'Different malts and hops are combined to give this nugget its golden hue!',
 4,now());
 
-INSERT INTO reviews (beer_id, user_id, subject_title, review, rating, create_date) 
-VALUES (11, 1, 'Punchin the Nuts','The perfect partner for that jelly toast for breakfast!',
+INSERT INTO reviews (beer_id, beer_name, user_id, subject_title, review, rating, create_date) 
+VALUES (11, 'Punchin The Nuts', 1, 'Punchin the Nuts','The perfect partner for that jelly toast for breakfast!',
 5,now());
 
-INSERT INTO reviews (beer_id, user_id, subject_title, review, rating, create_date)
- VALUES (12, 1, 'Grow a little Funk of your own',
+INSERT INTO reviews (beer_id, beer_name, user_id, subject_title, review, rating, create_date)
+ VALUES (12,'Tropic Funk IPA', 1, 'Grow a little Funk of your own',
 'You will be singing along with EJ after two of these bad boys!',
 5,now());
 

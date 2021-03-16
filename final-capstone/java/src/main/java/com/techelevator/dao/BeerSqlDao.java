@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,22 +75,41 @@ public class BeerSqlDao implements BeerDAO
 			throw new BeerNotFoundException();	
 		}
 		return beers;
+		
+		
 	}
 	
 	
 	@Override
-	public int create(String name, int breweryId)
+	public int create(Beer beer)
 	{
 		int beerId = getNextId();
 		String sql = "INSERT INTO beer "
-				   + "(beer_id, name, brewery_id) "
-				   + "values(?, ?, ?);";
+				   + "(beer_id, name, type, info, abv, ibu, brewery_id) "
+				   + "values(?, ?, ?, ?, ?, ?, ?);";
 		
 		jdbcTemplate.update(sql,
-							beerId,
-							name,
-							breweryId);
+							beer.getId(),
+							beer.getName(),
+							beer.getType(),
+							beer.getInfo(),
+							beer.getAbv(),
+							beer.getIbu(),
+							beer.getBreweryId());
 		return beerId;
+	}
+	
+	@Override
+	public boolean deleteBeerById(int id)
+	{
+		
+		String sql = "UPDATE beer"
+					+ " SET is_active = false"
+					+ " WHERE beer_id = ?;";
+		
+		int success = jdbcTemplate.update(sql, id);
+		
+		return success > 0;
 	}
 	
 	@Override
@@ -122,7 +142,7 @@ public class BeerSqlDao implements BeerDAO
 	public List<Beer> getByBreweryId(int id)
 	{
 		List<Beer> beers = new ArrayList<>();
-		String sql = "SELECT * FROM beer WHERE brewery_id = ?";
+		String sql = "SELECT * FROM beer WHERE brewery_id = ? AND is_active = true";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
 		while(results.next())

@@ -1,5 +1,6 @@
 <template>
 <div class = "beer-information">
+    <div class="transbox">
     <div v-if="beer.id > 0">
         <h1>{{beer.name}}</h1>
         <p> ABV: {{beer.abv}}</p>
@@ -7,16 +8,24 @@
         <p>TYPE: {{beer.type}}</p>
         <p>DESCRIPTION: {{beer.info}}</p>
     </div>
-
+    <review-list/>
+    <add-a-review/>
+    </div>
 </div>
   
 </template>
 
 <script>
 import breweryService from "@/services/BreweryService";
+import reviewList from "@/components/ReviewList";
+import addAReview from "@/components/AddAReview";
 
 export default {
     name: 'beer-information',
+    components:{
+        reviewList,
+        addAReview
+    },
 
     data(){
 

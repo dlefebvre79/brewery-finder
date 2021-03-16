@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,22 @@ public class BrewerySqlDAO implements BreweryDAO
 	}
 
 	@Override
+	public List<Brewery> findAll(Integer brewerId)
+	{
+		List<Brewery> breweries = new ArrayList<>();
+		String sql = "SELECT * FROM breweries WHERE user_id = ?";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, brewerId);
+		while(results.next())
+		{
+			Brewery brewery = mapRowToBrewery(results);
+			breweries.add(brewery);
+		}
+		
+		return breweries;
+	}
+
+	@Override
 	public Brewery getById(int id)
 	{
 		String sql = "SELECT * FROM breweries WHERE brewery_id = ?";
@@ -58,6 +75,22 @@ public class BrewerySqlDAO implements BreweryDAO
 		}
 	}
 
+	@Override
+	public boolean deleteById(int id)
+	{
+		String sql = "DELETE FROM breweries WHERE brewery_id = ?";
+		int success = jdbcTemplate.update(sql, id);
+		if(success > 0)
+		{
+			return true;
+		}
+		else
+		{
+			throw new RuntimeException("breweryId " + id + " was not found.");
+		}
+	}
+
+	
 	@Override
 	public List<Brewery> getByName(String name)
 	{
@@ -74,10 +107,6 @@ public class BrewerySqlDAO implements BreweryDAO
 			throw new BreweryNotFoundException();	
 		}
 		return breweries;
-		
-		
-		
-		
 	}
 
 	@Override
@@ -121,8 +150,8 @@ public class BrewerySqlDAO implements BreweryDAO
 							breweryToUpdate.getCity(),
 							breweryToUpdate.getZip(),
 							breweryToUpdate.getPhoneNumber(),
-							breweryToUpdate.getDaysOpen().toString(),
-							breweryToUpdate.getHours().toString(),
+							Arrays.deepToString(breweryToUpdate.getDaysOpen()).replaceAll("[\\[\\]\\s]", ""),
+							Arrays.deepToString(breweryToUpdate.getHours()).replaceAll("[\\[\\]\\s]", ""),
 							breweryToUpdate.getHistory(),
 							breweryToUpdate.getAtmosphere(),
 							breweryToUpdate.isFamilyFriendly(),
