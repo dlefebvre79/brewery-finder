@@ -4,8 +4,8 @@
     <ul>
       <li v-for="review in reviews" v-bind:key="review.id" class="beer-reviews">
         <router-link v-bind:to="{ name: 'beer-information', params: { id: review.beerId } }">
-          {{ review.subjectTitle }}</router-link>
-         {{review.beerName}} | {{ review.review }} | Rating: {{review.rating}} 
+          Rating: {{review.rating}} | {{ review.subjectTitle }} | {{ review.review }} 
+         </router-link> 
       </li>
     </ul>
 
