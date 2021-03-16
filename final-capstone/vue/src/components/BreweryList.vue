@@ -8,6 +8,7 @@
         <th class="brewery-header">City</th>
         <th class="brewery-header" v-if="isAdmin">Brewer</th>
         <th class="brewery-header" v-if="isAdmin"></th>
+        <th class="brewery-header" v-if="isBrewer"></th>
         <tr
           v-for="brewery in breweries"
           v-bind:key="brewery.id"
@@ -33,24 +34,38 @@
             >
               Delete
             </button>
+          <td v-if="isBrewer">
+            <button
+              class="btn btn-lg btn-primary btn-block"
+              v-on:click="showUpdateForm(brewery)"
+            >
+              Update
+            </button>
           </td>
         </tr>
       </table>
     </div>
-    <create-brewery v-if="isAdmin === true" />
+    <create-brewery v-if="isAdmin" />
+    <update-brewery v-on:hideForm="showForm = false" v-if="isBrewer && showForm"/>
   </div>
 </template>
 
 <script>
 import breweryService from "@/services/BreweryService";
 import createBrewery from "@/components/CreateBrewery.vue";
+import updateBrewery from "@/components/UpdateBrewery.vue";
+
 export default {
   components: {
     createBrewery,
+    updateBrewery,
   },
   name: "brewery-list",
   data() {
-    return {};
+    return {
+        showForm: false,
+        currentBrewery: {},
+    };
   },
   computed: {
     breweries() {
@@ -66,10 +81,29 @@ export default {
       }
       return false;
     },
+    isBrewer() {
+      if (this.$store.state.token != "") {
+        for (let i = 0; i < this.$store.state.user.authorities.length; i++) {
+          if (this.$store.state.user.authorities[i].name === "ROLE_BREWER") {
+            return true;
+          }
+        }
+      }
+      return false;
+    },
   },
   created() {
     breweryService.list().then((response) => {
       let sortedBreweries = breweryService.sortBreweries(response.data);
+      sortedBreweries.forEach(brewery => {
+          for(let i = 0; i < brewery.daysOpen.length; i++) {
+              brewery.daysOpen[i] = brewery.daysOpen[i].trim();
+          }
+          for(let i = 0; i < brewery.hours.length; i++) {
+              brewery.hours[i] = brewery.hours[i].trim();
+          }
+
+      });
       this.$store.commit("LOAD_BREWERIES", sortedBreweries);
     });
   },
@@ -78,6 +112,10 @@ export default {
       breweryService.deleteBrewery(id).then(() => {
         this.loadBreweries();
       });
+    },
+    showUpdateForm(brewery) {
+        this.$store.commit('SET_CURRENT_BREWERY', brewery)
+        this.showForm = true;
     },
     loadBreweries() {
       breweryService.list().then((response) => {

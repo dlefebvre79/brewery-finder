@@ -21,6 +21,7 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     breweries: [],
+    currentBrewery: {},
     map: {
         rating: '',
         location: '',
@@ -64,6 +65,9 @@ export default new Vuex.Store({
     },
     LOAD_BREWERIES(state, breweries) {
         state.breweries = breweries;
+    },
+    SET_CURRENT_BREWERY(state, brewery) {
+        state.currentBrewery = brewery;
     }
   }
 })
