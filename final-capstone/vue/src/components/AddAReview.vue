@@ -96,13 +96,13 @@ export default {
 </script>
 
 <style>
-table#add-beer {
+table#add-review {
   text-align: center;
   margin: 0 auto;
 }
 .left {
     width: 150px;
-  text-align: start;
+  text-orientation: sideways-right;
 }
 .right {
     width: 180px;

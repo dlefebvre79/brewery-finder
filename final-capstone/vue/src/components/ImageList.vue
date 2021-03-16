@@ -4,8 +4,8 @@
           <li v-for="image in images" v-bind:key="image.id">
               <router-link
               v-bind:to="{ name: 'image', params: { id: image.id } }"
-              class="breweries"
-              >{{ brewery.url }}</router-link>
+              class="images"
+              >{{ image.url }}</router-link>
               </li>
           </ul>
     </div>
