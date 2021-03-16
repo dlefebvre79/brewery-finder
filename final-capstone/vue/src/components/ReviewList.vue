@@ -1,6 +1,6 @@
 <template>
   <div class="reviews-list">
-    <div class="transbox">
+    <h3>Reviews</h3>
     <ul>
       <li v-for="review in reviews" v-bind:key="review.id" class="beer-reviews">
         <router-link v-bind:to="{ name: 'beer-information', params: { id: review.beerId } }">
@@ -8,7 +8,7 @@
          {{review.beerName}} | {{ review.review }} | Rating: {{review.rating}} 
       </li>
     </ul>
-    </div>
+
   </div>
 </template>
 
@@ -18,22 +18,20 @@ export default {
   name: "reviews-list",
   data() {
     return {
-      reviews: [],
-      beers: {}
     };
   },
 
   created() {
-    breweryService.listAllReviews().then((response)=> {
-      this.reviews = response.data;
-    });
-    breweryService.getReviewById(this.$route.params.id).then((response) => {
-      this.reviews = response.data;
-    });
+   
     breweryService.getReviewsByBeerId(this.$route.params.id).then((response) => {
-      this.beers = response.data;
+      this.$store.commit('LOAD_REVIEWS', response.data)
     });
   },
+  computed: {
+    reviews(){
+      return this.$store.state.reviews;
+    }
+  }
 };
 </script>
 
