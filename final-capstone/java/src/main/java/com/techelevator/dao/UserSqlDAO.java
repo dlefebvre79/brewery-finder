@@ -65,6 +65,22 @@ public class UserSqlDAO implements UserDAO
 	}
 
 	@Override
+	public List<User> findAllBrewers()
+	{
+		List<User> users = new ArrayList<>();
+		String sql = "select * from users WHERE role = 'ROLE_BREWER';";
+
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+		while (results.next())
+		{
+			User user = mapRowToUser(results);
+			users.add(user);
+		}
+
+		return users;
+	}
+
+	@Override
 	public User findByUsername(String username) throws UsernameNotFoundException
 	{
 		for (User user : this.findAll())

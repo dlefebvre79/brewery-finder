@@ -8,6 +8,8 @@
         <p>TYPE: {{beer.type}}</p>
         <p>DESCRIPTION: {{beer.info}}</p>
     </div>
+    <review-list/>
+    <add-a-review/>
     </div>
 </div>
   
@@ -15,9 +17,15 @@
 
 <script>
 import breweryService from "@/services/BreweryService";
+import reviewList from "@/components/ReviewList";
+import addAReview from "@/components/AddAReview";
 
 export default {
     name: 'beer-information',
+    components:{
+        reviewList,
+        addAReview
+    },
 
     data(){
 

@@ -34,7 +34,7 @@
             >
               Delete
             </button>
-          <td v-if="isBrewer">
+          <td v-if="isBrewer && $store.state.user.id === brewery.brewer.id">
             <button
               class="btn btn-lg btn-primary btn-block"
               v-on:click="showUpdateForm(brewery)"
@@ -45,6 +45,7 @@
         </tr>
       </table>
     </div>
+    <assign-brewer v-if="isAdmin" @refreshBreweries="loadBreweries()"/>
     <create-brewery v-if="isAdmin" />
     <update-brewery v-on:hideForm="showForm = false" v-if="isBrewer && showForm"/>
   </div>
@@ -54,13 +55,17 @@
 import breweryService from "@/services/BreweryService";
 import createBrewery from "@/components/CreateBrewery.vue";
 import updateBrewery from "@/components/UpdateBrewery.vue";
+import userService from "@/services/UserService";
+import assignBrewer from "@/components/AssignBrewer.vue";
 
 export default {
   components: {
     createBrewery,
     updateBrewery,
+    assignBrewer,
   },
   name: "brewery-list",
+  brewers: [],
   data() {
     return {
         showForm: false,
@@ -93,6 +98,9 @@ export default {
     },
   },
   created() {
+    userService.findAllBrewers().then((response) => {
+      this.brewers = response.data;
+    });
     breweryService.list().then((response) => {
       let sortedBreweries = breweryService.sortBreweries(response.data);
       sortedBreweries.forEach(brewery => {
