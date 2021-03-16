@@ -6,6 +6,7 @@ public class Reviews
 {
 	private int id;
 	private int beerId;
+	private String beerName;
 	private int userId;
 	private String subjectTitle;
 	private String review;
@@ -28,6 +29,14 @@ public class Reviews
 	public void setBeerId(int beerId)
 	{
 		this.beerId = beerId;
+	}
+	public String getBeerName()
+	{
+		return beerName;
+	}
+	public void setBeerName(String beerName)
+	{
+		this.beerName = beerName;
 	}
 	public int getUserId()
 	{

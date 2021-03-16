@@ -30,7 +30,17 @@
     <div class="field">
       <tr>
        <td class="left">      
-      <label for="review-title">Review Title / (Beer Name)</label>
+      <label for="review-beer-name">Beer Name</label>
+       </td>
+       <td class="right"> 
+      <input type="text" v-model="reviews.beerName" />
+      </td>
+      </tr>      
+    </div>
+    <div class="field">
+      <tr>
+       <td class="left">      
+      <label for="review-title">Review Title</label>
        </td>
        <td class="right"> 
       <input type="text" v-model="reviews.subjectTitle" />
@@ -81,6 +91,7 @@ export default {
       reviews: {
         id: "",
         beerId: "",
+        beerName: "",
         userId: "",
         subjectTitle: "",
         review: "",
@@ -90,9 +101,9 @@ export default {
   },
   methods: {
     saveReview() {
-      this.review.beerId = this.$route.params.id
+      this.reviews.beerId = this.$route.params.id
       breweryService
-          .addReviewByBeerId(this.review)
+          .addReviewByBeerId(this.reviews)
           .then((response)=>{
             if (response.status === 201){
               this.$router.push("/");

@@ -31,7 +31,7 @@ addBeerByBrewery(beer)
 },
 addReviewByBeerId(review)
 {
-    return http.post(`/reviews/create`, review);
+    return http.post(`/reviews/create/`, review);
 },
 listAllReviews()
 {
