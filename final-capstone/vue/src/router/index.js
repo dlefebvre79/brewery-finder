@@ -125,7 +125,7 @@ const router = new Router({
     },
     {
       path: "/images",
-      name: "images",
+      name: "image-list",
       component: ImageList
     },
     ]
