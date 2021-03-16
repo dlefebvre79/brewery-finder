@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.techelevator.dao.BreweryDAO;
 import com.techelevator.model.Brewery;
+import com.techelevator.model.User;
 import com.techelevator.model.exceptions.BreweryAlreadyExistsException;
 import com.techelevator.model.exceptions.BreweryNotFoundException;
 
@@ -53,11 +54,27 @@ public class BreweryController
 
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
-	public List<Brewery> findAll()
+	public List<Brewery> findAll(@RequestParam(required = false) Integer brewerId )
 	{
-		return breweryDAO.findAll();
+		if(brewerId != null)
+		{
+			return breweryDAO.findAll(brewerId);
+		}
+		else
+		{
+			return breweryDAO.findAll();
+		}
+		
 	}
 
+//	@ResponseStatus(HttpStatus.OK)
+//	@RequestMapping(method = RequestMethod.GET)
+//	public List<Brewery> getByBrewer(@Valid @RequestParam int brewerId)
+//	{
+//		return breweryDAO.getByBrewerId(brewerId);
+//	}
+
+	
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public Brewery getById(@Valid @PathVariable int id)
@@ -80,4 +97,14 @@ public class BreweryController
 	{
 		return breweryDAO.getByName(name);
 	}
+	
+	@PreAuthorize("hasRole('ROLE_BREWER')")
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "/update", method = RequestMethod.PUT)
+	public Brewery update(@Valid @RequestBody Brewery brewery)
+	{
+		return breweryDAO.update(brewery);
+
+	}
+
 }

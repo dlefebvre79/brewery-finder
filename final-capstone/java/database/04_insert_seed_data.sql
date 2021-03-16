@@ -18,9 +18,9 @@ VALUES (1, 'Great Lakes Brewing'
 		, '2516 Market Avenue'
 		, 'Cleveland'
 		, '44113'
-		, '(216)-771-4404'
+		, '(216) 771-4404'
 		, 'Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'
-		, '1200-1800,1200-1800,1200-1800,1200-1800,1200-1800,1200-1800'
+		, '12:00-18:00,12:00-18:00,12:00-18:00,12:00-18:00,12:00-18:00,12:00-18:00'
 		, 'Two Irish brothers with limited brewing experience. A city that shuttered its last production brewery in the early 80s.
           A neighborhood in serious need of a facelift. In 1986 when Patrick and Daniel Conway opened their fledgling operation in Cleveland`s
           Ohio City neighborhood the odds were stacked against them. Fortunately they surrounded themselves with a staff of passionate knowledgeable people and
@@ -34,10 +34,10 @@ VALUES (2, 'Saucy Brew Works'
 		, '2885 Detroit Rd'
 		, 'Cleveland'
 		, 44113
-		,'(216)-666-2568'
+		,'(216) 666-2568'
 		,
         'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'
-		, '1100-2200,1100-2200,1100-2200,1100-2200,1100-2200,1100-2200,1100-2200'
+		, '11:00-22:00,11:00-22:00,11:00-22:00,11:00-22:00,11:00-22:00,11:00-22:00,11:00-22:00'
 		, 'The story starts with our Brew Master Eric Anderson and Entrepreneur Brent Zimmerman. 
          Beer fanatics. Always up for adventure. They decided to transform the Steelman Building into the kind of place that delivers nothing less than crazy good beer and legendary good times.'
 		 , 'Two-tiered brewery offering housemade European-style beer & customizable thin-crust pizzas.'
@@ -54,9 +54,9 @@ VALUES (3, 'Rocky River Brewing Company'
 	, '21290 Center Ridge Road'
 	, 'Rocky River'
 	, '44116'
-	, '(440)-895-2739'
+	, '(440) 895-2739'
 	, 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'
-	, '1130-2200,1130-2200,1130-2200,1130-2200,1130-2200,1130-2300,1130-2300'
+	, '11:30-22:00,11:30-22:00,11:30-22:00,11:30-22:00,11:30-22:00,11:30-23:00,11:30-23:00'
 	, 'Pleasing Palettes Since 1998 - AWARD-WINNING HANDCRAFTED FOOD & BEER - BrewPub & Restaurant.'
 	, 'Classic Bar and Restaurant'
 	, 'true'
@@ -73,9 +73,9 @@ VALUES (4, 'Sibling Revelry Brewing'
 	, '29305 Clemens Rd'
 	, 'Westlake'
 	, '44145'
-	, '(440)-471-8589'
+	, '(440) 471-8589'
 	, 'Thursday,Friday,Saturday'
-	, '1600-2100,1600-2100,1200-2100'
+	, '16:00-21:00,16:00-21:00,12:00-21:00'
 	, 'Sibling Revelry Brewing was founded by a family of brothers and cousins from Cleveland who wanted to share their passion for great beer with others.
 	 Noticing a lack of breweries in the west side suburbs - the relatives set out to create a unique taproom and drinking experience rooted right in their own backyards. 
 	 Sibling Revelry''s sophisticated taproom offers a full selection of craft beers including year-round brews - seasonal varieties - limited releases and taproom exclusives. 

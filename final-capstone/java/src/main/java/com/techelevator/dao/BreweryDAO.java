@@ -8,7 +8,9 @@ import com.techelevator.model.User;
 public interface BreweryDAO
 {
 	List<Brewery> findAll();
-	
+
+	List<Brewery> findAll(Integer brewerId);
+
 	Brewery getById(int id);
 	
 	List<Brewery> getByName(String name);
