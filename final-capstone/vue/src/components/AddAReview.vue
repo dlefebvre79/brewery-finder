@@ -73,7 +73,7 @@ export default {
     saveReview() {
       this.reviews.beerId = this.$route.params.id
       // get the userId from the store
-      this.reveiws.userId = this.$store.state.user.userId;
+      this.reviews.userId = this.$store.state.user.userId;
       breweryService
           .addReviewByBeerId(this.reviews)
           .then((response)=>{
