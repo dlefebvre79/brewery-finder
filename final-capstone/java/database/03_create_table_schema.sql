@@ -73,7 +73,8 @@ CREATE TABLE beer (
 
 CREATE TABLE reviews (
         review_id SERIAL NOT NULL,
-        beer_id INTEGER NOT NULL, 
+        beer_id INTEGER NOT NULL,
+        beer_name VARCHAR(255) NOT NULL, 
         user_id INTEGER NOT NULL, 
         subject_title VARCHAR(100),
         review TEXT,

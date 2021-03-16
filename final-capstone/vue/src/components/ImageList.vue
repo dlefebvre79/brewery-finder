@@ -4,8 +4,8 @@
           <li v-for="image in images" v-bind:key="image.id">
               <router-link
               v-bind:to="{ name: 'image', params: { id: image.id } }"
-              class="images"
-              >{{ image.url }}</router-link>
+              class="breweries"
+              >{{ brewery.url }}</router-link>
               </li>
           </ul>
     </div>
@@ -38,7 +38,7 @@ export default {
     });
 
     imageService.getByBeerId(this.$route.params.id).then((response)=>{
-        this.beer = response.data;
+        this.beers = response.data;
     });
 
     imageService.getByUrl(this.$route.params.url).then((response)=>{
