@@ -11,6 +11,8 @@ public interface UserDAO {
 
     List<User> findAll();
 
+    List<User> findAllBrewers();
+
     User getUserById(Long userId);
 
     User findByUsername(String username);
