@@ -79,12 +79,24 @@ export default {
           .then(()=>{
             //reload reviews 
             this.reloadReviews();
+            this.clearForm();
           })
     },
     reloadReviews() {
       breweryService.getReviewsByBeerId(this.$route.params.id).then((response) => {
-      this.$store.commit('LOAD_REVIEWS', response.data)
-    });
+        this.$store.commit('LOAD_REVIEWS', response.data)
+      });
+    },
+    clearForm() {
+      this.reviews = {
+          id: "",
+          beerId: "",
+          beerName: "",
+          userId: "",
+          subjectTitle: "",
+          review: "",
+          rating: ""
+        };
     },
     cancel() {
      
