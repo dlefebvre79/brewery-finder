@@ -1,19 +1,40 @@
 <template>
 <div class="transbox">
 <form v-on:submit.prevent>
-     <div class = "text-center"> Delete Beer
-    <div class="field">
+    <h1 class="h3 mb-3 font-weight-normal">Delete Beer</h1>
+    <table id="add-beer">
+     <br />
+      <div class="field">
+      <tr>
+        <td class="left">   
       <label for="name">Name </label>
+        </td>
+        <td class="right">         
       <input type="text" v-model="beer.name" />
+      </td>
+      </tr>
     </div>
+    <br />
+    <div class="field">
+      <tr>
+        <td class="left"> 
+      <label for="beerId">Beer Id</label>
+        </td>
+        <td class="right">
+      <input type="text" v-model="beer.id" />
+        </td>
+      </tr>
+    </div>
+    <br />
     <div class="actions">
       <button type="button" class="btn" v-on:click="cancel()">Cancel</button>&nbsp;
       <button type="submit" class ="btn" v-on:click="deleteBeer()">Delete Beer</button>
     </div>
-    </div>
-     
+
+    </table>
+  
   </form>
-  </div>
+</div>
 </template>
 
 <script>
@@ -27,8 +48,8 @@ export default {
     return {
       beer: {
         id: "",
-        name: "",
-        breweryId: ""
+        name: ""
+        
       }
     };
   },

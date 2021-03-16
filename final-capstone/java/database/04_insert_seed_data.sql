@@ -181,7 +181,7 @@ VALUES (13, 'IPA'
 	,  6.5
 	,  60
 	, 'India Pale Ale'
-	, 'Our Indai Pale Ale has big pine, citrus and stone fruit aromas with a clean, dry finish.  It is like Grandpa Bert - not that bitter once you get to know him.'
+	, 'Our India Pale Ale has big pine, citrus and stone fruit aromas with a clean, dry finish.  It is like Grandpa Bert - not that bitter once you get to know him.'
 	,  4
 	, 'true');
 
@@ -190,7 +190,7 @@ VALUES 	(14, 'Red'
 	, 5.5
 	, 35
 	, 'American Red Ale'
-	, 'An American red ale brewed in the Irish tradition.'
+	, 'An American red ale brewed in the Irish tradition with UK malts providing a light, toasted caramel profile and finished with a healthy amount of American hops. '
 	,  4
 	, 'true');
 	
@@ -199,7 +199,7 @@ VALUES 	(15, 'Swing State'
 	, 4.5
 	, 40
 	, 'Dry Hopped Pale Ale'
-	, 'A dry-hopped, light bodied American Pale Ale.'
+	, 'A dry-hopped, light bodied American Pale Ale. A light malt body with a citrusy hop character leads to a dry hoppy finish.'
 	,  4
 	, 'true');
 	

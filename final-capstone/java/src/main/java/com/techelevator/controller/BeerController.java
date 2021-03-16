@@ -80,11 +80,13 @@ public class BeerController {
 	}
 	
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/delete-beer", method = RequestMethod.DELETE)
-	public int deleteBeerById(@Valid @PathVariable int id)
+	@RequestMapping(value = "/delete-beer/{id}", method = RequestMethod.PUT)
+	public boolean deleteBeerById(@Valid @PathVariable int id)
 	{
 		return beerDAO.deleteBeerById(id);
 	}
+	
+	
 	
 	
 	

@@ -93,8 +93,8 @@
                 }"
               >
                 {{ beer.name }}</router-link
-              >
-              | {{ beer.info }} | {{ beer.abv }} | {{ beer.type }}
+            >
+             |abv {{ beer.abv }} |ibu {{ beer.ibu }} | "{{ beer.info }}"
             </li>
           </ul>
         </div>
@@ -242,16 +242,20 @@ export default {
 }
 
 .amenities {
-  display: flex;
-  grid-area: amenities;
-  flex-direction: row;
-  justify-content: center;
-  max-width: 500px;
+    display: flex;
+    grid-area: amenities;
+    flex-direction: row;
+    justify-content:center;
+    max-width: 500px;
+    
+    
 }
 
 .amenities > img {
   width: 25px;
   filter: invert() sepia(100%) saturate(100%) brightness(0.25);
+  
+   
 }
 
 .beer-list {
@@ -266,5 +270,11 @@ export default {
 
 img.active {
   filter: invert() sepia(100%) saturate(100%) brightness(1);
+  
+}
+
+li {
+  display: grid;
+  justify-content: left;
 }
 </style>

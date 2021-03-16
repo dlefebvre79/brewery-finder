@@ -37,6 +37,22 @@ addBeerByBrewery(beer)
 {
     return http.post(`/beer/create`, beer);
 },
+addReviewByBeerId(review)
+{
+    return http.post(`/reviews/create`, review);
+},
+listAllReviews()
+{
+    return http.get('/reviews');
+},
+getReviewById(id)
+{
+    return http.get(`/reviews/${id}`)
+},
+getReviewsByBeerId(id)
+{
+    return http.get(`/reviews/beer/${id}`);
+},
 deleteBeerByBrewery(id)
 {
     return http.delete(`/beer/delete-beer/${id}`);

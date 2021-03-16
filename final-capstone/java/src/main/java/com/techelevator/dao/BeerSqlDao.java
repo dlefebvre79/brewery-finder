@@ -100,15 +100,16 @@ public class BeerSqlDao implements BeerDAO
 	}
 	
 	@Override
-	public int deleteBeerById(int id)
+	public boolean deleteBeerById(int id)
 	{
-		int beerId = getNextId();
-		String sql = "DELETE * FROM beer"
-					+ "WHERE beer_id = ?;";
 		
-		jdbcTemplate.update(sql, id);
+		String sql = "UPDATE beer"
+					+ " SET is_active = false"
+					+ " WHERE beer_id = ?;";
 		
-		return beerId;
+		int success = jdbcTemplate.update(sql, id);
+		
+		return success > 0;
 	}
 	
 	@Override
@@ -136,11 +137,12 @@ public class BeerSqlDao implements BeerDAO
 		
 		return getById(beerToUpdate.getId());
 	}
+	
 	@Override
 	public List<Beer> getByBreweryId(int id)
 	{
 		List<Beer> beers = new ArrayList<>();
-		String sql = "SELECT * FROM beer WHERE brewery_id = ?";
+		String sql = "SELECT * FROM beer WHERE brewery_id = ? AND is_active = true";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
 		while(results.next())
