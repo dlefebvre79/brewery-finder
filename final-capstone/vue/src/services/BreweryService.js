@@ -7,8 +7,16 @@ const http = axios.create({
 
 export default{
 
-list(){
-    return http.get('/brewery');
+list(brewerId){
+    if(brewerId != null) {
+        return http.get(`/brewery?brewerId=${brewerId}`);
+    } else {
+        return http.get('/brewery');
+    }
+},
+
+listByBrewer(brewerId){
+    return http.get(`/brewery?brewerId=${brewerId}`);
 },
 
 getBreweriesById(id)
@@ -56,6 +64,37 @@ deleteBrewery(breweryId)
 create(brewery) {
     axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
     return http.post('/brewery/create', brewery);
+},
+update(brewery) {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+    brewery.brewer.authorities = "";
+    brewery.daysOpen = this.sortDays(brewery.daysOpen);
+    return http.put('/brewery/update', brewery);
+},
+sortDays(days) {
+    let sortedDays = [];
+    if(days.includes('Sunday')) {
+        sortedDays.push('Sunday');
+    }
+    if(days.includes('Monday')) {
+        sortedDays.push('Monday');
+    }
+    if(days.includes('Tuesday')) {
+        sortedDays.push('Tuesday');
+    }
+    if(days.includes('Wednesday')) {
+        sortedDays.push('Wednesday');
+    }
+    if(days.includes('Thursday')) {
+        sortedDays.push('Thursday');
+    }
+    if(days.includes('Friday')) {
+        sortedDays.push('Friday');
+    }
+    if(days.includes('Saturday')) {
+        sortedDays.push('Saturday');
+    }
+    return sortedDays;
 },
 sortBreweries(breweries) {
     let sortedBreweries = breweries.sort((a, b) => {

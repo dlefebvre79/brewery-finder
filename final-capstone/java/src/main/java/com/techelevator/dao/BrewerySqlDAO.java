@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,22 @@ public class BrewerySqlDAO implements BreweryDAO
 		String sql = "SELECT * FROM breweries";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+		while(results.next())
+		{
+			Brewery brewery = mapRowToBrewery(results);
+			breweries.add(brewery);
+		}
+		
+		return breweries;
+	}
+
+	@Override
+	public List<Brewery> findAll(Integer brewerId)
+	{
+		List<Brewery> breweries = new ArrayList<>();
+		String sql = "SELECT * FROM breweries WHERE user_id = ?";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, brewerId);
 		while(results.next())
 		{
 			Brewery brewery = mapRowToBrewery(results);
@@ -90,10 +107,6 @@ public class BrewerySqlDAO implements BreweryDAO
 			throw new BreweryNotFoundException();	
 		}
 		return breweries;
-		
-		
-		
-		
 	}
 
 	@Override
@@ -137,8 +150,8 @@ public class BrewerySqlDAO implements BreweryDAO
 							breweryToUpdate.getCity(),
 							breweryToUpdate.getZip(),
 							breweryToUpdate.getPhoneNumber(),
-							breweryToUpdate.getDaysOpen().toString(),
-							breweryToUpdate.getHours().toString(),
+							Arrays.deepToString(breweryToUpdate.getDaysOpen()).replaceAll("[\\[\\]\\s]", ""),
+							Arrays.deepToString(breweryToUpdate.getHours()).replaceAll("[\\[\\]\\s]", ""),
 							breweryToUpdate.getHistory(),
 							breweryToUpdate.getAtmosphere(),
 							breweryToUpdate.isFamilyFriendly(),
