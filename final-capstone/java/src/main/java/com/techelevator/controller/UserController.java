@@ -95,6 +95,14 @@ public class UserController
 	{
 		return userDAO.findAll();
 	}
+
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "/brewers", method = RequestMethod.GET)
+	public List<User> getAllBrewers()
+	{
+		return userDAO.findAllBrewers();
+	}
+	
 	
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/get", method = RequestMethod.GET)

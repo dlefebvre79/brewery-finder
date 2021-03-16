@@ -98,7 +98,7 @@ public class BreweryController
 		return breweryDAO.getByName(name);
 	}
 	
-	@PreAuthorize("hasRole('ROLE_BREWER')")
+	@PreAuthorize("hasAnyRole('ROLE_BREWER', 'ROLE_ADMIN')")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/update", method = RequestMethod.PUT)
 	public Brewery update(@Valid @RequestBody Brewery brewery)
