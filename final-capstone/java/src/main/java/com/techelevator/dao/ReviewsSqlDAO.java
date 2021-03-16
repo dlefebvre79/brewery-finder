@@ -73,15 +73,15 @@ public class ReviewsSqlDAO implements ReviewsDAO
 	}
 	
 	@Override
-	public int create(Reviews review)
+	public Reviews create(Reviews review)
 	{
-		int beerId = getNextId();
+		int reviewId = getNextId();
 		String sql = "INSERT INTO reviews "
 				   + "(review_id, beer_id, beer_name, user_id, subject_title, review, rating, create_date) "
 				   + "values(?, ?, ?, ?, ?, ?, ?, ?);";
 		
 		jdbcTemplate.update(sql,
-							review.getId(),
+							reviewId,
 							review.getBeerId(),
 							review.getBeerName(),
 							review.getUserId(),
@@ -89,7 +89,9 @@ public class ReviewsSqlDAO implements ReviewsDAO
 							review.getReview(),
 							review.getRating(),
 							review.getCreateDate());
-		return beerId;
+
+		review.setId(reviewId);
+		return review;
 	}
 	
 	
