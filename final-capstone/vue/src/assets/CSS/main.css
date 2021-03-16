@@ -46,6 +46,8 @@ footer{
 
 #nav{
     color: darkblue;
+    font-size: larger;
+    font-weight: bolder;
     
 }
 
@@ -68,6 +70,7 @@ h1{
 .text-body{
     font-family: 'Noto Sans', sans-serif;
     color: darkblue;
+    
 }
 .btn{
     transition-duration: 0.4s;
@@ -110,6 +113,8 @@ label{
 
 .brewery-header{
     color: darkblue;
+    font-size: x-large;
+    font-weight: bolder;
 }
 
 .account-text{
@@ -122,6 +127,7 @@ label{
 
 .brewery-listing{
     color: darkorange;
+    font-size: larger;
 }
 
 /* .brewery-list{
@@ -133,6 +139,7 @@ label{
     margin: 5%;
     font-weight: bold;
     color: darkblue;
+    font-size: larger;
       
 }
 .brewery-table{
