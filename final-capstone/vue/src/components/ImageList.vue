@@ -18,7 +18,7 @@ export default {
     name: "image-list",
     data(){
         return{
-        image:{
+        images:{
             id: '',
             url: '',
             description: '',
