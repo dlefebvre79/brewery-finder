@@ -11,6 +11,11 @@ export default {
         return http.get('')
     },
 
+    findAllBrewers()
+    {
+        return http.get('/brewers');
+    },
+
     getByUsername(username)
     {
         axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
