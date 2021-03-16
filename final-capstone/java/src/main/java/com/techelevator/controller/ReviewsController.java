@@ -5,6 +5,7 @@ import java.util.List;
 import javax.management.relation.RelationNotFoundException;
 import javax.validation.Valid;
 
+import com.techelevator.model.exceptions.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -19,11 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.techelevator.dao.ReviewsDAO;
 import com.techelevator.model.Beer;
 import com.techelevator.model.Reviews;
-import com.techelevator.model.exceptions.BeerAlreadyExistsException;
-import com.techelevator.model.exceptions.BeerNotFoundException;
-import com.techelevator.model.exceptions.ReviewAlreadyExistsException;
-import com.techelevator.model.exceptions.ReviewNotFoundException;
-
 
 
 @RestController
@@ -42,16 +38,13 @@ public class ReviewsController
 		Reviews newReview = null;
 		try 
 		{
-		if(reviewsDAO.getById(review.getBeerId()) != null)
-				{
-				throw new ReviewAlreadyExistsException();
-				}
+			newReview = reviewsDAO.create(review);
 		}
-		catch (ReviewNotFoundException e)
+		catch (Exception e)
 		{
-			int reviewId = reviewsDAO.create(review);
-			newReview = reviewsDAO.getById(reviewId);
+			throw new ReviewNotCreatedException();
 		}
+
 		return newReview;
 	}
 
