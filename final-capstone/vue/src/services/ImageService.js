@@ -8,30 +8,30 @@ export default{
 
 list(id){
     if(id !=null){
-        return http.get(`/images?id=${id}`);
+        return http.get(`/images/${id}`);
     }else{
         return http.get(`/images`);
     }
 },
 
 getAllByBreweryId(id){
-	return http.get(`/brewery/${id}/images`);
+	return http.get(`/images/brewery/${id}`);
 },
 
 getByBeerId(id){
-	return http.get(`beer/${id}/images`);
+	return http.get(`/images/beer/${id}`);
 },
 
 getByUrl(url){
-	return http.get(`images/${url}`);
+	return http.get(`images?url=${url}`);
 },
 
 getById(id){
-	return http.get(`images/${id}`);
+	return http.get(`/images/${id}`);
 },
 
 getByDescription(description){
-	return http.get(`images/${description}`);
+	return http.get(`/images?description=${description}`);
 },
 
 create(image){
@@ -44,7 +44,7 @@ deleteImage(id){
 },
 
 deleteImageByBeerId(id){
-    return http.delete(`/beer/${id}/image`);
+    return http.delete(`/images/beer/${id}`);
 },
 
 update(image) {

@@ -41,21 +41,21 @@ export default {
           this.$store.commit("SET_GOOGLE_RATING", results[0].rating);
           this.$store.commit("SET_GOOGLE_PRICE", results[0].price_level);
 
-          let requestDetails = {
-            placeId: this.$store.state.map.placeId,
-          };
+        //   let requestDetails = {
+        //     placeId: this.$store.state.map.placeId,
+        //   };
           //service = new google.maps.places.PlacesService(map);
-          service.getDetails(requestDetails, (placeDetails, statusDetails) => {
-            if (statusDetails === google.maps.places.PlacesServiceStatus.OK) {
-              let photos = [];
-              placeDetails.photos.forEach((photo) => {
-                photos.push(photo);
-                console.log(photo.getUrl({ maxWidth: 500, maxHeight: 500 }));
-              });
-              console.log(place);
-              this.$store.commit("SET_GOOGLE_PHOTOS", photos);
-            }
-          });
+        //   service.getDetails(requestDetails, (placeDetails, statusDetails) => {
+        //     if (statusDetails === google.maps.places.PlacesServiceStatus.OK) {
+        //       let photos = [];
+        //       placeDetails.photos.forEach((photo) => {
+        //         photos.push(photo);
+        //         console.log(photo.getUrl({ maxWidth: 500, maxHeight: 500 }));
+        //       });
+        //       console.log(place);
+        //       this.$store.commit("SET_GOOGLE_PHOTOS", photos);
+        //     }
+        //   });
         }
       }
     });
