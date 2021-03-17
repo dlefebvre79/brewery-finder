@@ -146,8 +146,8 @@ export default {
 </script>
 
 <style>
-#brewery-list-container {
+/* #brewery-list-container {
   display: flex;
   justify-content: center;
-}
+} */
 </style>
