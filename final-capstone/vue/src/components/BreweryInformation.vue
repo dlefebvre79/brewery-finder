@@ -63,7 +63,8 @@
               <td>{{ formatHours(brewery.hours[index]) }}</td>
             </tr>
           </table>
-          <google-photo v-bind:photo="$store.state.map.photos[randomPhoto()]" width="150"/>
+          <google-photo 
+            v-bind:photo="$store.state.map.photos[randomPhoto()]" width="150"/>
           <br />
         </div>
 
@@ -134,12 +135,17 @@ export default {
         active: "",
       },
       beers: [],
+      photoId: 0,
     };
   },
   computed: {
     isBrewer(){
-      const roles = this.$store.state.user.authorities;
-      return roles.filter(role => role.name === "ROLE_BREWER").length > 0 ;
+        if(this.$store.state.token != '') {
+            const roles = this.$store.state.user.authorities;
+            return roles.filter(role => role.name === "ROLE_BREWER").length > 0 ;
+        } else {
+            return false;
+        }
     }
   },
   created() {
@@ -168,9 +174,7 @@ export default {
       return open + " - " + close;
     },
     randomPhoto() {
-        let num = Math.floor(Math.random() * (10));
-        console.log(num);
-        return num;
+        return Math.floor(Math.random() * (10));
     },
     sortDaysHours() {
       let days = [];
