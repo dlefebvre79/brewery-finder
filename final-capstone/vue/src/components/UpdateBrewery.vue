@@ -58,7 +58,7 @@
             <td class="right">
               <input
                 type="text"
-                id="xipcode"
+                id="zipcode"
                 class="form-control"
                 v-model="brewery.zipCode"
               />
@@ -71,10 +71,10 @@
             </td>
             <td class="right">
               <input
-                type="text"
+                type="tel"
                 id="phone-number"
+                pattern="([0-9]{3}) [0-9]{3}-[0-9]{4}"
                 class="form-control"
-                placeholder="(___) ____-____"
                 v-model="brewery.phoneNumber"
               />
             </td>
@@ -85,8 +85,8 @@
               <label for="history" class="sr-only">History/Description </label>
             </td>
             <td class="right">
-              <input
-                type="text"
+              <textarea
+                rows="5" cols="50"
                 id="history"
                 class="form-control"
                 placeholder="History"
@@ -107,7 +107,7 @@
                   <th>Open</th>
                   <th>Close</th>
                   <tr>
-                    <td>
+                    <td class="days">
                       <input
                         type="checkbox"
                         name="monday"
@@ -116,7 +116,7 @@
                       />
                       <label for="monday">Monday</label>
                     </td>
-                    <td>
+                    <td class="times">
                       <input
                         type="time"
                         name="monday-open"
@@ -125,7 +125,7 @@
                         v-bind:disabled="monday === false"
                       />
                     </td>
-                    <td>
+                    <td class="times">
                       <input
                         type="time"
                         name="monday-close"
@@ -136,7 +136,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>
+                    <td class="days">
                       <input
                         type="checkbox"
                         name="tuesday"
@@ -145,7 +145,7 @@
                       />
                       <label for="tuesday">Tuesday</label>
                     </td>
-                    <td>
+                    <td class="times">
                       <input
                         type="time"
                         name="tuesday-open"
@@ -154,7 +154,7 @@
                         v-bind:disabled="tuesday === false"
                       />
                     </td>
-                    <td>
+                    <td class="times">
                       <input
                         type="time"
                         name="tuesday-close"
@@ -165,7 +165,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>
+                    <td class="days">
                       <input
                         type="checkbox"
                         name="wednesday"
@@ -174,7 +174,7 @@
                       />
                       <label for="wednesday">Wednesday</label>
                     </td>
-                    <td>
+                    <td class="times">
                       <input
                         type="time"
                         name="wednesday-open"
@@ -183,7 +183,7 @@
                         v-bind:disabled="wednesday === false"
                       />
                     </td>
-                    <td>
+                    <td class="times">
                       <input
                         type="time"
                         name="wednesday-close"
@@ -194,7 +194,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>
+                    <td class="days">
                       <input
                         type="checkbox"
                         name="thursday"
@@ -203,7 +203,7 @@
                       />
                       <label for="thursday">Thursday</label>
                     </td>
-                    <td>
+                    <td class="times">
                       <input
                         type="time"
                         name="thursday-open"
@@ -212,7 +212,7 @@
                         v-bind:disabled="thursday === false"
                       />
                     </td>
-                    <td>
+                    <td class="times">
                       <input
                         type="time"
                         name="thursday-close"
@@ -223,7 +223,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>
+                    <td class="days">
                       <input
                         type="checkbox"
                         name="friday"
@@ -232,7 +232,7 @@
                       />
                       <label for="friday">Friday</label>
                     </td>
-                    <td>
+                    <td class="times">
                       <input
                         type="time"
                         name="friday-open"
@@ -241,7 +241,7 @@
                         v-bind:disabled="friday === false"
                       />
                     </td>
-                    <td>
+                    <td class="times">
                       <input
                         type="time"
                         name="friday-close"
@@ -252,7 +252,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>
+                    <td class="days">
                       <input
                         type="checkbox"
                         name="saturday"
@@ -261,7 +261,7 @@
                       />
                       <label for="saturday">Saturday</label>
                     </td>
-                    <td>
+                    <td class="times">
                       <input
                         type="time"
                         name="saturday-open"
@@ -270,7 +270,7 @@
                         v-bind:disabled="saturday === false"
                       />
                     </td>
-                    <td>
+                    <td class="times">
                       <input
                         type="time"
                         name="saturday-close"
@@ -281,7 +281,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>
+                    <td class="days">
                       <input
                         type="checkbox"
                         name="sunday"
@@ -290,7 +290,7 @@
                       />
                       <label for="sunday">Sunday</label>
                     </td>
-                    <td>
+                    <td class="times">
                       <input
                         type="time"
                         name="sunday-open"
@@ -299,7 +299,7 @@
                         v-bind:disabled="sunday === false"
                       />
                     </td>
-                    <td>
+                    <td class="times">
                       <input
                         type="time"
                         name="sunday-close"
@@ -372,7 +372,7 @@
           </tr>
           <tr>
             <td class="left">
-              <label for="is-active" class="sr-only">Active </label>
+              <label for="is-active" class="sr-only">Brewery Activated </label>
             </td>
             <td class="right">
               <input
@@ -518,4 +518,22 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+#update-brewery-table .right {
+    width: 500px;
+}
+
+#update-brewery-table input[type="text"]{
+    width: 365px;
+}
+
+.days {
+    width: 40%;
+}
+
+.times {
+    width: 33%;
+}
+
+</style>

@@ -10,7 +10,8 @@
         </div>
 
         <div id="amenities">
-            <div id="price">
+            <span>Price Level: </span>
+                <div id="price">
                 <img
                     v-bind:class="{ active: $store.state.map.price.length > 0 }"
                     src="@/assets/images/icons/tabler-icon-currency-dollar.png"
@@ -38,6 +39,8 @@
                 />
             </div>
             <div id="features">
+                    <span>Family Friendly / Patio / Food: </span> <br/>
+                <div>
                 <img
                     v-bind:class="{ active: brewery.familyFriendly == true }"
                     src="@/assets/images/icons/tabler-icon-mood-kid.png"
@@ -53,6 +56,7 @@
                     src="@/assets/images/icons/tabler-icon-pizza.png"
                     alt="food"
                 />
+                </div>
             </div>
         </div>
 
@@ -71,9 +75,9 @@
           </table>
         </div>
 
-        <div id="gphoto">
+        <div id="gphoto" height="100%" width="100%">
           <google-photo 
-            v-bind:photo="$store.state.map.photos[randomPhoto()]" height="100%"/>
+            v-bind:photo="$store.state.map.photos[randomPhoto()]" :height="500"/>
         </div>
 
         <div id="map">
@@ -238,15 +242,16 @@ export default {
 
 #brewery-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     column-gap: 20px;
     grid-template-areas: 
-    "headline headline"
-    "details details"
-    "hours photo"
-    "amenities photo"
-    "beers description"
-    "map description"
+    "headline headline headline"
+    "details details details"
+    "hours photo photo"
+    "map photo photo"
+    "amenities description description"
+    "beers description description"
+    "beers description description"
     ;
 }
 
@@ -269,8 +274,8 @@ export default {
 #amenities {
     grid-area: amenities;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
+    font-size:0.7rem;
 }
 
 #price {
@@ -318,7 +323,7 @@ export default {
   height: 250px;
 }
 
-p {
+.brewery-information p {
     text-align: left;
 }
 
@@ -330,11 +335,11 @@ p {
     text-align: right;
 }
 
-ul {
+.brewery-information ul {
     list-style: none;
 }
 
-li {
+.brewery-information li {
     text-align: left;
 
 }

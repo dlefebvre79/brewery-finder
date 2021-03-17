@@ -1,6 +1,6 @@
 <template>
   <div>
-      <img v-bind:src="photo.getUrl({maxHeight: 350})"><br>
+      <img v-bind:src="photo.getUrl({maxHeight: height})"><br>
       <span>Photo credit: </span>
       <div class="credit"
         v-for="credit in photo.html_attributions"
