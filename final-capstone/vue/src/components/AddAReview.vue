@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="h3 mb-3 font-weight-normal">Add A Review</h1>
-  <form v-on:submit.prevent v-if="$store.state.user">
+  <form v-on:submit.prevent v-if="$store.state.user.id">
     
       <title>Add A Review To A Beer Of Your Choice</title>
    <table id="add-review">
@@ -45,7 +45,7 @@
       <button type="submit" class="btn" v-on:click="saveReview()">Save Review</button>
     </div>
   </form>
-  <div v-else>Pleae login</div>
+  <div v-else>Please Login To Review A Beer</div>
   </div>
 </template>
 
@@ -73,20 +73,30 @@ export default {
     saveReview() {
       this.reviews.beerId = this.$route.params.id
       // get the userId from the store
-      this.reveiws.userId = this.$store.state.user.userId;
+      this.reviews.userId = this.$store.state.user.id;
       breweryService
           .addReviewByBeerId(this.reviews)
-          .then((response)=>{
-            if (response.status === 201){
-              //reload reviews 
-              this.reloadReviews();
-            }
+          .then(()=>{
+            //reload reviews 
+            this.reloadReviews();
+            this.clearForm();
           })
     },
     reloadReviews() {
       breweryService.getReviewsByBeerId(this.$route.params.id).then((response) => {
-      this.$store.commit('LOAD_REVIEWS', response.data)
-    });
+        this.$store.commit('LOAD_REVIEWS', response.data)
+      });
+    },
+    clearForm() {
+      this.reviews = {
+          id: "",
+          beerId: "",
+          beerName: "",
+          userId: "",
+          subjectTitle: "",
+          review: "",
+          rating: ""
+        };
     },
     cancel() {
      
@@ -96,13 +106,13 @@ export default {
 </script>
 
 <style>
-table#add-beer {
+table#add-review {
   text-align: center;
   margin: 0 auto;
 }
 .left {
     width: 150px;
-  text-align: start;
+  text-orientation: sideways-right;
 }
 .right {
     width: 180px;

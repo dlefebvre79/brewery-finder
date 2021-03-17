@@ -15,6 +15,6 @@ public interface ReviewsDAO
 	
 	List<Reviews> getByBeerId(int id);
 	
-	int create(Reviews review);
+	Reviews create(Reviews review);
 	
 }
