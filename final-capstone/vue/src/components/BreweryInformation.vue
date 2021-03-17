@@ -64,11 +64,11 @@
               v-bind:key="day.id"
               class="table"
             >
-              <td>{{ day }}</td>
-              <td>{{ formatHours(brewery.hours[index]) }}</td>
+              <td class="days">{{ day }}</td>
+              <td class="hours">{{ formatHours(brewery.hours[index]) }}</td>
             </tr>
           </table>
-
+            <br>
           <google-photo 
             v-bind:photo="$store.state.map.photos[randomPhoto()]" width="150"/>
           <br />
@@ -250,7 +250,22 @@ img.active {
 #map {
   height: 250px;
 }
-
+.brewery-description{
+  max-width: 500px;
+  text-align: justify;
+  align-items: center;
+  margin: 0 auto;
+}
+li{
+  list-style-type: none;
+  text-align: left;
+}
+.days{
+  text-align: left;
+}
+.hours{
+  text-align: right;
+}
 /* #brewery-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
