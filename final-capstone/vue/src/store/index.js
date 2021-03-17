@@ -68,7 +68,7 @@ export default new Vuex.Store({
             priceDollars = priceDollars + "$";
         }
         if(priceDollars.length === 0){
-            priceDollars = "N/A";
+            priceDollars = "";
         }
         state.map.price = priceDollars;
     },
