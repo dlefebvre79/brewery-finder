@@ -105,7 +105,8 @@ export default {
     },
     reloadBeer(){
       breweryService.getBeerByBrewery(this.$route.params.id).then((response) => {
-      this.$store.commit('LOAD_BEER', response.data) ;
+        this.$store.commit('LOAD_BEER', response.data) ;
+        this.$router.push(`/brewery/${this.$route.params.id}`)
       });
     },
     clearForm() {
