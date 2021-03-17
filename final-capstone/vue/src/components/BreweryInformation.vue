@@ -63,8 +63,7 @@
               <td>{{ formatHours(brewery.hours[index]) }}</td>
             </tr>
           </table>
-
-          <br />
+          <google-photo v-bind:photo="$store.state.map.photos[randomPhoto()]" width="150"/>
           <br />
         </div>
 
@@ -108,11 +107,13 @@
 <script>
 import breweryService from "@/services/BreweryService";
 import gmap from "@/components/Map";
+import GooglePhoto from "@/components/GooglePhoto.vue";
 
 export default {
   name: "brewery-information",
   components: {
     gmap,
+    GooglePhoto,
   },
   data() {
     return {
@@ -165,6 +166,11 @@ export default {
         minute: "2-digit",
       });
       return open + " - " + close;
+    },
+    randomPhoto() {
+        let num = Math.floor(Math.random() * (10));
+        console.log(num);
+        return num;
     },
     sortDaysHours() {
       let days = [];
