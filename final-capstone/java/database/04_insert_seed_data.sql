@@ -93,7 +93,11 @@ VALUES (4, 'Sibling Revelry Brewing'
 --Beer        
 INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active)
 VALUES ('Christmas Ale', 7.5, 30, 'Ale', 
+<<<<<<< HEAD
         'Ale with spices and honey and a Yuletide`s worth of holiday spices and sweet honey to keep you a-wassailing all season long.'
+=======
+        'Ale with spices and honey and a Yuletide`s worth of holiday spices and sweet honey to keep you a-wassailing all season long'
+>>>>>>> develop
         , 1, 'true');
         
 INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active) 
@@ -106,17 +110,29 @@ VALUES ('Burning river', 6.0, 35, 'Pale Ale',
         'Crisp and bright, with refreshing flickers of citrus and pine that ignite the senses (not our local waterways).'
         , 1, 'true');
         
+<<<<<<< HEAD
 INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active) 
+=======
+INSERT INTO beer (name, abv,ibu, type, info,  brewery_id, is_active) 
+>>>>>>> develop
 VALUES ('Habituale', 5.3, 21, 'Kolsch',
         'This crisp, clean Kolsch is a true German classic. Its the perfect tribute to our fair-minded friend: sweet balanced with faint bitterness. Appeals to crossover mainstream drinkers and beer connoisseurs alike.'
         , 2, 'true');
         
+<<<<<<< HEAD
 INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active) 
+=======
+INSERT INTO beer (name, abv,ibu, type, info,  brewery_id, is_active) 
+>>>>>>> develop
 VALUES ('B.F.Hefe', 5.5, 11, 'Wheat',
         'This Bavarian classic offers that kind of balance. Its not overly bitter or sweet. The original gangster of cloudy beers is thirst quenching and effervescent.'
         , 2, 'true');
         
+<<<<<<< HEAD
 INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active) 
+=======
+INSERT INTO beer (name, abv,ibu, type, info, brewery_id, is_active) 
+>>>>>>> develop
 VALUES ('Punchline', 5.7, 12, 'Wheat',
         'Our fruit beer is a tribute to fruit punch. Tons of fruit flavors come together in a haymaker that hits you right in the red rubber nose.'
         , 2, 'true');
@@ -203,7 +219,11 @@ VALUES 	('Swing State'
         ,  4
 	, 'true');
 	
+<<<<<<< HEAD
 INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active)
+=======
+INSERT INTO beer  (name, abv, ibu, type, info, brewery_id, is_active)
+>>>>>>> develop
 VALUES 	('Coffee Red'
 	,  5.5
 	,  25
@@ -291,7 +311,7 @@ INSERT INTO reviews (beer_id, beer_name, user_id, subject_title, review, rating,
 -- images       
 INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
 VALUES(1, 
-        'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/christmas_ale_bottle_glass_can_0.png', 
+        'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/christmas_ale_bottle_glass_can_0.png?itok=gsAGIklG', 
         'Ale with spices and honey and a Yuletide`s worth of holiday spices and sweet honey to keep you a-wassailing all season long',
         'Christmas Ale',
         1,
@@ -299,7 +319,7 @@ VALUES(1,
 
 INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
 VALUES(2,
-        'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/eliot-ness-2021_0.jpg',
+        'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/eliot-ness-2021_0.jpg?itok=tb8D-ZHX',
         'Almost untouchably smooth--armed with lightly toasted malts and noble hops.',
         'Elliot Ness',
         2,
@@ -307,7 +327,7 @@ VALUES(2,
 
 INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
 VALUES(3,
-       'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/burning-river-cans-fixed-580x960_0.jpg',
+       'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/burning-river-cans-fixed-580x960_0.jpg?itok=AOcghGqh',
        'Crisp and bright, with refreshing flickers of citrus and pine that ignite the senses (not our local waterways).',
        'Burning River',
        3,

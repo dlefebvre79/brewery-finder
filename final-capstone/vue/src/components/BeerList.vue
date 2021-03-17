@@ -8,6 +8,7 @@
         | {{ beer.info }} | {{ beer.abv }} | {{ beer.type }} 
       </li>
     </ul>
+    <router-link v-bind:to="{name:'add-beer', params: {id: brewery.id}}" v-if='isBrewer'>Add A Beer</router-link>
     </div>
   </div>
 </template>
@@ -21,6 +22,12 @@ export default {
       brewery: {},
       beers: [],
     };
+  },
+  computed: {
+    isBrewer(){
+      const roles = this.$store.state.user.authorities;
+      return roles.filter(role => role.name === "ROLE_BREWER").length > 0 ;
+    }
   },
 
   created() {

@@ -84,9 +84,11 @@ public class BeerSqlDao implements BeerDAO
 	public int create(Beer beer)
 	{
 		int beerId = getNextId();
+		
+		beer.setId(beerId);
 		String sql = "INSERT INTO beer "
-				   + "(beer_id, name, type, info, abv, ibu, brewery_id) "
-				   + "values(?, ?, ?, ?, ?, ?, ?);";
+				   + "(beer_id, name, type, info, abv, ibu, brewery_id, is_active) "
+				   + "values(?, ?, ?, ?, ?, ?, ?, true);";
 		
 		jdbcTemplate.update(sql,
 							beer.getId(),
