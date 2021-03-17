@@ -23,7 +23,6 @@ import com.techelevator.model.exceptions.UserNotLegalAgeException;
 
 @RestController
 @CrossOrigin
-@PreAuthorize("isAuthenticated()")
 @RequestMapping(path = "/user")
 public class UserController
 {
@@ -31,6 +30,7 @@ public class UserController
 	@Autowired
 	private UserDAO userDAO;
 
+	@PreAuthorize("isAuthenticated()")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/update", method = RequestMethod.PUT)
 	public User update(@Valid @RequestBody User userToUpdate)
@@ -73,6 +73,7 @@ public class UserController
 		return user;
 	}
 
+	@PreAuthorize("isAuthenticated()")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/password", method = RequestMethod.PUT)
 	public User changePassword(@Valid @RequestBody User userToUpdate, @RequestParam String oldPassword, @RequestParam String newPassword)
@@ -89,6 +90,7 @@ public class UserController
 		return user;
 	}
 
+	@PreAuthorize("isAuthenticated()")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET)
 	public List<User> getAll()
@@ -96,6 +98,7 @@ public class UserController
 		return userDAO.findAll();
 	}
 
+	@PreAuthorize("isAuthenticated()")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/brewers", method = RequestMethod.GET)
 	public List<User> getAllBrewers()
@@ -104,6 +107,7 @@ public class UserController
 	}
 	
 	
+	@PreAuthorize("isAuthenticated()")
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/get", method = RequestMethod.GET)
 	public User getByUsername(@RequestParam String username)

@@ -291,7 +291,7 @@ INSERT INTO reviews (beer_id, beer_name, user_id, subject_title, review, rating,
 -- images       
 INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
 VALUES(1, 
-        'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/christmas_ale_bottle_glass_can_0.png?itok=gsAGIklG', 
+        'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/christmas_ale_bottle_glass_can_0.png', 
         'Ale with spices and honey and a Yuletide`s worth of holiday spices and sweet honey to keep you a-wassailing all season long',
         'Christmas Ale',
         1,
@@ -299,7 +299,7 @@ VALUES(1,
 
 INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
 VALUES(2,
-        'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/eliot-ness-2021_0.jpg?itok=tb8D-ZHX',
+        'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/eliot-ness-2021_0.jpg',
         'Almost untouchably smooth--armed with lightly toasted malts and noble hops.',
         'Elliot Ness',
         2,
@@ -307,7 +307,7 @@ VALUES(2,
 
 INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
 VALUES(3,
-       'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/burning-river-cans-fixed-580x960_0.jpg?itok=AOcghGqh',
+       'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/burning-river-cans-fixed-580x960_0.jpg',
        'Crisp and bright, with refreshing flickers of citrus and pine that ignite the senses (not our local waterways).',
        'Burning River',
        3,
