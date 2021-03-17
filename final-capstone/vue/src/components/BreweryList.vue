@@ -74,13 +74,15 @@ export default {
   },
   computed: {
     breweries() {
+        if(this.$store.state.token != '') {
         if(this.$store.state.user.authorities[0].name === "ROLE_ADMIN"
             || this.$store.state.user.authorities[0].name === "ROLE_BREWER") {
             return this.$store.state.breweries;
         } else {
             return this.$store.state.breweries.filter(brewery => brewery.active);
         }
-      
+        }
+        return this.$store.state.breweries.filter(brewery => brewery.active);
     },
     isAdmin() {
       if (this.$store.state.token != "") {
@@ -104,9 +106,11 @@ export default {
     },
   },
   created() {
+    if(this.$store.state.token != '') {
     userService.findAllBrewers().then((response) => {
       this.brewers = response.data;
     });
+    }
     breweryService.list().then((response) => {
       let sortedBreweries = breweryService.sortBreweries(response.data);
       sortedBreweries.forEach(brewery => {

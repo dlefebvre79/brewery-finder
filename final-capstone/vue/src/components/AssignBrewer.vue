@@ -55,10 +55,14 @@ export default {
   },
   computed: {
     options() {
+        if(this.brewers.length > 0) {
       return Object.keys(this.brewers).map((k) => {
         let b = this.brewers[k];
         return `${b.firstName} ${b.lastName}`;
       });
+      } else {
+          return "No Brewers";
+      }
     },
   },
   created() {
