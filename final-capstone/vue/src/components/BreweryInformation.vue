@@ -63,7 +63,8 @@
               <td>{{ formatHours(brewery.hours[index]) }}</td>
             </tr>
           </table>
-          <google-photo v-bind:photo="$store.state.map.photos[randomPhoto()]" width="150"/>
+          <google-photo 
+            v-bind:photo="$store.state.map.photos[randomPhoto()]" width="150"/>
           <br />
         </div>
 
@@ -132,6 +133,7 @@ export default {
         active: "",
       },
       beers: [],
+      photoId: 0,
     };
   },
   created() {
@@ -160,9 +162,7 @@ export default {
       return open + " - " + close;
     },
     randomPhoto() {
-        let num = Math.floor(Math.random() * (10));
-        console.log(num);
-        return num;
+        return Math.floor(Math.random() * (10));
     },
     sortDaysHours() {
       let days = [];
