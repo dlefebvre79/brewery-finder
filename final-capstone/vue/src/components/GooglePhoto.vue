@@ -1,6 +1,6 @@
 <template>
   <div>
-      <img v-bind:src="imageUrl"><br>
+      <img v-bind:src="photo.getUrl({maxHeight: 300, maxWidth: 300})"><br>
       <span>Photo credit: </span>
       <div class="credit"
         v-for="credit in photo.html_attributions"
@@ -28,7 +28,8 @@ export default {
   },
   computed: {
     imageUrl() {
-      return this.api + this.photoPath + this.photo.photo_reference + "&key=" + this.apiKey;
+     return this.api + this.photoPath + this.photo.photo_reference + "&key=" + this.apiKey;
+        // return this.photo.getUrl + "({maxWidth: 300, maxHeight: 300})";
     }
   }
 
