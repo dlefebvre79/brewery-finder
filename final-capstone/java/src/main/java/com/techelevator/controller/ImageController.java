@@ -24,7 +24,7 @@ import com.techelevator.model.exceptions.ImageNotFoundException;
 
 @RestController
 @CrossOrigin
-@RequestMapping(path = "/image")
+@RequestMapping(path = "/images")
 public class ImageController
 {
 	@Autowired
