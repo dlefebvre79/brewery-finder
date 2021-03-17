@@ -140,8 +140,12 @@ export default {
   },
   computed: {
     isBrewer(){
-      const roles = this.$store.state.user.authorities;
-      return roles.filter(role => role.name === "ROLE_BREWER").length > 0 ;
+        if(this.$store.state.token != '') {
+            const roles = this.$store.state.user.authorities;
+            return roles.filter(role => role.name === "ROLE_BREWER").length > 0 ;
+        } else {
+            return false;
+        }
     }
   },
   created() {
