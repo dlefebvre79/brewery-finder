@@ -137,7 +137,7 @@ export default {
     breweryService.getBreweriesById(this.$route.params.id).then((response) => {
       this.brewery = response.data;
       this.sortDaysHours();
-      this.$store.commit("SET_MAP_TARGET", this.brewery.address);
+      this.$store.commit("SET_MAP_TARGET", this.brewery.name);
     });
     breweryService.getBeerByBrewery(this.$route.params.id).then((response) => {
       this.beers = response.data;
