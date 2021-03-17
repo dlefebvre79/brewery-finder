@@ -25,7 +25,9 @@ export default new Vuex.Store({
     map: {
         rating: '',
         location: '',
-        price: ''
+        price: '',
+        placeId: '',
+        photos: [],
     }, 
     reviews: []
     //googleRating: '',
@@ -53,6 +55,12 @@ export default new Vuex.Store({
     },
     SET_GOOGLE_RATING(state, rating) {
         state.map.rating = rating;
+    },
+    SET_GOOGLE_PLACE(state, place) {
+        state.map.placeId = place;
+    },
+    SET_GOOGLE_PHOTOS(state, photos) {
+        state.map.photos = photos;
     },
     SET_GOOGLE_PRICE(state, price) {
         let priceDollars = "";
