@@ -121,7 +121,7 @@ export default {
       };
     },
     cancel() {
-      
+      window.history.go(-1);
     }
   }
 };
