@@ -1,12 +1,15 @@
 <template>
   <div>
     <div v-if="brewery.id > 0" class="brewery-information">
+
       <div class="transbox" id="brewery-container">
         <h1 class="headline">{{ brewery.name }}</h1>
+
         <div class="brewery-details">
           <p id="address">{{ brewery.address }}</p>
           <p id="city">{{ brewery.city }}</p>
           <p id="phone">{{ brewery.phoneNumber }}</p>
+
           <div class="amenities">
             <img
               v-bind:class="{ active: $store.state.map.price.length > 0 }"
@@ -50,7 +53,9 @@
               alt="food"
             />
           </div>
+
         </div>
+
         <div id="hours">
           <table class="brewery-table">
             <th colspan="2">Hours of Operation:</th>
@@ -63,6 +68,7 @@
               <td>{{ formatHours(brewery.hours[index]) }}</td>
             </tr>
           </table>
+
           <google-photo 
             v-bind:photo="$store.state.map.photos[randomPhoto()]" width="150"/>
           <br />
@@ -78,12 +84,16 @@
           <p>Atmosphere: {{ brewery.atmosphere }}</p>
           <p>Google Rating: {{ $store.state.map.rating }}</p>
         </div>
+
         <div class="beer-list">
           <h3>Beer List</h3>
           <beer-list v-bind:brewery="brewery" />
         </div>
+
       </div>
+
     </div>
+
   </div>
 </template>
 
@@ -208,7 +218,24 @@ export default {
 </script>
 
 <style>
-#brewery-container {
+
+.amenities > img {
+  width: 25px;
+  filter: invert() sepia(100%) saturate(100%) brightness(0.25);
+  
+   
+}
+
+img.active {
+  filter: invert() sepia(100%) saturate(100%) brightness(1);
+  
+}
+
+#map {
+  height: 250px;
+}
+
+/* #brewery-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px 50px;
@@ -239,10 +266,6 @@ export default {
   grid-area: map;
 }
 
-#map {
-  height: 250px;
-}
-
 .amenities {
     display: flex;
     grid-area: amenities;
@@ -251,14 +274,7 @@ export default {
     max-width: 500px;
     
     
-}
-
-.amenities > img {
-  width: 25px;
-  filter: invert() sepia(100%) saturate(100%) brightness(0.25);
-  
-   
-}
+} 
 
 .beer-list {
   display: grid;
@@ -270,13 +286,8 @@ export default {
   grid-area: brewery-description;
 }
 
-img.active {
-  filter: invert() sepia(100%) saturate(100%) brightness(1);
-  
-}
-
 li {
   display: grid;
   justify-content: left;
-}
+} */
 </style>
