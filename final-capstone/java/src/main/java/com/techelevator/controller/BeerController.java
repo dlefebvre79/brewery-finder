@@ -36,18 +36,10 @@ public class BeerController {
 	public Beer create(@Valid @RequestBody Beer beer)
 	{
 		Beer newBeer = null;
-		try 
-		{
-		if(beerDAO.getByName(beer.getName()).size() > 0)
-				{
-				throw new BeerAlreadyExistsException();
-				}
-		}
-		catch (BeerNotFoundException e)
-		{
-			int beerId = beerDAO.create(beer);
-			newBeer = beerDAO.getById(beerId);
-		}
+		
+		int beerId = beerDAO.create(beer);
+		newBeer = beerDAO.getById(beerId);
+
 		return newBeer;
 	}
 	

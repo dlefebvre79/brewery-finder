@@ -91,39 +91,55 @@ VALUES (4, 'Sibling Revelry Brewing'
 	);
         
 --Beer        
-INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
-VALUES (1, 'Christmas Ale', 7.5, 30, 'Ale', 
+INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active)
+VALUES ('Christmas Ale', 7.5, 30, 'Ale', 
+<<<<<<< HEAD
+        'Ale with spices and honey and a Yuletide`s worth of holiday spices and sweet honey to keep you a-wassailing all season long.'
+=======
         'Ale with spices and honey and a Yuletide`s worth of holiday spices and sweet honey to keep you a-wassailing all season long'
+>>>>>>> develop
         , 1, 'true');
         
-INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active) 
-VALUES (2, 'Eliot Ness', 6.1, 27, 'Amber Lager',
+INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active) 
+VALUES ('Eliot Ness', 6.1, 27, 'Amber Lager',
         'Almost untouchably smooth--armed with lightly toasted malts and noble hops.'
         , 1, 'true');
         
-INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
-VALUES (3, 'Burning river', 6.0, 35, 'Pale Ale',
+INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active)
+VALUES ('Burning river', 6.0, 35, 'Pale Ale',
         'Crisp and bright, with refreshing flickers of citrus and pine that ignite the senses (not our local waterways).'
         , 1, 'true');
         
-INSERT INTO beer (beer_id, name, abv,ibu, type, info,  brewery_id, is_active) 
-VALUES (4, 'Habituale', 5.3, 21, 'Kolsch',
+<<<<<<< HEAD
+INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active) 
+=======
+INSERT INTO beer (name, abv,ibu, type, info,  brewery_id, is_active) 
+>>>>>>> develop
+VALUES ('Habituale', 5.3, 21, 'Kolsch',
         'This crisp, clean Kolsch is a true German classic. Its the perfect tribute to our fair-minded friend: sweet balanced with faint bitterness. Appeals to crossover mainstream drinkers and beer connoisseurs alike.'
         , 2, 'true');
         
-INSERT INTO beer (beer_id, name, abv,ibu, type, info,  brewery_id, is_active) 
-VALUES (5, 'B.F.Hefe', 5.5, 11, 'Wheat',
+<<<<<<< HEAD
+INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active) 
+=======
+INSERT INTO beer (name, abv,ibu, type, info,  brewery_id, is_active) 
+>>>>>>> develop
+VALUES ('B.F.Hefe', 5.5, 11, 'Wheat',
         'This Bavarian classic offers that kind of balance. Its not overly bitter or sweet. The original gangster of cloudy beers is thirst quenching and effervescent.'
         , 2, 'true');
         
-INSERT INTO beer (beer_id, name, abv,ibu, type, info, brewery_id, is_active) 
-VALUES (6, 'Punchline', 5.7, 12, 'Wheat',
+<<<<<<< HEAD
+INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active) 
+=======
+INSERT INTO beer (name, abv,ibu, type, info, brewery_id, is_active) 
+>>>>>>> develop
+VALUES ('Punchline', 5.7, 12, 'Wheat',
         'Our fruit beer is a tribute to fruit punch. Tons of fruit flavors come together in a haymaker that hits you right in the red rubber nose.'
         , 2, 'true');
 
 --John's inserts
-INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
-VALUES (7, 'Rocky River Pirate Light'
+INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active)
+VALUES ('Rocky River Pirate Light'
 	,  4.8
 	,  16
 	, 'Blonde Ale'
@@ -131,8 +147,8 @@ VALUES (7, 'Rocky River Pirate Light'
 	,  3
 	, 'true');
 	
-INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
-VALUES	(8, 'Hop Goblin IPA'
+INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active)
+VALUES	('Hop Goblin IPA'
 	,  7.6
 	,  67
 	, 'IPA'
@@ -140,8 +156,8 @@ VALUES	(8, 'Hop Goblin IPA'
 	,  3
 	, 'true');
 	
-INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
-VALUES	(9, 'Blarney Rubble Irish Red'
+INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active)
+VALUES	('Blarney Rubble Irish Red'
 	,  5.4
 	,  20
 	, 'Irish Red'
@@ -149,8 +165,8 @@ VALUES	(9, 'Blarney Rubble Irish Red'
 	,  3
 	, 'true');
 	
-INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
-VALUES	(10, 'Cooper''s Gold Kolsch'
+INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active)
+VALUES	('Cooper''s Gold Kolsch'
 	,  6.0
 	,  28
 	, 'German Ale'
@@ -158,8 +174,8 @@ VALUES	(10, 'Cooper''s Gold Kolsch'
 	,  3
 	, 'true');
 	
-INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
-VALUES	(11, 'Punchin The Nuts'
+INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active)
+VALUES	('Punchin The Nuts'
 	,  5.3
 	,  20
 	, 'Amber Ale'
@@ -167,8 +183,8 @@ VALUES	(11, 'Punchin The Nuts'
 	,  3
 	, 'true');
 	
-INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
-VALUES  (12, 'Tropic Funk IPA'
+INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active)
+VALUES  ('Tropic Funk IPA'
 	,  10.2
 	,  70
 	, 'IPA'
@@ -176,17 +192,17 @@ VALUES  (12, 'Tropic Funk IPA'
 	,  3
 	, 'true');
         
-INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
-VALUES (13, 'IPA'
+INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active)
+VALUES ('IPA'
 	,  6.5
 	,  60
 	, 'India Pale Ale'
-	, 'Our Indai Pale Ale has big pine, citrus and stone fruit aromas with a clean, dry finish. It is like Grandpa Bert - not that bitter once you get to know him.'
+	, 'Our India Pale Ale has big pine, citrus and stone fruit aromas with a clean, dry finish. It is like Grandpa Bert - not that bitter once you get to know him.'
 	,  4
 	, 'true');
 
-INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
-VALUES 	(14, 'Red'
+INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active)
+VALUES 	('Red'
 	, 5.5
 	, 35
 	, 'American Red Ale'
@@ -194,8 +210,8 @@ VALUES 	(14, 'Red'
         ,  4
 	, 'true');
 	
-INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
-VALUES 	(15, 'Swing State'
+INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active)
+VALUES 	('Swing State'
 	, 4.5
 	, 40
 	, 'Dry Hopped Pale Ale'
@@ -203,8 +219,12 @@ VALUES 	(15, 'Swing State'
         ,  4
 	, 'true');
 	
-INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
-VALUES 	(16, 'Coffee Red'
+<<<<<<< HEAD
+INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active)
+=======
+INSERT INTO beer  (name, abv, ibu, type, info, brewery_id, is_active)
+>>>>>>> develop
+VALUES 	('Coffee Red'
 	,  5.5
 	,  25
 	, 'Coffee Red Ale'
@@ -212,8 +232,8 @@ VALUES 	(16, 'Coffee Red'
 	,  4
 	, 'true');
 	
-INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
-VALUES (17, 'Siblime'
+INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active)
+VALUES ('Siblime'
 	,  5.0
 	,  20
 	, 'Lager brewed with Lime'
@@ -221,8 +241,8 @@ VALUES (17, 'Siblime'
 	,  4
 	, 'true');
 	
-INSERT INTO beer (beer_id, name, abv, ibu, type, info, brewery_id, is_active)
-VALUES (18, 'Mocha Oatmeal Stout'
+INSERT INTO beer (name, abv, ibu, type, info, brewery_id, is_active)
+VALUES ('Mocha Oatmeal Stout'
 	,  6.5
 	,  25
 	, 'Oatmeal Stout'
@@ -291,7 +311,7 @@ INSERT INTO reviews (beer_id, beer_name, user_id, subject_title, review, rating,
 -- images       
 INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
 VALUES(1, 
-        'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/christmas_ale_bottle_glass_can_0.png', 
+        'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/christmas_ale_bottle_glass_can_0.png?itok=gsAGIklG', 
         'Ale with spices and honey and a Yuletide`s worth of holiday spices and sweet honey to keep you a-wassailing all season long',
         'Christmas Ale',
         1,
@@ -299,7 +319,7 @@ VALUES(1,
 
 INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
 VALUES(2,
-        'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/eliot-ness-2021_0.jpg',
+        'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/eliot-ness-2021_0.jpg?itok=tb8D-ZHX',
         'Almost untouchably smooth--armed with lightly toasted malts and noble hops.',
         'Elliot Ness',
         2,
@@ -307,7 +327,7 @@ VALUES(2,
 
 INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
 VALUES(3,
-       'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/burning-river-cans-fixed-580x960_0.jpg',
+       'https://www.greatlakesbrewing.com/sites/default/files/styles/beer_page/public/burning-river-cans-fixed-580x960_0.jpg?itok=AOcghGqh',
        'Crisp and bright, with refreshing flickers of citrus and pine that ignite the senses (not our local waterways).',
        'Burning River',
        3,
@@ -339,7 +359,7 @@ VALUES(6,
 
 INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
 VALUES(7,
-       'https://untappd.com/b/rocky-river-brewing-company-rocky-river-pirate-light/98669/photos',
+       'https://www.instagram.com/p/Bvrq6NYBrh1/',
        'This American blonde ale will grow on you. This brew is smooth, golden, and has fewer calories.',
        'Rocky River Pirate Light',
        7,
@@ -347,7 +367,7 @@ VALUES(7,
 
 INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
 VALUES(8,
-       'https://untappd.com/user/tmonaco/checkin/997937073',
+       'https://www.instagram.com/p/BrdNw5OH4O9/',
        'This West Coast-style IPA is our new flagship IPA. It has a high level of hop bitterness, flavor and aroma, and just enough malt to balance it',
        'Hop Goblin IPA',
        8,
@@ -363,7 +383,7 @@ VALUES(9,
 
 INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
 VALUES(10,
-       'https://untappd.com/b/rocky-river-brewing-company-cooper-s-gold-kolsch/38814/photos',
+       'https://www.instagram.com/p/CEpo541pmYi/',
        'This German ale alt-style utilizes a unique blend of seven different German malts and two different German hops to produce a golden color.',
        'Coopers Gold Kolsch',
        10,
@@ -383,8 +403,58 @@ VALUES(12,
        'Our fruit beer is a tribute to fruit punch. Tons of fruit flavors come together in a haymaker that hits you right in the red rubber nose.',
        'Tropic Funk IPA',
        12,
-       3);	   
+       3);
 
+INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)       
+VALUES(13, 
+        'http://www.siblingrevelrybrewing.com/SiblingRevelryBrewing/media/SiblingRevelryMedia/2017%20Beer%20Images%201228x1590/2017%20Beer%20Images%20220x500/ipa-small.png?ext=.png', 
+        'It is like Grandpa Bert, not that bitter once you get to know him',
+        'IPA',
+        13,
+        4);
+
+INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)        
+VALUES(14, 
+        'http://www.siblingrevelrybrewing.com/SiblingRevelryBrewing/media/SiblingRevelryMedia/2017%20Beer%20Images%201228x1590/2017%20Beer%20Images%20220x500/red-small.png?ext=.png', 
+        'Keep this one handy for the rowdiest family reunions and sports parties',
+        'RED',
+        14,
+        4);
+                       	   
+INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)
+VALUES(15, 
+        'http://www.siblingrevelrybrewing.com/SiblingRevelryBrewing/media/SiblingRevelryMedia/2017%20Beer%20Images%201228x1590/2017%20Beer%20Images%20220x500/swing-state-small.png?ext=.png', 
+        'A dry hopped, light bodied American Pale Ale',
+        'SWING STATE',
+        15,
+        4);
+
+INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)        
+VALUES(16, 
+        'http://www.siblingrevelrybrewing.com/SiblingRevelryBrewing/media/SiblingRevelryMedia/2017%20Beer%20Images%201228x1590/2017%20Beer%20Images%20220x500/coffee-red-small.png?ext=.png', 
+        'Drinks like our red ale lightly roasted and sweetened coffee finish',
+        'COFFEE RED',
+        16,
+        4);
+
+INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)        
+VALUES(17, 
+        'http://www.siblingrevelrybrewing.com/SiblingRevelryBrewing/media/SiblingRevelryMedia/2017%20Beer%20Images%201228x1590/2017%20Beer%20Images%20220x500/siblime-can-combo-small-final.png?ext=.png', 
+        'Cheers to the other season in Cleveland - Not-Winter',
+        'SUBLIME',
+        17,
+        4);
+
+INSERT INTO images (image_id, url, description, alt_text, beer_id, brewery_id)        
+VALUES(18, 
+        'http://www.siblingrevelrybrewing.com/getmedia/c77ea620-cb85-4193-b46c-a96a7fe7be1a/mocha-can-render?width=390&height=500&ext=.png', 
+        'Our favorite pick-me-up with the best evening companion',
+        'MOCHA OATMEAL STOUT',
+        18,
+        4);
+        
+        
+                                
 -- reset the sequence numbering for the users table
 ALTER SEQUENCE seq_user_id RESTART WITH 4;
 
