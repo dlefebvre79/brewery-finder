@@ -57,15 +57,29 @@ export default {
     deleteBeer() {
       this.beer.breweryId = this.$route.params.id
       breweryService
-          .deleteBeerByBrewery(this.beer)
-          .then((response)=>{
-            if (response.status === 201){
-              this.$router.push("/");
-            }
+          .deleteBeer(this.beer.id)
+          .then(()=>{
+            this.reloadBeer();
+            this.clearForm();
+            // if (response.status === 201){
+            //   this.$router.push("/");
+            // }
           })
     },
+    reloadBeer(){
+      breweryService.getBeerByBrewery(this.$route.params.id).then((response) => {
+        this.$store.commit('LOAD_BEER', response.data) ;
+        this.$router.push(`/brewery/${this.$route.params.id}`)
+      });
+    },
+     clearForm() {
+      this.beer = {
+        id: "",
+        name: ""
+      };
+     },
     cancel() {
-      this.$router.push("/");
+      
     }
   }
 };
