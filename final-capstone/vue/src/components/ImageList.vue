@@ -3,7 +3,7 @@
       <ul>
           <li v-for="image in images" v-bind:key="image.id">
               <router-link
-              v-bind:to="{ name: 'image', params: { id: image.id } }"
+              v-bind:to="{ name: 'image-list', params: { id: image.id } }"
               class="images"
               >{{ image.url }}</router-link>
               </li>
@@ -18,7 +18,7 @@ export default {
     name: "image-list",
     data(){
         return{
-        image:{
+        images:{
             id: '',
             url: '',
             description: '',
