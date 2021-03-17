@@ -95,14 +95,33 @@ export default {
       this.beer.breweryId = this.$route.params.id
       breweryService
           .addBeerByBrewery(this.beer)
-          .then((response)=>{
-            if (response.status === 201){
-              this.$router.push("/");
-            }
+          .then(()=>{
+            this.reloadBeer();
+            this.clearForm();
+            // if (response.status === 201){
+            //   this.$router.push("/");
+            // }
           })
     },
+    reloadBeer(){
+      breweryService.getBeerByBrewery(this.$route.params.id).then((response) => {
+        this.$store.commit('LOAD_BEER', response.data) ;
+        this.$router.push(`/brewery/${this.$route.params.id}`)
+      });
+    },
+    clearForm() {
+      this.beer = {
+        id: "",
+        name: "",
+        type: "",
+        info: "",
+        abv: "",
+        ibu: "",
+        breweryId: ""
+      };
+    },
     cancel() {
-      this.$router.push("/");
+      
     }
   }
 };

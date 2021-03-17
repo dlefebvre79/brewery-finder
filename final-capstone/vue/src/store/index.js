@@ -68,12 +68,15 @@ export default new Vuex.Store({
             priceDollars = priceDollars + "$";
         }
         if(priceDollars.length === 0){
-            priceDollars = "N/A";
+            priceDollars = "";
         }
         state.map.price = priceDollars;
     },
     LOAD_BREWERIES(state, breweries) {
         state.breweries = breweries;
+    },
+    LOAD_BEER(state, beer){
+        state.beer = beer;
     },
     LOAD_REVIEWS(state, reviews){
       state.reviews = reviews;
