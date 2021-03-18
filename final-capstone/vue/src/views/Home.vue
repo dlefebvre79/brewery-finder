@@ -1,5 +1,5 @@
 <template>
-<div class="wrapper">
+<div>
   <br>
   <h1 class="home-title">Tech Ale-Evator Brewery Finder</h1>
   <div>
