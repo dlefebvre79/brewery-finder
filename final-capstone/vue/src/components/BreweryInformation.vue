@@ -5,61 +5,56 @@
       <div class="transbox" id="brewery-container">
         <h1 class="headline">{{ brewery.name }}</h1>
 
-        <div id="details" class="brewery-details">
-          <span id="address">{{ brewery.address }} | {{ brewery.city }} | {{ brewery.phoneNumber }}</span>
-        </div>
+        <div class="brewery-details">
+          <p id="address">{{ brewery.address }}</p>
+          <p id="city">{{ brewery.city }}</p>
+          <p id="phone">{{ brewery.phoneNumber }}</p>
 
-        <div id="amenities">
-            <span>Price Level: </span>
-                <div id="price">
-                <img
-                    v-bind:class="{ active: $store.state.map.price.length > 0 }"
-                    src="@/assets/images/icons/tabler-icon-currency-dollar.png"
-                    alt="price level"
-                />
-                <img
-                    v-bind:class="{ active: $store.state.map.price.length > 1 }"
-                    src="@/assets/images/icons/tabler-icon-currency-dollar.png"
-                    alt="price level"
-                />
-                <img
-                    v-bind:class="{ active: $store.state.map.price.length > 2 }"
-                    src="@/assets/images/icons/tabler-icon-currency-dollar.png"
-                    alt="price level"
-                />
-                <img
-                    v-bind:class="{ active: $store.state.map.price.length > 3 }"
-                    src="@/assets/images/icons/tabler-icon-currency-dollar.png"
-                    alt="price level"
-                />
-                <img
-                    v-bind:class="{ active: $store.state.map.price.length > 4 }"
-                    src="@/assets/images/icons/tabler-icon-currency-dollar.png"
-                    alt="price level"
-                />
-            </div>
-            <div id="features">
-                    <span>Family Friendly / Patio / Food: </span> <br/>
-                <div>
-                <img
-                    v-bind:class="{ active: brewery.familyFriendly == true }"
-                    src="@/assets/images/icons/tabler-icon-mood-kid.png"
-                    alt="family friendly"
-                />
-                <img
-                    v-bind:class="{ active: brewery.patio == true }"
-                    src="@/assets/images/icons/tabler-icon-trees.png"
-                    alt="patio"
-                />
-                <img
-                    v-bind:class="{ active: brewery.food == true }"
-                    src="@/assets/images/icons/tabler-icon-pizza.png"
-                    alt="food"
-                />
-                </div>
-            </div>
-        </div>
+          <div class="amenities">
+            <img
+              v-bind:class="{ active: $store.state.map.price.length > 0 }"
+              src="@/assets/images/icons/tabler-icon-currency-dollar.png"
+              alt="price level"
+            />
+            <img
+              v-bind:class="{ active: $store.state.map.price.length > 1 }"
+              src="@/assets/images/icons/tabler-icon-currency-dollar.png"
+              alt="price level"
+            />
+            <img
+              v-bind:class="{ active: $store.state.map.price.length > 2 }"
+              src="@/assets/images/icons/tabler-icon-currency-dollar.png"
+              alt="price level"
+            />
+            <img
+              v-bind:class="{ active: $store.state.map.price.length > 3 }"
+              src="@/assets/images/icons/tabler-icon-currency-dollar.png"
+              alt="price level"
+            />
+            <img
+              v-bind:class="{ active: $store.state.map.price.length > 4 }"
+              src="@/assets/images/icons/tabler-icon-currency-dollar.png"
+              alt="price level"
+            />
+            <br />
+            <img
+              v-bind:class="{ active: brewery.familyFriendly == true }"
+              src="@/assets/images/icons/tabler-icon-mood-kid.png"
+              alt="family friendly"
+            />
+            <img
+              v-bind:class="{ active: brewery.patio == true }"
+              src="@/assets/images/icons/tabler-icon-trees.png"
+              alt="patio"
+            />
+            <img
+              v-bind:class="{ active: brewery.food == true }"
+              src="@/assets/images/icons/tabler-icon-pizza.png"
+              alt="food"
+            />
+          </div>
 
+        </div>
 
         <div id="hours">
           <table class="brewery-table">
@@ -69,29 +64,28 @@
               v-bind:key="day.id"
               class="table"
             >
-              <td class="days">{{ day }}</td>
-              <td class="hours">{{ formatHours(brewery.hours[index]) }}</td>
+              <td>{{ day }}</td>
+              <td>{{ formatHours(brewery.hours[index]) }}</td>
             </tr>
           </table>
-        </div>
 
-        <div id="gphoto" height="100%" width="100%">
           <google-photo 
-            v-bind:photo="$store.state.map.photos[randomPhoto()]" :height="500"/>
+            v-bind:photo="$store.state.map.photos[randomPhoto()]" height="350"/>
+          <br />
         </div>
 
-        <div id="map">
+        <div class="map">
           <gmap id="map" />
         </div>
 
-        <div id="brewery-description">
+        <div class="brewery-description">
           <h3>Description</h3>
           <p>{{ brewery.history }}</p>
           <p>Atmosphere: {{ brewery.atmosphere }}</p>
           <p>Google Rating: {{ $store.state.map.rating }}</p>
         </div>
 
-        <div id="beer-list">
+        <div class="beer-list">
           <h3>Beer List</h3>
           <beer-list v-bind:brewery="brewery" />
         </div>
@@ -225,109 +219,22 @@ export default {
 
 <style>
 
-#brewery-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 20px;
-    grid-template-areas: 
-    "headline headline headline"
-    "details details details"
-    "hours photo photo"
-    "map photo photo"
-    "amenities description description"
-    "beers description description"
-    "beers description description"
-    ;
-}
-
-.headline {
-    grid-area: headline;
-}
-
-#details {
-    grid-area: details;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    
-}
-
-#hours {
-    grid-area: hours;
-}
-
-#amenities {
-    grid-area: amenities;
-    display: flex;
-    justify-content: space-evenly;
-    font-size:0.7rem;
-}
-
-#price {
-    grid-area: price;
-}
-
-#features {
-    grid-area: features;
-}
-
-#gphoto {
-    grid-area: photo;
-}
-
-#map {
-    grid-area: map;
-}
-
-#brewery-description {
-    grid-area: description;
-}
-
-#beer-list {
-    grid-area: beers;
-}
-
-
-
-#amenities img {
+.amenities > img {
   width: 25px;
-  filter: invert() sepia(100%) saturate(100%) brightness(0.65);
+  filter: invert() sepia(100%) saturate(70%) brightness(0.65);
+  
+   
 }
 
-#amenities img.active {
-  filter: sepia(100%) saturate(900%) brightness(0.55);
-}
-
-#features {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+img.active {
+  filter: invert() sepia(100%) saturate(1000%) brightness(0.55);
+  
 }
 
 #map {
   height: 250px;
 }
 
-.brewery-information p {
-    text-align: left;
-}
-
-.days {
-    text-align: left;
-}
-
-.hours {
-    text-align: right;
-}
-
-.brewery-information ul {
-    list-style: none;
-}
-
-.brewery-information li {
-    text-align: left;
-
-}
 /* #brewery-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
