@@ -3,7 +3,7 @@
     <div class="transbox">
     <ul>
       <li v-for="beer in beers" v-bind:key="beer.id" class="brewery-beers">
-        <router-link v-bind:to="{ name: 'brewery', params: { id: brewery.id } }">
+        <router-link v-bind:to="{ name: 'beer-information', params: { id: beer.id } }">
           {{ beer.name }}</router-link>
          {{ beer.info }} | {{ beer.abv }} | {{ beer.type }}&nbsp;<a href="#" class="delete-link" v-on:click.prevent="deleteBeer(beer.id)" v-if='isBreweryAuthorized(brewery.brewer.id)'>x</a>
       </li>
