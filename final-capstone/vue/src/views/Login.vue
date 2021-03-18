@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div>
     <div class="transbox">
      <h1 class="text-center">Welcome to the Tech Ale-Evator Brewery Finder</h1>
     <div id="login" class="text-body">

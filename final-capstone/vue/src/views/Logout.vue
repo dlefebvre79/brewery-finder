@@ -1,5 +1,5 @@
 <template>
-<div class="wrapper">
+<div>
   <h1>Logout</h1>
   </div>
 </template>

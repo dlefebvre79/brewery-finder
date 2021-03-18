@@ -73,8 +73,8 @@
               <input
                 type="tel"
                 id="phone-number"
-                pattern="([0-9]{3}) [0-9]{3}-[0-9]{4}"
                 class="form-control"
+                placeholder="(___) ___-____"
                 v-model="brewery.phoneNumber"
               />
             </td>

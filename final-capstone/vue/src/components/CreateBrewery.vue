@@ -87,4 +87,13 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#newBrewery .left {
+    width: 60%;
+}
+
+#newBrewery .right {
+    width: 40%;
+}
+
+</style>

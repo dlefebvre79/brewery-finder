@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container transbox">
     <table id="tblUsers">
       <thead>
         <tr>
@@ -70,8 +70,8 @@ export default {
 </script>
 
 <style>
-#tblUsers {
+/* #tblUsers {
 
     background-color: rgba(255, 181, 22, 0.651);
-}
+} */
 </style>
