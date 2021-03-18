@@ -53,9 +53,9 @@ getReviewsByBeerId(id)
 {
     return http.get(`/reviews/beer/${id}`);
 },
-deleteBeerByBrewery(id)
+deleteBeer(beerId)
 {
-    return http.delete(`/beer/delete-beer/${id}`);
+    return http.delete(`/beer/deleteBeer/${beerId}`);
 },
 deleteBrewery(breweryId)
 {

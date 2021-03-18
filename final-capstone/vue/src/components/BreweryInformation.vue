@@ -93,24 +93,7 @@
 
         <div id="beer-list">
           <h3>Beer List</h3>
-          <ul>
-            <li
-              v-for="beer in beers"
-              v-bind:key="beer.id"
-              class="brewery-beers"
-            >
-              <router-link
-                v-bind:to="{
-                  name: 'beer-information',
-                  params: { id: beer.id },
-                }"
-              >
-                {{ beer.name }}</router-link
-            > ({{ beer.type }}, {{ beer.abv }}% ABV, {{ beer.ibu }} IBU)
-            </li>
-          </ul>
-          <router-link v-bind:to="{name:'add-beer', params: {id: brewery.id}}" v-if='isBrewer'>Add A Beer</router-link>
-   
+          <beer-list v-bind:brewery="brewery" />
         </div>
 
       </div>
@@ -124,12 +107,14 @@
 import breweryService from "@/services/BreweryService";
 import gmap from "@/components/Map";
 import GooglePhoto from "@/components/GooglePhoto.vue";
+import BeerList from "@/components/BeerList.vue";
 
 export default {
   name: "brewery-information",
   components: {
     gmap,
     GooglePhoto,
+    BeerList
   },
   data() {
     return {

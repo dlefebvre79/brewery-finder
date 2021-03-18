@@ -24,7 +24,6 @@ import com.techelevator.model.exceptions.BeerNotFoundException;
 @RestController
 @CrossOrigin
 @RequestMapping(path = "/beer")
-
 public class BeerController {
 
 	@Autowired
@@ -72,7 +71,7 @@ public class BeerController {
 	}
 	
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/delete-beer/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/deleteBeer/{id}", method = RequestMethod.DELETE)
 	public boolean deleteBeerById(@Valid @PathVariable int id)
 	{
 		return beerDAO.deleteBeerById(id);
