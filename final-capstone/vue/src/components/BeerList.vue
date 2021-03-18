@@ -1,16 +1,13 @@
 <template>
   <div class="beers-list">
-    <div class="transbox">
     <ul>
       <li v-for="beer in beers" v-bind:key="beer.id" class="brewery-beers">
         <router-link v-bind:to="{ name: 'beer-information', params: { id: beer.id } }">
-          {{ beer.name }}</router-link>
-         {{ beer.info }} | {{ beer.abv }} | {{ beer.type }}&nbsp;<a href="#" class="delete-link" v-on:click.prevent="deleteBeer(beer.id)" v-if='isBreweryAuthorized(brewery.brewer.id)'>x</a>
+          {{ beer.name }}  </router-link><span class="beer-stats">{{ beer.type }}, {{ beer.abv }}% ABV, {{beer.ibu}} IBU </span> &nbsp;<a href="#" class="delete-link" v-on:click.prevent="deleteBeer(beer.id)" v-if='isBreweryAuthorized(brewery.brewer.id)'>x</a>
       </li>
     </ul>
     <router-link v-bind:to="{name:'add-beer', params: {id: brewery.id}}" v-if='isBreweryAuthorized(brewery.brewer.id)'>Add A Beer</router-link>
     </div>
-  </div>
 </template>
 
 <script>
@@ -69,5 +66,9 @@ export default {
 a.delete-link {
   color: red;
   font-weight: bold;
+}
+span.beer-stats {
+    font-size: 0.9rem;
+    font-style: italic;
 }
 </style>

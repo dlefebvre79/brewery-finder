@@ -70,7 +70,7 @@
           </table>
 
           <google-photo 
-            v-bind:photo="$store.state.map.photos[randomPhoto()]" width="150"/>
+            v-bind:photo="$store.state.map.photos[randomPhoto()]" height="350"/>
           <br />
         </div>
 
@@ -221,13 +221,13 @@ export default {
 
 .amenities > img {
   width: 25px;
-  filter: invert() sepia(100%) saturate(100%) brightness(0.25);
+  filter: invert() sepia(100%) saturate(70%) brightness(0.65);
   
    
 }
 
 img.active {
-  filter: invert() sepia(100%) saturate(100%) brightness(1);
+  filter: invert() sepia(100%) saturate(1000%) brightness(0.55);
   
 }
 
