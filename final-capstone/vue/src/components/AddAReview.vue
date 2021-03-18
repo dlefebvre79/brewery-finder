@@ -34,7 +34,7 @@
       <label for="rating">Rating</label>
        </td>
        <td class="right">      
-      <input type="number" v-model="reviews.rating" />
+      <input type="number" min="1" max="5" v-model="reviews.rating" />
       </td>
       </tr>          
     </div>
@@ -118,4 +118,5 @@ table#add-review {
     width: 180px;
   text-align: start;
 }
+
 </style>
