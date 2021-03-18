@@ -11,6 +11,7 @@
           <p id="phone">{{ brewery.phoneNumber }}</p>
 
           <div class="amenities">
+              <span>Price Level</span><br />
             <img
               v-bind:class="{ active: $store.state.map.price.length > 0 }"
               src="@/assets/images/icons/tabler-icon-currency-dollar.png"
@@ -37,6 +38,7 @@
               alt="price level"
             />
             <br />
+              <span>Family Friendly | Patio | Food</span><br />
             <img
               v-bind:class="{ active: brewery.familyFriendly == true }"
               src="@/assets/images/icons/tabler-icon-mood-kid.png"
@@ -69,13 +71,12 @@
             </tr>
           </table>
             <br>
-          <google-photo 
-            v-bind:photo="$store.state.map.photos[randomPhoto()]" height="350"/>
+            <div v-on:click="nextPhoto">
+          <google-photo v-for="(photo, index) in photos" :key="index" 
+            v-bind:photo="photo" height="350"
+            :class="{disabled: photoId != index}"/>
+            </div>
           <br />
-        </div>
-
-        <div class="map">
-          <gmap id="map" />
         </div>
 
         <div class="brewery-description">
@@ -89,6 +90,12 @@
           <h3>Beer List</h3>
           <beer-list v-bind:brewery="brewery" />
         </div>
+
+
+        <div class="map">
+          <gmap id="map" />
+        </div>
+
 
       </div>
 
@@ -140,6 +147,9 @@ export default {
         } else {
             return false;
         }
+    },
+    photos() {
+        return this.$store.state.map.photos;
     }
   },
   created() {
@@ -166,6 +176,14 @@ export default {
         minute: "2-digit",
       });
       return open + " - " + close;
+    },
+    nextPhoto() {
+        if(this.photoId < this.photos.length - 1) {
+            this.photoId++;
+        } else {
+            this.photoId = 0;
+        }
+        
     },
     randomPhoto() {
         return Math.floor(Math.random() * (10));
@@ -218,6 +236,10 @@ export default {
 </script>
 
 <style>
+
+.disabled {
+    display: none;
+}
 
 .amenities > img {
   width: 25px;
