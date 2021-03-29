@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       api: 'https://maps.googleapis.com/maps/api/place',
-      apiKey: 'AIzaSyDnd_boDh3SsvljQrH7KTI5hatCNW1ZzYA',
+      apiKey: process.env.VUE_APP_GOOGLE_API_KEY,
       photoPath: '/photo?maxheight=300&photoreference='
     }
   },
