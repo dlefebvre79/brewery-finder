@@ -19,7 +19,19 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    breweries: [],
+    currentBrewery: {},
+    map: {
+        rating: '',
+        location: '',
+        price: '',
+        placeId: '',
+        photos: [],
+    }, 
+    reviews: []
+    //googleRating: '',
+    //mapTarget: ''
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -37,6 +49,40 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    SET_MAP_TARGET(state, place) {
+        state.map.location = place;
+    },
+    SET_GOOGLE_RATING(state, rating) {
+        state.map.rating = rating;
+    },
+    SET_GOOGLE_PLACE(state, place) {
+        state.map.placeId = place;
+    },
+    SET_GOOGLE_PHOTOS(state, photos) {
+        state.map.photos = photos;
+    },
+    SET_GOOGLE_PRICE(state, price) {
+        let priceDollars = "";
+        for(let i = 0; i <= price; i++){
+            priceDollars = priceDollars + "$";
+        }
+        if(priceDollars.length === 0){
+            priceDollars = "";
+        }
+        state.map.price = priceDollars;
+    },
+    LOAD_BREWERIES(state, breweries) {
+        state.breweries = breweries;
+    },
+    LOAD_BEER(state, beer){
+        state.beer = beer;
+    },
+    LOAD_REVIEWS(state, reviews){
+      state.reviews = reviews;
+    },
+    SET_CURRENT_BREWERY(state, brewery) {
+        state.currentBrewery = brewery;
     }
   }
 })
